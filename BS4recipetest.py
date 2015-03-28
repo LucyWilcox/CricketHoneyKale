@@ -1,5 +1,7 @@
 from bs4 import BeautifulSoup as BS
-html = "SausageKraut.html"
-soup = BS(open(html))
-results = soup.find_all("li", {"itemprop": "ingredients"})
+htmls = ["AdonisCocktail.html", "bitchinapplecider.html"]
+results = []
+for site in htmls:
+	soup = BS(open(site))
+	results.append(soup.title)#find_all("li", {"class": "ingr"}))
 print results
