@@ -1,4 +1,4 @@
-#This dumps 
+#This dumps the HTML of a website into the variable s. Put the desired URL in the variable "theURL." 
 
 from os.path import exists
 import sys
