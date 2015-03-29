@@ -18,9 +18,6 @@ if exists(file_name):
 else:                                   
 	data = s                            
 	
-<<<<<<< HEAD
 dump (data, open(file_name, "w+"))         # write the info in data to the file   
-=======
 #dump (data, open(file_name, "w+"))         # write the info in data to the file   
->>>>>>> 0fe02ad4bcd587b1d13ac9d0e5aa0e6e73c21f0f
 #return data  
