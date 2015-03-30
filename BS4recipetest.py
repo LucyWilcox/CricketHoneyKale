@@ -6,13 +6,11 @@ from recipedatabase import recipe_database
 from string import find
 
 class Recipe(object):
-
 	def __init__(self, url):
 		self.url = url
 
 	def get_ingredient(self):
-		url = self.url
-		r = requests.get(url)
+		r = requests.get(self.url)
 		data = r.text	
 		soup = BS(data)
 		gross_ingredients = str(soup.find_all("li", {"itemprop":"ingredients"}))
@@ -22,10 +20,16 @@ class Recipe(object):
 def create_recipes():
 	recipes = []
 	for url in recipe_database[:4]:
-		Recipe(url)
-
+		recipes.append(Recipe(url))
 
 create_recipes()
+
+def find_one_ingredient(starter_ingredient, pure_ingredients):
+	"""searches a list of ingredients + quantities for the given ingredient"""
+	found = []
+	for ingredient in pure_ingredients:
+		found.append(ingredient.find(starter_ingredient))
+	return found
 
 
 
