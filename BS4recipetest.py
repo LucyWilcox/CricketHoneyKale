@@ -3,33 +3,74 @@ import requests
 import xml.etree.ElementTree
 from pattern.web import plaintext
 from recipedatabase import recipe_database
-from string import find
+from string import find, split
 
 class Recipe(object):
+	""" """
 	def __init__(self, url):
+		"""Sets attributes of url and ingredient with amounts to each recipe"""
 		self.url = url
-
-	def get_ingredient(self):
 		r = requests.get(self.url)
 		data = r.text	
 		soup = BS(data)
 		gross_ingredients = str(soup.find_all("li", {"itemprop":"ingredients"}))
 		self.ingredients = str(plaintext(gross_ingredients).replace('\n', '').lower())
 
+	def ingredient_used(self, ingredient):
+		""" If the ingredient is used in a recipe an attribuet ingredient_used is 
+		set to True, else False """
+		if ingredient in self.ingredients:
+			self.ingredient_used = True
+		else:
+			self.ingredient_used = False
 
-def create_recipes():
+
+def create_recipe_database():
 	recipes = []
 	for url in recipe_database[:4]:
 		recipes.append(Recipe(url))
+	return recipes
 
-create_recipes()
+def recipies_using_ingredient(recipes, ingredient):
+	for recipe in recipes:
+		recipe.ingredient_used(ingredient)
 
-def find_one_ingredient(starter_ingredient, pure_ingredients):
-	"""searches a list of ingredients + quantities for the given ingredient"""
-	found = []
-	for ingredient in pure_ingredients:
-		found.append(ingredient.find(starter_ingredient))
-	return found
+recipes = create_recipe_database() #each recipe is an object with attributes
+#print recipes[1].ingredients
+
+#recipes[1].ingredient_used('yellow squash') #okay so here I am running ingredient_used on recipe 1 and checking if it has yellow squash in it
+#print recipes[1].ingredient_used #it does
+
+def txt_to_dict(txt):
+    """Takes a txt file and breakes each new line into an entry of a dictionary
+    """
+    with open(txt) as f:
+    	content = f.readlines()
+    for i in range(len(content)):
+    	content[i] = content[i].replace('\n', '').lower()
+    d_content = dict.fromkeys(content)
+    return d_content
+
+food_list = txt_to_dict('foodlist.txt')
+
+
+
+
+recipie_ingredient_values = recipies_using_ingredient(recipes, 'yellow squash')
+
+for recipe in recipes:
+	if recipe.ingredient_used == True:
+		print True
+	else:
+		print False
+
+
+# def find_one_ingredient(starter_ingredient, pure_ingredients):
+# 	"""searches a list of ingredients + quantities for the given ingredient"""
+# 	found = []
+# 	for ingredient in pure_ingredients:
+# 		found.append(ingredient.find(starter_ingredient))
+# 	return found
 
 
 
@@ -54,13 +95,6 @@ def find_one_ingredient(starter_ingredient, pure_ingredients):
 # 		pure_ingredients.append(str(plaintext(recipe).replace('\n', '').lower()))
 # 		#pure_ingredients.append(''.join(xml.etree.ElementTree.fromstring(recipe).itertext()))
 # 	return pure_ingredients
-
-def find_one_ingredient(starter_ingredient, pure_ingredients):
-	"""searches a list of ingredients + quantities for the given ingredient"""
-	found = []
-	for ingredient in pure_ingredients:
-		found.append(ingredient.find(starter_ingredient))
-	return found
 
 
 # html_disgusting = grab_ingredients()
