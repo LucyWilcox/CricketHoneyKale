@@ -52,17 +52,15 @@ def txt_to_dict(txt):
     return d_content
 
 food_list = txt_to_dict('foodlist.txt')
+#print food_list
 
+recipies_using_ingredient(recipes, 'salt')
 
-
-
-recipie_ingredient_values = recipies_using_ingredient(recipes, 'yellow squash')
-
-for recipe in recipes:
-	if recipe.ingredient_used == True:
-		print True
-	else:
-		print False
+# for recipe in recipes:
+# 	if recipe.ingredient_used == True:
+# 		print True
+# 	else:
+# 		print False
 
 
 # def find_one_ingredient(starter_ingredient, pure_ingredients):
