@@ -23,7 +23,7 @@ class Recipe(object):
 			self.ingredient_used = True
 		else:
 			self.ingredient_used = False
-
+		#return self.ingredient_used
 
 def create_recipe_database():
 	recipes = []
@@ -35,11 +35,12 @@ def recipies_using_ingredient(recipes, ingredient):
 	for recipe in recipes:
 		recipe.ingredient_used(ingredient)
 
+
 recipes = create_recipe_database() #each recipe is an object with attributes
 #print recipes[1].ingredients
 
-#recipes[1].ingredient_used('yellow squash') #okay so here I am running ingredient_used on recipe 1 and checking if it has yellow squash in it
-#print recipes[1].ingredient_used #it does
+print recipes[1].ingredient_used('yellow squash') #okay so here I am running ingredient_used on recipe 1 and checking if it has yellow squash in it
+#print recipes[1].ingredient_used #it does 
 
 def txt_to_dict(txt):
     """Takes a txt file and breakes each new line into an entry of a dictionary
