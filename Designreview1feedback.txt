@@ -1,0 +1,24 @@
+SoftDes Design Review #1 Feedback
+
+qtpython - gui library
+store recipes in a text file 
+explicitly with certain form
+text (ingredient) clustering to generate random recipe
+Rating - if you rate a recipe, it's more likely to show up the next time
+
+Ex
+Chicken: 400 degrees for 30 min - only choose degrees 1 time per ingredient?
+dict --> {meat: [chicken, beef...]} so you can search if the recipe has meat and skip it if vegetarian option is chosen
+Category: heat- oven, grill
+^Only choose one in that category
+Flask, Django: more gui libraries
+Ex. zuchini- boil, -cook (options of recipes using zuchini)
+Squash : 5 matches w zuchini but uses fry (no match)
+Carrots: 4 matches, uses cook
+^Picks carrots!
+
+
+Ben's things:
+Static database
+pickle, text
+Database class
