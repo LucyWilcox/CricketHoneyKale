@@ -22,3 +22,6 @@ Ben's things:
 Static database
 pickle, text
 Database class
+
+Synthesization:
+We were told that we'd be able to make more recipes than we had originally planned by starting with classes that have one repeatable instruction set. 
