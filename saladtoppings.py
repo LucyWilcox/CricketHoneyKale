@@ -5,4 +5,5 @@ vegtables = ['cabbage', 'tomatoes', 'water cress', 'beets', 'pickled beets', 'eg
 meat = ['bacon bits', 'tofu', 'beef', 'tuna', 'fish', 'steak', 'ham', 'chicken', 'turkey', 'shrimp', 'crab meat', 'salami', 'ham']
 dariy = ['jack', 'goat cheese', 'gorgonzola', 'parmesan', 'mozzarella', 'cheddar', 'feta cheese', 'blue cheese', 'provolone', 'cottage cheese', 'hard boiled egg']
 herbs = ['cilantro', 'flowers', 'garlic', 'basil', 'mint', 'ginger', 'pepper', 'salt']
-carbs = ['fritos', 'crispy noodles', 'tortilla strips', 'croutons', ]
+carbs = ['fritos', 'crispy noodles', 'tortilla strips', 'croutons']
+salad_ingredients = beans + fruit + nuts + vegtables + meat + dariy + herbs + carbs

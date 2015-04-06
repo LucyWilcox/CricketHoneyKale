@@ -1,5 +1,8 @@
 from bs4 import BeautifulSoup as BS
 import requests
+from saladtoppings import *
+from random import choice
+
 
 
 def grab_ingredients():
@@ -16,5 +19,5 @@ def grab_ingredients():
  	return groceries
 
 
-
-print grab_ingredients()
+for i in range(0, 3):
+	print choice(salad_ingredients)
