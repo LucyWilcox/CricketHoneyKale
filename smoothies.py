@@ -3,6 +3,7 @@ fruits = ['peach', 'mixed berries', 'banana', 'strawberry', 'kiwi', 'pineapple',
 additive = ['yogurt', 'milk', 'frozen yogurt', 'orange juice', 'crushed ice', 'skim milk', 'greek yogurt', 'nonfat milk', 'soy milk', 'almond milk', 'ice', 'cream', 'ice cream', 'grape soda', 'pineapple juice', 'coconut milk', 'pumpkin pie filling', 'apple juice', 'vodka', 'rum']
 smoothie_ingredients = flavor + fruits + additive
 
-import random
-for i in range(5):
-	print random.choice(smoothie_ingredients)
+if __name__ == '__main__':
+	import random
+	for i in range(5):
+		print random.choice(smoothie_ingredients)
