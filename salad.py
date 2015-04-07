@@ -4,21 +4,20 @@ from limbo import *
 
 
 #first_ingredient = choice(salad_ingredients)
-current_ingredients = ['tomatoes']
+current_ingredients= ['tomatoes']
 
 class Salad(object):
 	""" """
 	def __init__(self, salad_ingredients):
 		"""Sets first random topping"""
-		self.toppings = ['tomatoes']
+		self.toppings = ['salt']
 
 	def add_ingredient(self, salad_ingredients):
 		""" """
 		possiblities = []
 		for topping in self.toppings:
 			for recipe in recipes:
-				recipe.ingredient_used(topping)
-				if recipe.ingredient_used == False:
+				if topping not in recipe.ingredients:
 					break
 			possiblities.append(recipe.ingredients)
 
@@ -32,5 +31,6 @@ class Salad(object):
 
 
 salad1 = Salad(salad_ingredients)
-salad1.add_ingredient(salad_ingredients)
+for i in range(0,3):
+	salad1.add_ingredient(salad_ingredients)
 print salad1.toppings
