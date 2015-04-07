@@ -1,4 +1,4 @@
-from smoothies import smoothie_ingredients
+from smoothies import *
 from random import choice
 
 class Smoothie(object):
