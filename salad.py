@@ -10,7 +10,7 @@ class Salad(object):
 	""" """
 	def __init__(self, salad_ingredients):
 		"""Sets first random topping"""
-		self.toppings = ['salt']
+		self.toppings = ['cucumber']
 
 	def add_ingredient(self, salad_ingredients):
 		""" """
