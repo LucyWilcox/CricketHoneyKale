@@ -16,7 +16,7 @@ class Recipe(object):
         gross_ingredients = str(soup.find_all("li", {"itemprop":"ingredients"}))
         self.ingredients = str(plaintext(gross_ingredients).replace('\n', '').lower())
 
-    def ingredient_used(self, ingredient):
+    def is_ingredient_used(self, ingredient):
         """ If the ingredient is used in a recipe an attribuet ingredient_used is 
         set to True, else False """
         if ingredient in self.ingredients:
