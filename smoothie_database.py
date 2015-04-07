@@ -1,4 +1,4 @@
-smoothie_database = ['http://www.foodnetwork.com/recipes/food-network-kitchens/green-smoothie.html',
+smoothie_urls = ['http://www.foodnetwork.com/recipes/food-network-kitchens/green-smoothie.html',
 'http://www.foodnetwork.com/recipes/food-network-kitchens/red-berry-and-beet-smoothie.html',
 'http://www.foodnetwork.com/recipes/food-network-kitchens/carrot-pineapple-smoothie.html',
 'http://www.foodnetwork.com/recipes/food-network-kitchens/strawberry-green-tea-smoothie.html',
@@ -23,3 +23,36 @@ smoothie_database = ['http://www.foodnetwork.com/recipes/food-network-kitchens/g
 'http://www.foodnetwork.com/recipes/melissa-darabian/green-morning-smoothie-recipe.html',
 'http://www.foodnetwork.com/recipes/ina-garten/banana-raspberry-smoothies-recipe.html',
 'http://www.foodnetwork.com/recipes/paula-deen/pina-colada-smoothie-recipe.html']
+
+from bs4 import BeautifulSoup as BS
+import requests
+import pickle
+from pattern.web import plaintext
+filename = 'smoothie_database.txt'
+fi = open(filename, 'r')
+
+for recipe_url in smoothie_urls:
+	if filename:
+		print True
+	else:
+		print False
+	r = requests.get(recipe_url)
+	data = r.text
+	soup = BS(data)
+	gross_ingredients = str(soup.find_all("li", {"itemprop":"ingredients"}))
+	ingredients = str(plaintext(gross_ingredients).replace('\n', '').lower())
+	pickle.dump(ingredients, open('smoothie_database.txt', 'w'))
+fi.close()
+		# if exists(file_name):
+		# 	f =open(file_name, 'rw')
+		# 	counter = pickle.load(f)
+		# 	counter += 1
+		# 	pickle.dump(counter, open(file_name, 'w'))
+		# 	f.close()
+		# 	return counter
+		# else: 
+		# 	fi = open(file_name, "w")
+		# 	counter = 1
+		# 	pickle.dump(counter, fi)
+		# 	fi.close()
+		# 	return counter
