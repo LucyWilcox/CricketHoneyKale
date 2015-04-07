@@ -7,3 +7,4 @@ dairy = ['jack', 'goat cheese', 'gorgonzola', 'parmesan', 'mozzarella', 'cheddar
 herbs = ['cilantro', 'flowers', 'garlic', 'basil', 'mint', 'ginger', 'pepper', 'salt']
 carbs = ['fritos', 'crispy noodles', 'tortilla strips', 'croutons', 'bread','couscous']
 salad_ingredients = beans + fruit + nuts + vegtables + meat + dariy + herbs + carbs
+
