@@ -34,29 +34,3 @@ class Salad(object):
 salad1 = Salad(salad_ingredients)
 salad1.add_ingredient(salad_ingredients)
 print salad1.toppings
-
-# def possible_next_options():
-# 	possiblities = []
-# 	for recipe in recipes:
-# 		if recipe.ingredient_used == True:
-# 			possiblities.append(recipe.ingredients)
-# 	return possiblities
-
-# def choose_next(recipes_remaining, dict_salad_ingredients):
-# 	next_possiblities = []
-# 	for recipe in recipes_remaining:
-# 		for ingredient in dict_salad_ingredients.keys():
-# 			if ingredient in recipe:
-# 				next_possiblities.append(ingredient)
-# 	return choice(next_possiblities)
-
-
-# dict_salad_ingredients = dict.fromkeys(salad_ingredients)
-# recipes_remaining = possible_next_options()
-# print recipes_remaining
-
-
-#print choose_next(first_ingredient, recipes_remaining, dict_salad_ingredients)
-
-
-

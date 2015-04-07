@@ -27,7 +27,7 @@ class Recipe(object):
 
 def create_recipe_database():
 	recipes = []
-	for url in recipe_database[:4]:
+	for url in recipe_database[:50]:
 		recipes.append(Recipe(url))
 	return recipes
 
@@ -55,7 +55,7 @@ def txt_to_dict(txt):
 food_list = txt_to_dict('foodlist.txt')
 #print food_list
 
-recipies_using_ingredient(recipes, 'salt')
+#recipies_using_ingredient(recipes, 'salt')
 
 # for recipe in recipes:
 # 	if recipe.ingredient_used == True:
