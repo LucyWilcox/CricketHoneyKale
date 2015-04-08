@@ -54,7 +54,6 @@ def makesoup():
 
 
 	def choosespices():
-		num = random.randint(1,5)
 		if num < 5:    ###  Later change this section to make it vegetarian if the user says to
 			num = random.randint(0,len(starch)-1)
 			if type (starch[num]) == str:
