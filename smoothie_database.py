@@ -23,7 +23,25 @@ smoothie_urls = ['http://www.foodnetwork.com/recipes/food-network-kitchens/green
 'http://www.foodnetwork.com/recipes/melissa-darabian/green-morning-smoothie-recipe.html',
 'http://www.foodnetwork.com/recipes/ina-garten/banana-raspberry-smoothies-recipe.html',
 'http://www.foodnetwork.com/recipes/paula-deen/pina-colada-smoothie-recipe.html']
-# from os.path import exists
+from bs4 import BeautifulSoup as BS
+import requests
+import xml.etree.ElementTree
+from pattern.web import plaintext
+smooth_ingredients = []
+for url in smoothie_urls:
+	r = requests.get(url)
+	data = r.text	
+	soup = BS(data)
+	gross_ingredients = str(soup.find_all("li", {"itemprop":"ingredients"}))
+	ingredients = str(plaintext(gross_ingredients).replace('\n', '').lower())
+	for word in ingredients.split():
+		if '[' or ']' or '/' or '*' or ',' or '.'in word:
+			text = word.replace(']', '').replace('*', '').replace('/', '').replace('[', '').replace(',', '').replace('.', '')
+			print text
+			#smooth_ingredients.append(word)
+	#smooth_ingredients.append(ingredients)
+	#print ingredients
+# from os.path import existss
 # from bs4 import BeautifulSoup as BS
 # import requests
 # import pickle

@@ -3,6 +3,8 @@ fruits = ['beet','peach', 'mixed berries', 'dates', 'banana', 'strawberry', 'kiw
 additive = ['yogurt', 'milk', 'buttermilk', 'frozen yogurt', 'orange juice', 'crushed ice', 'skim milk', 'greek yogurt', 'nonfat milk', 'soy milk', 'almond milk', 'ice', 'cream', 'ice cream', 'grape soda', 'pineapple juice', 'coconut milk', 'pumpkin pie filling', 'apple juice', 'vodka', 'rum']
 smoothie_ingredients = flavor + fruits + additive
 
+# extra_units = ['tablespoons', 'cup', 'teaspoons', 'tablespoon', 'teaspoon', 'ripe', 'fresh', 'freshly', 'squeezed', 'frozen', 'or', 'and', 'canned', 'cubes', 'diced', 'scoop', 'powdered','such', 'chopped', 'seeded', 'handful', 'pinch']
+
 if __name__ == '__main__':
 	import random
 	for i in range(5):

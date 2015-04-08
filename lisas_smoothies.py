@@ -26,3 +26,9 @@ class Smoothie(object):
 
 peaches = Smoothie()
 print peaches
+# generating recipes:
+# choose between 1-3 for flavor
+# choose random from flavor
+# reference the dictionary 
+# for the difference of the choice and 1:
+# choose that number ^ from the top 10 of the dictionary.
