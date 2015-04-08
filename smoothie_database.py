@@ -29,6 +29,7 @@ from smoothies import *
 import xml.etree.ElementTree
 from pattern.web import plaintext
 smooth_ingredients = []
+smooth_dict = {}
 for url in smoothie_urls:
 	r = requests.get(url)
 	data = r.text	
@@ -38,11 +39,20 @@ for url in smoothie_urls:
 	for word in ingredients.split():
 		if '[' or ']' or '/' or '*' or ',' or '.'in word:
 			text = word.replace(']', '').replace('*', '').replace('(', '').replace(')', '').replace('/', '').replace('[', '').replace(',', '').replace('.', '')
-			if text not in (extra_units or methods):
-				if text.isdigit() == False:
+			if text not in extra_units:
+				if text not in methods:
+					if text.isdigit() == False:
 					#still need to filter: '2-inch' etc, 'one'-- the stupidly written out measurements
-					smooth_ingredients.append(text)
+						smooth_ingredients.append(text)
 print smooth_ingredients
+for ingredient in smooth_ingredients:
+	if ingredient in smooth_dict:
+		val = smooth_dict.get(ingredient)
+		val +=1
+		smooth_dict[ingredient] = val
+	else:
+		smooth_dict[ingredient] = 1
+print smooth_dict
 			#smooth_ingredients.append(word)
 	#smooth_ingredients.append(ingredients)
 	#print ingredients

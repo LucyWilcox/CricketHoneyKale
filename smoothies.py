@@ -4,7 +4,7 @@ additive = ['yogurt', 'milk', 'buttermilk', 'frozen yogurt', 'orange juice', 'cr
 smoothie_ingredients = flavor + fruits + additive
 
 extra_units = ['tablespoons', 'half','to', 'into', 'for', 'cup', 'cups', 'teaspoons', 'tablespoon', 'teaspoon', 'ripe', 'fresh', 'freshly', 'squeezed', 'frozen', 'or', 'and', 'canned', 'cubes', 'diced', 'scoop', 'powdered','such', 'handful', 'pinch', 'in']
-methods = ['cut', 'chooped', 'removed', 'garnish', 'optional']
+methods = ['cut', 'chooped', 'removed', 'garnish', 'optional', 'pitted']
 
 if __name__ == '__main__':
 	import random
