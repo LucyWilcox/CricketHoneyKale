@@ -27,7 +27,7 @@ class Recipe(object):
 
 def create_recipe_database():
 	recipes = []
-	for url in recipe_database[:50]:
+	for url in recipe_database[:len(recipe_database) -1]:
 		recipes.append(Recipe(url))
 	return recipes
 
