@@ -26,6 +26,7 @@ class Recipe(object):
         #return self.ingredient_used
 
 def create_recipe_database():
+    print "t"
     recipes = []
     for url in recipe_database[:len(recipe_database) - 1]:
         recipes.append(Recipe(url))
