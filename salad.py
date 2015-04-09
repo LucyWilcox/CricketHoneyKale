@@ -1,30 +1,37 @@
 from saladtoppings import *
 from random import choice
-from limbo import *
+from database_of_recipies import *
 
-
-#first_ingredient = choice(salad_ingredients)
 
 class Salad(object):
 	""" """
 	def __init__(self, salad_ingredients, recipes):
-		"""Sets first random topping"""
-		#self.toppings = choice(salad_ingredients)
-		self.toppings = ['salmon']
-		
+		"""Sets first random topping as attribute 
+		also sets remaining_recipies_object as all recipes to begin with"""
+		self.toppings = [choice(salad_ingredients)]
+		print self.toppings
+		#self.toppings = ['tomato']
+		self.remaining_recipies_object = recipes
+
 	def get_remaining_recipies(self):
-		"""Gets list of recipes that have the current toppings"""
+		"""Gets list of recipes that have the current toppings and sets as attribute
+		also removes remaining_recipies_object that no longer contain all of the ingredients
+		"""
 		possiblities = []
 		for topping in self.toppings:
-			for recipe in recipes:
+			for recipe in self.remaining_recipies_object:
 				if topping not in recipe.ingredients:
-					pass
+					self.remaining_recipies_object.remove(recipe)
 				else:
 					possiblities.append(recipe.ingredients)
 		self.remaining_recipies = possiblities
 
+	def clear_recipies(self):
+		"""Clears remaining_recipies so they do not accumulate """
+		self.remaining_recipies = []
+
 	def add_ingredient(self, salad_ingredients):
-		""" """
+		"""Adds ingredient to salad toppings attribute """
 		possible_next_ingredient = []
 		for recipe in self.remaining_recipies:
 			for ingredient in salad_ingredients:
@@ -33,12 +40,15 @@ class Salad(object):
 		next_ingredient = choice(possible_next_ingredient)
 		self.toppings.append(next_ingredient)
 
+def make_salad():
+	""" """
+	salad1 = Salad(salad_ingredients, recipes)
+	for i in range(0,3):
+		salad1.get_remaining_recipies()
+		salad1.add_ingredient(salad_ingredients)
+		salad1.clear_recipies()
 
-salad1 = Salad(salad_ingredients, recipes)
-for i in range(0,3):
-	salad1.get_remaining_recipies()
-	salad1.add_ingredient(salad_ingredients)
+	print salad1.toppings
 
-
-
-print salad1.toppings
+if __name__ == '__main__':
+	make_salad()
