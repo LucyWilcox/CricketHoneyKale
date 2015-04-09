@@ -25,8 +25,11 @@ class Smoothie(object):
 			for recipe in self.remaining_recipies_object:
 				if blending not in recipe.ingredients:
 					self.remaining_recipies_object.remove(recipe)
-				else:
+				elif recipe.ingredients not in possiblities:
+					print "Not in"
 					possiblities.append(recipe.ingredients)
+				elif recipe.ingredients in possiblities:
+					print "IN"
 		self.remaining_recipies = possiblities
 
 	def clear_recipies(self):
