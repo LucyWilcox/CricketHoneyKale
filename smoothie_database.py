@@ -23,45 +23,28 @@ smoothie_urls = ['http://www.foodnetwork.com/recipes/food-network-kitchens/green
 'http://www.foodnetwork.com/recipes/melissa-darabian/green-morning-smoothie-recipe.html',
 'http://www.foodnetwork.com/recipes/ina-garten/banana-raspberry-smoothies-recipe.html',
 'http://www.foodnetwork.com/recipes/paula-deen/pina-colada-smoothie-recipe.html']
-from bs4 import BeautifulSoup as BS
-import requests
-from smoothies import *
-import xml.etree.ElementTree
-from pattern.web import plaintext
-smooth_ingredients = []
-smooth_dict = {}
-for url in smoothie_urls:
-	r = requests.get(url)
-	data = r.text	
-	soup = BS(data)
-	gross_ingredients = str(soup.find_all("li", {"itemprop":"ingredients"}))
-	ingredients = str(plaintext(gross_ingredients).replace('\n', '').lower())
-	for word in ingredients.split():
-		if '[' or ']' or '/' or '*' or ',' or '.'in word:
-			text = word.replace(']', '').replace('*', '').replace('(', '').replace(')', '').replace('/', '').replace('[', '').replace(',', '').replace('.', '')
-			if text not in extra_units:
-				if text not in methods:
-					if text.isdigit() == False:
-					#still need to filter: '2-inch' etc, 'one'-- the stupidly written out measurements
-						smooth_ingredients.append(text)
-print smooth_ingredients
-for ingredient in smooth_ingredients:
-	if ingredient in smooth_dict:
-		val = smooth_dict.get(ingredient)
-		val +=1
-		smooth_dict[ingredient] = val
-	else:
-		smooth_dict[ingredient] = 1
-print smooth_dict
-			#smooth_ingredients.append(word)
-	#smooth_ingredients.append(ingredients)
-	#print ingredients
-# from os.path import existss
 # from bs4 import BeautifulSoup as BS
 # import requests
-# import pickle
+# from smoothies import *
+# import xml.etree.ElementTree
 # from pattern.web import plaintext
-# filename = 'smoothie_database.txt'
+# smooth_ingredients = []
+# smooth_dict = {}
+# for url in smoothie_urls:
+# 	r = requests.get(url)
+# 	data = r.text	
+# 	soup = BS(data)
+# 	gross_ingredients = str(soup.find_all("li", {"itemprop":"ingredients"}))
+# 	ingredients = str(plaintext(gross_ingredients).replace('\n', '').lower())
+# 	for word in ingredients.split():
+# 		if '[' or ']' or '/' or '*' or ',' or '.'in word:
+# 			text = word.replace(']', '').replace('*', '').replace('(', '').replace(')', '').replace('/', '').replace('[', '').replace(',', '').replace('.', '')
+# 			if text not in extra_units:
+# 				if text not in methods:
+# 					if text.isdigit() == False:
+# 					#still need to filter: '2-inch' etc, 'one'-- the stupidly written out measurements
+# 						smooth_ingredients.append(text)
+# print smooth_ingredients
 
 # ingredient_list = []
 # for recipe_url in smoothie_urls:
