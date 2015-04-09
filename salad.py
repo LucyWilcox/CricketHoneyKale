@@ -24,7 +24,7 @@ class Salad(object):
 					self.remaining_recipies_object.remove(recipe)
 				else:
 					possiblities.append(recipe.ingredients)
-		self.remaining_recipies = possiblities
+		self.remaining_recipies = possiblities # list of strs containing recipe.ingredients
 
 	def clear_recipies(self):
 		"""Clears remaining_recipies so they do not accumulate """
@@ -38,12 +38,18 @@ class Salad(object):
 				if ingredient in recipe:
 					possible_next_ingredient.append(ingredient)
 		next_ingredient = choice(possible_next_ingredient)
-		self.toppings.append(next_ingredient)
+		if next_ingredient not in self.toppings:
+			self.toppings.append(next_ingredient)
+
+	def dressing(self):
+		if all(topping in self.toppings in vegtables):
+			self.toppings.append(choice(dressing))
+
 
 def make_salad():
 	""" """
 	salad1 = Salad(salad_ingredients, recipes)
-	for i in range(0,3):
+	while len(salad1.toppings) < 4:
 		salad1.get_remaining_recipies()
 		salad1.add_ingredient(salad_ingredients)
 		salad1.clear_recipies()
