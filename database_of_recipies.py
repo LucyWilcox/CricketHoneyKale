@@ -4,6 +4,7 @@ import xml.etree.ElementTree
 from pattern.web import plaintext
 from recipedatabase import recipe_database
 from string import find, split
+import cPickle as pickle
 
 class Recipe(object):
     """ """
@@ -25,13 +26,23 @@ class Recipe(object):
             self.ingredient_used = False
         #return self.ingredient_used
 
+    def pickle_it(self):
+        f = file('recipe_data.pk1', 'wb')
+        pickle.dump(self, f, pickle.HIGHEST_PROTOCOL)
+        f.close()
+
 def create_recipe_database():
-    print "t"
     recipes = []
-    for url in recipe_database[:len(recipe_database) - 1]:
+    for url in recipe_database[:20]: #len(recipe_database) - 1]:
         recipes.append(Recipe(url))
+
+    # for recipe in recipes:
+    #     recipe.pickle_it()
+
+    #output = open('recipe_data.pk1', 'wb')
+    #pickle.dump(recipes, output, pickle.HIGHEST_PROTOCOL)
     return recipes
 
 
 
-recipes = create_recipe_database()
+recipes =  create_recipe_database()

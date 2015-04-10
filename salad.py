@@ -48,6 +48,8 @@ class Salad(object):
 
 def make_salad():
 	""" """
+	#recipes = open('recipe_data.pk1', 'rb')
+	#print type(recipes)
 	salad1 = Salad(salad_ingredients, recipes)
 	while len(salad1.toppings) < 4:
 		salad1.get_remaining_recipies()
