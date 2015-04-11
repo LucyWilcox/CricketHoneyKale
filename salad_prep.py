@@ -3,6 +3,7 @@ from database_of_recipies import *
 import nltk
 import re
 from collections import Counter
+import pickle
 
 
 
@@ -56,8 +57,13 @@ def get_top_methods(long_dict):
 	return long_dict
 
 
+def pickle_it(short_dict):
+	with open('saladmethoddict.pickle', 'wb') as handle:
+		pickle.dump(short_dict, handle)
+	with open('saladmethoddict.piclke', 'rb') as handle:
+		b = pickle.load(handle)
 
-
+	print b
 
 	# for step in tags:
 	# 	for (p1, p2) in step:
@@ -74,4 +80,4 @@ raw_list = raw_list()
 #tags = next_thing(raw_list)
 long_dict = full_method_dict(raw_list, salad_ingredients)
 short_dict = get_top_methods(long_dict)
-print short_dict
+pickle_it(short_dict)
