@@ -1,5 +1,6 @@
 from saladtoppings import *
 from random import choice
+import pickle
 from database_of_recipies import *
 
 
@@ -42,21 +43,41 @@ class Salad(object):
 			self.toppings.append(next_ingredient)
 
 	def dressing(self):
-		if all(topping in self.toppings in vegtables):
-			self.toppings.append(choice(dressing))
+		for topping in self.toppings:
+			if topping not in vegtables:
+				return
+		self.toppings.append(choice(dressing))
+
+	def add_prep(self):
+		with open('saladmethoddict.pickle', 'rb') as handle:
+			b = pickle.load(handle)
+		self.ingredients_string = ""
+		for topping in self.toppings:
+			if topping in b.keys():
+				self.ingredients_string += str(b[topping]) + " " + topping + ", "
+			else:
+				self.ingredients_string += " " + topping +  ", "
 
 
 def make_salad():
 	""" """
-	#recipes = open('recipe_data.pk1', 'rb')
-	#print type(recipes)
+	with open('themrecipies.pickle', 'rb') as handle:
+		recipes = pickle.load(handle)
+
+
 	salad1 = Salad(salad_ingredients, recipes)
+
 	while len(salad1.toppings) < 4:
 		salad1.get_remaining_recipies()
 		salad1.add_ingredient(salad_ingredients)
 		salad1.clear_recipies()
+		print salad1.toppings
 
+	salad1.dressing()
+	salad1.add_prep()
 	print salad1.toppings
+	print salad1.ingredients_string
+
 
 if __name__ == '__main__':
 	make_salad()

@@ -36,6 +36,8 @@ def create_recipe_database():
     for url in recipe_database[: len(recipe_database) - 1]:
         recipes.append(Recipe(url))
 
+    with open('themrecipies.pickle', 'wb') as handle:
+        pickle.dump(recipes, handle)
     # for recipe in recipes:
     #     recipe.pickle_it()
 
