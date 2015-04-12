@@ -43,6 +43,7 @@ class Salad(object):
 			self.toppings.append(next_ingredient)
 
 	def dressing(self):
+		"""Adds a dressing if the salad is only vegtables, appends to toppings attribute"""
 		for topping in self.toppings:
 			if topping not in vegtables:
 				return
@@ -54,7 +55,8 @@ class Salad(object):
 		self.ingredients_string = ""
 		for topping in self.toppings:
 			if topping in b.keys():
-				self.ingredients_string += str(b[topping]) + " " + topping + ", "
+				if b[topping] != None:
+					self.ingredients_string += str(b[topping]) + " " + topping + ", "
 			else:
 				self.ingredients_string += " " + topping +  ", "
 
