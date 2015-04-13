@@ -1,25 +1,34 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+<html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Cricket  Honey Kale by LucyWilcox</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
   <body>
-    <section class="page-header">
-      <h1 class="project-name">Cricket  Honey Kale</h1>
-      <h2 class="project-tagline">Nutritional Recipe Generator Final Project</h2>
-      <a href="https://github.com/LucyWilcox/CricketHoneyKale" class="btn">View on GitHub</a>
-      <a href="https://github.com/LucyWilcox/CricketHoneyKale/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/LucyWilcox/CricketHoneyKale/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+    <div class="wrapper">
+      <header>
+        <h1>Cricket  Honey Kale</h1>
+        <p>Nutritional Recipe Generator Final Project</p>
 
-    <section class="main-content">
-      <h1>
+        <p class="view"><a href="https://github.com/LucyWilcox/CricketHoneyKale">View the Project on GitHub <small>LucyWilcox/CricketHoneyKale</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/LucyWilcox/CricketHoneyKale/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/LucyWilcox/CricketHoneyKale/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/LucyWilcox/CricketHoneyKale">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
 <a id="final-project-proposal-lisa-hachmann-logan-sweet-lucy-wilcox-section-2" class="anchor" href="#final-project-proposal-lisa-hachmann-logan-sweet-lucy-wilcox-section-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final Project Proposal: Lisa Hachmann, Logan Sweet, Lucy Wilcox (Section 2)</h1>
 
 <p>The Big Idea</p>
@@ -118,15 +127,29 @@ other?
 
 <p>Since we forced ideation by getting people up to whiteboards, it seemed that we received a greater quantity of feedback than other groups in our section. Since people were interacting with each other while ideating, they were able to generate ideas in a more team oriented way. The main question, that of which GUI we should use, was not fully nailed down, but we received good advice which we will continue to take under consideration. We think that by offering little more than questions for people when we asked for feedback that we allowed for a greater amount of freedom in people’s thoughts, which hopefully let to more creativity. We could have made this process better by not mentioning some of the answers we were considering to not constrain people to one line of thinking, especially in terms of our thought process for ingredient list creation. Our planned agenda was very loose and allowed for a lot of discussion between participants in the design review as well as between us and the reviewers. This setup worked well for us, and we will consider repeating this strategy in future design reviews. </p>
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/LucyWilcox/CricketHoneyKale">Cricket  Honey Kale</a> is maintained by <a href="https://github.com/LucyWilcox">LucyWilcox</a>.</span>
+<p>Code Review:
+Cricket Honey Kale
+Background and context:
+To generate recipes we have one class which contains data from online recipes, most importantly an ingredient list. We will mostly reference our salad code in the review, but we have other similarly working codes like soup and smoothies. Then, in another file, a starting ingredient is randomly selected and the salad (we will mostly reference our salad code in the review, but we have other similarly working codes with soup and smoothies) starts with an attribute which contains all instances of the recipe class. Then the instances of the recipe class which do not contain the ingredients are deleted from the attribute. At this point the remaining recipes all have the current ingredients which are current toppings. The ingredient list attribute from the recipes classes that have not been removed are appended to an attribute on salads (which is a list of these ingredient strings). Then each of these ingredient strings is looped through and compared to a list of salad toppings, if a salad topping is present the salad topping is appended to a list which the next ingredient is randomly chosen from. </p>
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+<p>We have a few other features we don’t plan on focusing on during this review, which are the start of a GUI, and a program which determines the correct preparation method of the ingredient (for example: should the scallions be chopped or pureed) by using parts of speech. We also have a class for smoothies and soups.</p>
+
+<p>Key questions
+How many recipes do you think we have to reference in order to have good validation? 
+How can we introduce a “risk factor”? (A way to incorporate unpredictable ingredients)
+How do we create instructions that make sense?</p>
+
+<p>Agenda for technical review session
+Be specific about how you plan to use your allotted time. What strategies will you use to communicate with your audience?</p>
+
+<p>We will first give an overview of where we are and what our code does/code structure. We will then present our present issues and pose questions on them which the audience will be asked to keep in mind going forward. Lastly we will display our code on the projector and have a technical discussion on each issue that we had previously stated. We hope to the audiences’ fresh eyes will help us come up with ways to produce our recipes more quickly.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/LucyWilcox">LucyWilcox</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
-
-    </section>
-
-  
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
   </body>
 </html>
-
