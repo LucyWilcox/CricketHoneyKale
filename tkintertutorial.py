@@ -3,7 +3,8 @@ import tkMessageBox
 class Application(Frame): 
 	def __init__(self, master):
 		self.master = master
-		self.page_frame = Frame(self.master, width = 1000, height = 1000, colormap = 'new')
+		self.page_frame = Frame(self.master, width = 500, height = 400, colormap = 'new')
+		self.page_frame.pack_propagate(0) 
 	#	self.next_frame = Frame(self.master, width = 500, height = 300, colormap = 'new')
 		self.Opening_Page()
 		self.page_frame.pack(fill = X)
@@ -13,7 +14,7 @@ class Application(Frame):
 	# """Commented code from making buttons"""
 
 	def Opening_Page(self):
-	 	Button(self.page_frame, text='Salad').pack(fill = BOTH, expand = 1)#,command=self.Next_Page()).pack(fill = X)
+	 	Button(self.page_frame, text='Salad', justify =LEFT).pack(fill = BOTH, expand = 1)#,command=self.Next_Page()).pack(fill = X)
 	 	Button(self.page_frame, text= 'Soup').pack(fill = X, expand = 1)
 	 	Button(self.page_frame, text= "Smoothie").pack(fill = X, expand = 1)
 	 	Button(self.page_frame, text = "Info").pack(fill = X, expand = 1)
