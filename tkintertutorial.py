@@ -1,5 +1,6 @@
 from Tkinter import *
-import tkMessageBox 
+import tkMessageBox
+
 class Application(Frame): 
 	def __init__(self, master):
 		self.master = master
@@ -14,7 +15,8 @@ class Application(Frame):
 	# """Commented code from making buttons"""
 
 	def Opening_Page(self):
-	 	Button(self.page_frame, text='Salad', justify =LEFT).pack(fill = BOTH, expand = 1)#,command=self.Next_Page()).pack(fill = X)
+
+	 	Button(self.page_frame, text='Salad', justify =LEFT).pack(fill = BOTH)#, expand = 1)#,command=self.Next_Page()).pack(fill = X)
 	 	Button(self.page_frame, text= 'Soup').pack(fill = X, expand = 1)
 	 	Button(self.page_frame, text= "Smoothie").pack(fill = X, expand = 1)
 	 	Button(self.page_frame, text = "Info").pack(fill = X, expand = 1)
