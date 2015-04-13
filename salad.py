@@ -1,7 +1,8 @@
 from saladtoppings import *
-from random import choice
+from random import choice, randint
 import pickle
 from database_of_recipies import *
+import re
 
 
 class Salad(object):
@@ -56,11 +57,12 @@ class Salad(object):
 		for topping in self.toppings:
 			if topping in b.keys():
 				if b[topping] != None:
-					self.ingredients_string += str(b[topping]) + " " + topping + ", "
+					self.ingredients_string += str(choice(b[topping])) + " " + topping + ", "
 				else:
 					self.ingredients_string += " " + topping +  ", "
 			else:
 				self.ingredients_string += " " + topping +  ", "
+		self.ingredients_string = self.ingredients_string[:-2]
 
 
 def make_salad():
@@ -68,16 +70,13 @@ def make_salad():
 	with open('themrecipies.pickle', 'rb') as handle:
 		recipes = pickle.load(handle)
 
-
 	salad1 = Salad(salad_ingredients, recipes)
+	number_toppings = randint(3,6)
 
-	while len(salad1.toppings) < 4:
+	while len(salad1.toppings) < number_toppings:
 		salad1.get_remaining_recipies()
 		salad1.add_ingredient(salad_ingredients)
 		salad1.clear_recipies()
-
-
-
 
 	salad1.dressing()
 	salad1.add_prep()
