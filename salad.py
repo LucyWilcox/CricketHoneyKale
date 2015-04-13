@@ -3,16 +3,18 @@ from random import choice, randint
 import pickle
 from database_of_recipies import *
 import re
+from smoothies import *
 
 
 class Salad(object):
 	""" """
-	def __init__(self, salad_ingredients, recipes):
+	def __init__(self, ingredients, recipes):
 		"""Sets first random topping as attribute 
 		also sets remaining_recipies_object as all recipes to begin with"""
-		self.toppings = [choice(salad_ingredients)]
+		self.toppings = [choice(ingredients)]
 		print self.toppings
 		#self.toppings = ['tomato']
+		self.ingredients = ingredients
 		self.remaining_recipies_object = recipes
 
 	def get_remaining_recipies(self):
@@ -32,11 +34,11 @@ class Salad(object):
 		"""Clears remaining_recipies so they do not accumulate """
 		self.remaining_recipies = []
 
-	def add_ingredient(self, salad_ingredients):
+	def add_ingredient(self):
 		"""Adds ingredient to salad toppings attribute """
 		possible_next_ingredient = []
 		for recipe in self.remaining_recipies:
-			for ingredient in salad_ingredients:
+			for ingredient in self.ingredients:
 				if ingredient in recipe:
 					possible_next_ingredient.append(ingredient)
 		next_ingredient = choice(possible_next_ingredient)
@@ -75,7 +77,7 @@ def make_salad():
 
 	while len(salad1.toppings) < number_toppings:
 		salad1.get_remaining_recipies()
-		salad1.add_ingredient(salad_ingredients)
+		salad1.add_ingredient()
 		salad1.clear_recipies()
 
 	salad1.dressing()
@@ -83,6 +85,13 @@ def make_salad():
 	print salad1.toppings
 	print salad1.ingredients_string
 
+	smoothie1 = Salad(smoothie_ingredients, recipes)
+	while len(smoothie1.toppings) < number_toppings:
+		smoothie1.get_remaining_recipies()
+		smoothie1.add_ingredient()
+		smoothie1.clear_recipies()
+
+	print smoothie1.toppings
 
 if __name__ == '__main__':
 	make_salad()
