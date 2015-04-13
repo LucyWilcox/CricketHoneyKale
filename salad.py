@@ -57,6 +57,8 @@ class Salad(object):
 			if topping in b.keys():
 				if b[topping] != None:
 					self.ingredients_string += str(b[topping]) + " " + topping + ", "
+				else:
+					self.ingredients_string += " " + topping +  ", "
 			else:
 				self.ingredients_string += " " + topping +  ", "
 
@@ -73,7 +75,6 @@ def make_salad():
 		salad1.get_remaining_recipies()
 		salad1.add_ingredient(salad_ingredients)
 		salad1.clear_recipies()
-		print salad1.toppings
 
 	salad1.dressing()
 	salad1.add_prep()
