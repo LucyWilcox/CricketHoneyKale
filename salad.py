@@ -19,12 +19,12 @@ class Salad(object):
 		also removes remaining_recipies_object that no longer contain all of the ingredients
 		"""
 		possiblities = []
-		for topping in self.toppings:
-			for recipe in self.remaining_recipies_object:
+		for recipe in self.remaining_recipies_object:
+			for topping in self.toppings:
 				if topping not in recipe.ingredients:
 					self.remaining_recipies_object.remove(recipe)
-				else:
-					possiblities.append(recipe.ingredients)
+					break
+			possiblities.append(recipe.ingredients)
 		self.remaining_recipies = possiblities # list of strs containing recipe.ingredients
 
 	def clear_recipies(self):
@@ -75,6 +75,9 @@ def make_salad():
 		salad1.get_remaining_recipies()
 		salad1.add_ingredient(salad_ingredients)
 		salad1.clear_recipies()
+
+
+
 
 	salad1.dressing()
 	salad1.add_prep()

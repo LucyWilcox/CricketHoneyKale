@@ -1,5 +1,5 @@
 from saladtoppings import *
-from database_of_recipies import recipes
+from database_of_recipies import *
 import nltk
 import re
 from collections import Counter
@@ -22,20 +22,21 @@ class PrepDict(object):
 		self.raw_list = each_ingredient
 
 	def full_method_dict(self):
-		def each_prep_methods(self):
+		def each_prep_methods(method, ingredients_used):
 			good_pos = ['VBN']
-			text = nltk.word_tokenize(self.each_ingredient)
+			text = nltk.word_tokenize(method)
 			tags = nltk.pos_tag(text)
 			good_types = []
 			for tag in tags:
-				if tag[1] in good_pos and tag[0] not in self.ingredients_used:
+				if tag[1] in good_pos and tag[0] not in ingredients_used:
 					good_types.append(tag)
 			return good_types
+
 		method_dict = dict.fromkeys(self.ingredients_used)
 		for method in self.raw_list:
 			for key in method_dict:
 				if key in method:
-					tags = each_prep_methods(self)
+					tags = each_prep_methods(method, self.ingredients_used)
 					if tags != []:
 						if key == tags[0]:
 							pass
@@ -47,7 +48,7 @@ class PrepDict(object):
 
 	def get_top_methods(self):
 		for key in self.long_dict:
-			methods = long_dict[key]
+			methods = self.long_dict[key]
 			VBN = []
 			if methods != None:
 				for method in methods:
@@ -55,20 +56,25 @@ class PrepDict(object):
 					VBN.append(method[0])
 				cVBN = Counter(VBN)
 				topVBN = [ite for ite, it in cVBN.most_common(1)]
-				long_dict[key] = topVBN[0]
-		self.short_dict = long_dict
+				self.long_dict[key] = topVBN[0]
+		#self.short_dict = long_dict
 
 
 	def pickle_it(self):
 		with open(self.file_name, 'wb') as handle:
-			pickle.dump(self.short_dict, handle)
+			pickle.dump(self.long_dict, handle)
 
 
+with open('themrecipies.pickle', 'rb') as handle:
+	recipes = pickle.load(handle)
 salad = PrepDict(recipes, salad_ingredients, 'saladmethoddict.pickle')
 salad.get_raw_list()
 salad.full_method_dict()
 salad.get_top_methods()
-print salad.short_dict
+salad.pickle_it()
+print salad.long_dict
+
+
 # def raw_list():
 # 	each_ingredient = []
 # 	for recipe in recipes:

@@ -46,5 +46,5 @@ def create_recipe_database():
     return recipes
 
 
-
-recipes =  create_recipe_database()
+if __name__ == '__main__':
+    recipes =  create_recipe_database()
