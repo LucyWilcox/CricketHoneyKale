@@ -6,7 +6,7 @@ import re
 from smoothies import *
 
 
-class Salad(object):
+class RandomRecipe(object):
 	""" """
 	def __init__(self, ingredients, recipes):
 		"""Sets first random topping as attribute 
@@ -67,31 +67,33 @@ class Salad(object):
 		self.ingredients_string = self.ingredients_string[:-2]
 
 
-def make_salad():
+def make_recipe(recipe_type):
 	""" """
 	with open('themrecipies.pickle', 'rb') as handle:
 		recipes = pickle.load(handle)
-
-	salad1 = Salad(salad_ingredients, recipes)
 	number_toppings = randint(3,6)
 
-	while len(salad1.toppings) < number_toppings:
-		salad1.get_remaining_recipies()
-		salad1.add_ingredient()
-		salad1.clear_recipies()
+	if recipe_type == 'salad':
+		salad1 = RandomRecipe(salad_ingredients, recipes)
 
-	salad1.dressing()
-	salad1.add_prep()
-	print salad1.toppings
-	print salad1.ingredients_string
+		while len(salad1.toppings) < number_toppings:
+			salad1.get_remaining_recipies()
+			salad1.add_ingredient()
+			salad1.clear_recipies()
 
-	smoothie1 = Salad(smoothie_ingredients, recipes)
-	while len(smoothie1.toppings) < number_toppings:
-		smoothie1.get_remaining_recipies()
-		smoothie1.add_ingredient()
-		smoothie1.clear_recipies()
+		salad1.dressing()
+		salad1.add_prep()
+		print salad1.ingredients_string
 
-	print smoothie1.toppings
+	if recipe_type == 'smoothie':
+		smoothie1 = RandomRecipe(smoothie_ingredients, recipes)
+		while len(smoothie1.toppings) < number_toppings:
+			smoothie1.get_remaining_recipies()
+			smoothie1.add_ingredient()
+			smoothie1.clear_recipies()
+
+		print smoothie1.toppings
 
 if __name__ == '__main__':
-	make_salad()
+	recipe_type = 'smoothie'
+	make_recipe(recipe_type)
