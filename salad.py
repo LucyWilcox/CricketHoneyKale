@@ -95,7 +95,7 @@ def make_recipe(recipe_type):
 		#print salad1.ingredients_string
 		print salad1.instruction_string
 		return salad1.ingredients_string
-
+d
 	if recipe_type == 'smoothie':
 		smoothie1 = RandomRecipe(smoothie_ingredients, recipes, recipe_type)
 		while len(smoothie1.toppings) < number_toppings:
@@ -105,7 +105,7 @@ def make_recipe(recipe_type):
 
 		smoothie1.add_instructions()
 		#print smoothie1.toppings
-		print smoothie1.instruction_string
+		#print smoothie1.instruction_string
 		return smoothie1.toppings
 
 if __name__ == '__main__':
