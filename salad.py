@@ -94,6 +94,7 @@ def make_recipe(recipe_type):
 		salad1.add_instructions()
 		#print salad1.ingredients_string
 		print salad1.instruction_string
+		return salad1.ingredients_string
 
 	if recipe_type == 'smoothie':
 		smoothie1 = RandomRecipe(smoothie_ingredients, recipes, recipe_type)
@@ -105,8 +106,9 @@ def make_recipe(recipe_type):
 		smoothie1.add_instructions()
 		#print smoothie1.toppings
 		print smoothie1.instruction_string
+		return smoothie1.toppings
 
 if __name__ == '__main__':
-	recipe_type = 'smoothie'
-	#recipe_type = 'salad'
+	#recipe_type = 'smoothie'
+	recipe_type = 'salad'
 	make_recipe(recipe_type)
