@@ -1,4 +1,5 @@
-from saladtoppings import salad_ingredients, dressing
+from saladtoppings import salad_ingredients, dressing, vegtables
+from soupingredientsstandard import soup_ingredients, base
 from random import choice, randint
 import pickle
 from database_of_recipies import Recipe
@@ -13,7 +14,6 @@ class RandomRecipe(object):
 		also sets remaining_recipies_object as all recipes to begin with"""
 		self.recipe_type = recipe_type
 		self.toppings = [choice(ingredients)]
-		print self.toppings
 		self.ingredients = ingredients
 		self.remaining_recipies_object = recipes
 		self.error = False
@@ -57,8 +57,14 @@ class RandomRecipe(object):
 				return
 		self.toppings.append(choice(dressing))
 
+	def add_soup_base(self):
+		for topping in self.toppings:
+			if topping in base:
+				return
+		self.toppings.append(choice(base))
+
 	def add_prep(self):
-		with open('saladmethoddict.pickle', 'rb') as handle:
+		with open('methoddict.pickle', 'rb') as handle:
 			b = pickle.load(handle)
 		self.ingredients_string = ""
 		for topping in self.toppings:
@@ -77,6 +83,8 @@ class RandomRecipe(object):
 		if self.recipe_type == 'smoothie':
 			to_string = ', '.join(self.toppings)
 			self.instruction_string = "Blend: " + to_string +  " and enjoy!"
+		if self.recipe_type == 'soup':
+			self.instruction_string = "Put: " + self. ingredients_string + " in a crock pot or in a pot on the stovetop and heat till done!"
 
 
 def make_recipe(recipe_type):
@@ -84,6 +92,21 @@ def make_recipe(recipe_type):
 	with open('themrecipies.pickle', 'rb') as handle:
 		recipes = pickle.load(handle)
 	number_toppings = randint(3,6)
+
+	if recipe_type == 'soup':
+		soup1 = RandomRecipe(soup_ingredients, recipes, recipe_type)
+
+		while len(soup1.toppings) < number_toppings and soup1.error == False:
+			soup1.get_remaining_recipies()
+			soup1.add_ingredient()
+			soup1.clear_recipies()
+
+		soup1.add_soup_base()
+		soup1.add_prep()
+		soup1.add_instructions()
+
+		print soup1.instruction_string
+
 
 	if recipe_type == 'salad':
 		salad1 = RandomRecipe(salad_ingredients, recipes, recipe_type)
@@ -96,7 +119,6 @@ def make_recipe(recipe_type):
 		salad1.dressing()
 		salad1.add_prep()
 		salad1.add_instructions()
-		#print salad1.ingredients_string
 		print salad1.instruction_string
 		return salad1.ingredients_string
 
@@ -112,6 +134,7 @@ def make_recipe(recipe_type):
 		return smoothie1.toppings
 
 if __name__ == '__main__':
-	recipe_type = 'smoothie'
+	#recipe_type = 'smoothie'
+	recipe_type = 'soup'
 	#recipe_type = 'salad'
 	make_recipe(recipe_type)

@@ -1,4 +1,5 @@
-from saladtoppings import *
+from saladtoppings import salad_ingredients
+from soupingredientsstandard import soup_ingredients
 from database_of_recipies import *
 import nltk
 import re
@@ -65,12 +66,23 @@ class PrepDict(object):
 			pickle.dump(self.long_dict, handle)
 
 
-
+def remove_duplicates(values):
+    output = []
+    seen = set()
+    for value in values:
+        # If value has not been encountered yet,
+        # ... add it to both list and set.
+        if value not in seen:
+            output.append(value)
+            seen.add(value)
+    return output
 
 if __name__ == '__main__':
 	with open('themrecipies.pickle', 'rb') as handle:
 		recipes = pickle.load(handle)
-	salad = PrepDict(recipes, salad_ingredients, 'saladmethoddict.pickle')
+	all_ingredients = salad_ingredients + soup_ingredients
+	culled_ingredients = remove_duplicates(all_ingredients)
+	salad = PrepDict(recipes, culled_ingredients, 'methoddict.pickle')
 	salad.get_raw_list()
 	salad.full_method_dict()
 	salad.get_top_methods()
