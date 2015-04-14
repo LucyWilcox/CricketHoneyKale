@@ -15,4 +15,25 @@ from salad import *
 from salad import make_recipe
 
 
-print make_recipe('smoothie')
+class Danger_Factor(object):
+	def __init__(self, food_type, danger_level):
+		self.food_type = food_type
+		self.danger_level = danger_level
+
+	def remix(self, food_type):
+		smoothie_1 = make_recipe(food_type)
+		smoothie_2 = make_recipe(food_type)
+		print smoothie_1
+		print smoothie_2
+		for word in smoothie_1:
+			for thing in smoothie_2:
+				if word == thing:
+					print "match!!", word, thing
+					print choice(smoothie_1), choice(smoothie_2)
+
+First_level = Danger_Factor('smoothie', 1)
+First_level.remix('smoothie')
+# if __name__ == '__main__':
+# 	food_type = 'smoothie'
+# 	#recipe_type = 'salad'
+# 	remix('smoothie')
