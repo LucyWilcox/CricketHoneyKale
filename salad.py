@@ -102,11 +102,11 @@ def make_recipe(recipe_type):
 			smoothie1.add_ingredient()
 			smoothie1.clear_recipies()
 
-		smoothie1.add_instructions()
-		#print smoothie1.toppings
+		#smoothie1.add_instructions()
+		print smoothie1.toppings
 		print smoothie1.instruction_string
 
 if __name__ == '__main__':
-	recipe_type = 'smoothie'
-	#recipe_type = 'salad'
+	#recipe_type = 'smoothie'
+	recipe_type = 'salad'
 	make_recipe(recipe_type)
