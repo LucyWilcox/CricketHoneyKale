@@ -8,7 +8,7 @@ from smoothies import smoothie_ingredients
 
 
 class RandomRecipe(object):
-	""" """
+	"""Creates a generated recipe. Either a salad, soup or smoothie."""
 	def __init__(self, ingredients, recipes, recipe_type):
 		"""Sets first random topping as attribute 
 		also sets remaining_recipies_object as all recipes to begin with"""
@@ -58,12 +58,18 @@ class RandomRecipe(object):
 		self.toppings.append(choice(dressing))
 
 	def add_soup_base(self):
+		"""This method makes sure that soups have a base and if not it adds one randomly by appending it to toppings"""
 		for topping in self.toppings:
 			if topping in base:
 				return
 		self.toppings.append(choice(base))
 
 	def add_prep(self):
+		"""Adds prep methods via a pickled dictionary, it has some element of randomness as each ingredient has two different
+		prep methods associated with it (if there are two, or any associated) there is a 2/3 chance the most common one will be chosen
+		and a 1/3 chance the second most common one will be pickled.
+		This method also converts the list of ingredients self.toppings into a string, self.ingredients_string
+		"""
 		with open('methoddict.pickle', 'rb') as handle:
 			b = pickle.load(handle)
 		self.ingredients_string = ""
@@ -78,6 +84,8 @@ class RandomRecipe(object):
 		self.ingredients_string = self.ingredients_string[:-2]
 
 	def add_instructions(self):
+		"""Adds 'cookie cutter' style instructions which are revlevent depending the type of recipe being generated
+		 """
 		if self.recipe_type == 'salad':
 			self.instruction_string = "On top of a lush bed of greens, add: " + self.ingredients_string
 		if self.recipe_type == 'smoothie':
@@ -88,7 +96,7 @@ class RandomRecipe(object):
 
 
 def make_recipe(recipe_type):
-	""" """
+	"""Gerenates recipe with relevant method calls on the RandomRecipe class depending on the type of recipe """
 	with open('themrecipies.pickle', 'rb') as handle:
 		recipes = pickle.load(handle)
 	number_toppings = randint(3,6)
@@ -106,7 +114,6 @@ def make_recipe(recipe_type):
 		soup1.add_instructions()
 
 		print soup1.instruction_string
-
 
 	if recipe_type == 'salad':
 		salad1 = RandomRecipe(salad_ingredients, recipes, recipe_type)
