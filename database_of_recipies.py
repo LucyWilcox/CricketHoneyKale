@@ -15,7 +15,6 @@ class Recipe(object):
         data = r.text   
         soup = BS(data)
         gross_ingredients = str(soup.find_all("li", {"itemprop":"ingredients"}))
-        print self.url
         self.ingredients = str(plaintext(gross_ingredients).replace('\n', '').lower())
 
     def is_ingredient_used(self, ingredient):
