@@ -80,6 +80,8 @@
 
 <p>Support on other GUI platforms besides PyGame would be useful to learn about in class. The rest of the project seems manageable with the course content we have already learned, although more understanding of classes and objects will of course help us. We  don’t really know what machine learning is, but it might be useful. </p>
 
+<hr>
+
 <h1>
 <a id="framing-document" class="anchor" href="#framing-document" aria-hidden="true"><span class="octicon octicon-link"></span></a>Framing Document:</h1>
 
@@ -115,6 +117,8 @@ other?
 
 <p>We are planning to use the collaborative ideation structure for our design review. We will pass out post it notes in the beginning of class and present questions while we explain the steps of our project and the questions we have about each step. At the end of the presentation we will have an ideation period for all of the questions said during the presentation. At the end of the ideation period, we will have the audience put the questions on the whiteboards and ask all of the solutions to be put under the allotted whiteboard space for that question. A discussion can be started if necessary to explain certain solutions where everyone can weigh in with pros and cons regarding each.</p>
 
+<hr>
+
 <p>Software Design Review 1- Reflections</p>
 
 <p>by Cricket Honey Kale</p>
@@ -127,8 +131,12 @@ other?
 
 <p>Since we forced ideation by getting people up to whiteboards, it seemed that we received a greater quantity of feedback than other groups in our section. Since people were interacting with each other while ideating, they were able to generate ideas in a more team oriented way. The main question, that of which GUI we should use, was not fully nailed down, but we received good advice which we will continue to take under consideration. We think that by offering little more than questions for people when we asked for feedback that we allowed for a greater amount of freedom in people’s thoughts, which hopefully let to more creativity. We could have made this process better by not mentioning some of the answers we were considering to not constrain people to one line of thinking, especially in terms of our thought process for ingredient list creation. Our planned agenda was very loose and allowed for a lot of discussion between participants in the design review as well as between us and the reviewers. This setup worked well for us, and we will consider repeating this strategy in future design reviews. </p>
 
-<p>Code Review:
-Cricket Honey Kale
+<hr>
+
+<h1>
+<a id="code-review" class="anchor" href="#code-review" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Review:</h1>
+
+<p>Cricket Honey Kale
 Background and context:
 To generate recipes we have one class which contains data from online recipes, most importantly an ingredient list. We will mostly reference our salad code in the review, but we have other similarly working codes like soup and smoothies. Then, in another file, a starting ingredient is randomly selected and the salad (we will mostly reference our salad code in the review, but we have other similarly working codes with soup and smoothies) starts with an attribute which contains all instances of the recipe class. Then the instances of the recipe class which do not contain the ingredients are deleted from the attribute. At this point the remaining recipes all have the current ingredients which are current toppings. The ingredient list attribute from the recipes classes that have not been removed are appended to an attribute on salads (which is a list of these ingredient strings). Then each of these ingredient strings is looped through and compared to a list of salad toppings, if a salad topping is present the salad topping is appended to a list which the next ingredient is randomly chosen from. </p>
 
@@ -142,7 +150,17 @@ How do we create instructions that make sense?</p>
 <p>Agenda for technical review session
 Be specific about how you plan to use your allotted time. What strategies will you use to communicate with your audience?</p>
 
-<p>We will first give an overview of where we are and what our code does/code structure. We will then present our present issues and pose questions on them which the audience will be asked to keep in mind going forward. Lastly we will display our code on the projector and have a technical discussion on each issue that we had previously stated. We hope to the audiences’ fresh eyes will help us come up with ways to produce our recipes more quickly.</p>
+<p>We will first give an overview of where we are and what our code does/code structure. We will then present our present issues and pose questions on them which the audience will be asked to keep in mind going forward. Lastly we will display our code on the projector and have a technical discussion on each issue that we had previously stated. We hope to the audiences’ fresh eyes will help us come up with ways to produce our recipes more quickly.
+___________________________________________________________-</p>
+
+<h1>
+<a id="code-review-reflection" class="anchor" href="#code-review-reflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code Review Reflection:</h1>
+
+<p>Feedback and decisions:
+In order to generate instructions for each recipe we will begin with a fill-in method similar to madlibs and hopefully progress to a more tailored approach as we can better evaluate how each ingredient is used. People seemed very receptive to the idea of a risk factor in recipes, so we would like to incorporate it into our final product. To do this, we might use degrees of separation (how many recipes you have jump through before you get another recipe that has the next ingredient) to determine how reasonable or unreasonable an ingredient is. We also will look into the Yumly API since it has a built-in flavor profile ranking system, but will likely stick with our current implementation. </p>
+
+<p>Review process reflection: 
+(Un)Fortunately, we solved our greatest problem that we intended to present during the code review the night before at around 11 pm. Because of this lack of significant coding problem, we had to scramble to find a big problem we could present to the group to get feedback on. Finding none, we choose a few questions that were significant to our project, but were not necessarily problems but rather design decisions. These three questions, that 1. asked what a reasonable number of recipes was necessary to generate a good variety of recipes, 2. asked how to generate instructions for each recipe that made sense, and 3. asked if people would be interested in a “danger factor” in their generated recipes turned our code review into a design review on accident. If the timing of the code review had been different we would have likely completed it as a true code review, but without a significant problem we felt no need to put our code in front of the class: without a more developed understanding of how our code works we did not think it would likely be very helpful for us or enjoyable for them. We still probably should have run the code we have now so that people would have quickly understood where we are.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/LucyWilcox">LucyWilcox</a></p>
