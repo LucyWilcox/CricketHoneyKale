@@ -1,9 +1,9 @@
-from saladtoppings import *
+from saladtoppings import salad_ingredients, dressing
 from random import choice, randint
 import pickle
-from database_of_recipies import *
+from database_of_recipies import Recipe
 import re
-from smoothies import *
+from smoothies import smoothie_ingredients
 
 
 class RandomRecipe(object):

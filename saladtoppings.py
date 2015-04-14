@@ -1,4 +1,4 @@
-beans = ['garbanzo beans', 'chickpeas', 'kidney beans', 'lima beans', 'black eye peas']
+beans = ['garbanzo beans', 'chickpeas', 'lentils', 'kidney beans', 'lima beans', 'black eye peas', 'black beans']
 fruit = ['apple', 'pineapple','strawberries', 'pomegranate seeds', 'pear', 'cranberries', 'coconut', 'dates', 'orange', 'rasins', 'watermelon', 'cantaloupe', 'honeydew', 'mango', 'grapes', 'kiwi', 'lemon', 'lime']
 nuts = ['almonds', 'sunflower seeds', 'walnuts', 'sesame seeds', 'cashews', 'pine nuts', 'peanuts', 'pecans', 'pumpkin seeds']
 vegtables = ['cabbage', 'tomatoes', 'water cress', 'beets', 'eggplant', 'yam', 'zucchini', 'artichoke', 'bok choy', 'cherry tomatoes', 'spaghetti squash', 'sweet peas', 'sweet potato', 'radishes', 'snow peas', 'peppers', 'pickled onions', 'jicama', 'onions', 'olives', 'jalapenos', 'mushrooms', 'cauliflower', 'celery', 'cucumber', 'alfalfa', 'sprouts', 'asparagus', 'avocado', 'red onion', 'beets', 'broccoli', 'bean sprouts', 'brussel sprouts', 'corn', 'baby corn', 'carrots']
