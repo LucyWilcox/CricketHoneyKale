@@ -1,0 +1,23 @@
+﻿Code Review Feedback: Cricket Honey Kale
+
+
+# of Recipes:
+Revert to recipe with less ingredients if there's not enough recipes to reference
+
+
+Instruction:
+Start with bullets
+Type of soups: Creamy, Vegetable, etc to get a structured instructions
+Kinda like MadLibs
+
+
+Bizarreness:
+Degrees of separation/risk
+If (ex) you pick 7/10 (more bizarre) then it’ll pick an ingredient that is in 1 out of the 7 soups, statisticallys
+Note: Add dressing and toppings equivalent to smoothie
+Flavor profile
+Proportions → steps on the bizarreness
+Make a bunch and list them from coherent → bizarre
+Swap 2 ingredients for slightly bizarre
+Danger Factor depends on type of food
+Yumlie flavor profile API
