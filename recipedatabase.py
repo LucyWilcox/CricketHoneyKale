@@ -41,7 +41,6 @@ recipe_database = ["http://www.foodnetwork.com/recipes/emeril-lagasse/vegetarian
 "http://www.foodnetwork.com/recipes/roasted-sausages-and-grapes-recipe.html",
 "http://www.foodnetwork.com/recipes/food-network-kitchens/sweet-roasted-grapes-recipe.html",
 "http://www.foodnetwork.com/recipes/giada-de-laurentiis/salami-and-gorgonzola-biscuits-recipe.html",
-"http://www.foodnetwork.com/recipes/rachael-ray/red-radish-salad-recipe.html",
 "http://www.foodnetwork.com/recipes/food-network-kitchens/eggs-in-purgatory-with-salami-recipe.html",
 "http://www.foodnetwork.com/recipes/anne-burrell/sweet-potato-casserole-recipe.html",
 "http://www.foodnetwork.com/recipes/food-network-kitchens/nectarine-upside-down-cake-with-salted-caramel.html",
@@ -61,7 +60,6 @@ recipe_database = ["http://www.foodnetwork.com/recipes/emeril-lagasse/vegetarian
 "http://www.foodnetwork.com/recipes/rachael-ray/heck-of-a-jicama-salad-recipe.html",
 "http://www.foodnetwork.com/recipes/food-network-kitchens/jicama-orange-salad-recipe.html",
 "http://www.foodnetwork.com/recipes/anne-burrell/garnet-yam-bacon-and-apple-hash-recipe.html",
-"http://www.foodnetwork.com/recipes/sunny-anderson/radish-salad-recipe.html",
 "http://www.foodnetwork.com/recipes/rachael-ray/cucumber-and-tomato-salad-recipe.html",
 "http://www.foodnetwork.com/recipes/emeril-lagasse/vietnamese-summer-rolls-with-hot-mustard-sauce-recipe.html",
 "http://www.foodnetwork.com/recipes/veggie-sandwich-with-pesto-recipe.html",
@@ -191,7 +189,6 @@ recipe_database = ["http://www.foodnetwork.com/recipes/emeril-lagasse/vegetarian
 'http://www.foodnetwork.com/recipes/ina-garten/sunrise-smoothie-recipe.html',
 'http://www.foodnetwork.com/recipes/jeff-mauro/power-smoothie.html',
 "http://www.foodnetwork.com/recipes/ellie-krieger/blueberry-blast-smoothie-recipe.html",
-"http://www.foodnetwork.com/recipes/jeff-mauro/power-smoothie.html",
 "http://www.foodnetwork.com/recipes/giada-de-laurentiis/kale-juice.html",
 "http://www.foodnetwork.com/recipes/food-network-kitchens/peanut-butter-chocolate-pie.html",
 "http://www.foodnetwork.com/recipes/sunny-anderson/chocoholic-smoothie-with-peppermint-rim-recipe.html",
@@ -200,11 +197,9 @@ recipe_database = ["http://www.foodnetwork.com/recipes/emeril-lagasse/vegetarian
 "http://www.foodnetwork.com/recipes/food-network-kitchens/kale-and-apple-salad-recipe.html",
 "http://www.foodnetwork.com/recipes/rachael-ray/smothered-mushrooms-and-kale-recipe.html",
 "http://www.foodnetwork.com/recipes/melissa-darabian/kale-slaw-recipe.html",
-"http://www.foodnetwork.com/recipes/anne-burrell/mango-strawberry-and-pineapple-smoothie-recipe.html",
 "http://www.foodnetwork.com/recipes/sandra-lee/peach-mango-smoothie-recipe.html",
 "http://www.foodnetwork.com/recipes/food-network-kitchens/chocolate-peanut-butter-pudding-pie-recipe.html",
 "http://www.foodnetwork.com/recipes/alton-brown/buff-smoothie-recipe.html",
-"http://www.foodnetwork.com/recipes/ina-garten/sunrise-smoothie-recipe.html",
 "http://www.foodnetwork.com/recipes/melissa-darabian/chocolate-and-banana-smoothie-recipe.html",
 "http://www.foodnetwork.com/recipes/guy-fieri/guys-rockin-smoothie-recipe.html",
 "http://www.foodnetwork.com/recipes/peanut-butter-banana-shake-recipe.html",
@@ -218,3 +213,19 @@ recipe_database = ["http://www.foodnetwork.com/recipes/emeril-lagasse/vegetarian
 "http://www.foodnetwork.com/recipes/food-network-kitchens/frozen-fruit-smoothies-recipe.html",
 "http://www.foodnetwork.com/recipes/emeril-lagasse/fresh-strawberry-milkshakes-recipe.html",
 'http://www.foodnetwork.com/recipes/paula-deen/pina-colada-smoothie-recipe.html']
+
+def remove_duplicates(values):
+    output = []
+    seen = set()
+    for value in values:
+        # If value has not been encountered yet,
+        # ... add it to both list and set.
+        if value not in seen:
+            output.append(value)
+            seen.add(value)
+        else:
+          print value
+    return output
+
+if __name__ == '__main__':
+  result = remove_duplicates(recipe_database)

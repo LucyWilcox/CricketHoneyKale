@@ -8,12 +8,12 @@ from smoothies import *
 
 class RandomRecipe(object):
 	""" """
-	def __init__(self, ingredients, recipes):
+	def __init__(self, ingredients, recipes, recipe_type):
 		"""Sets first random topping as attribute 
 		also sets remaining_recipies_object as all recipes to begin with"""
+		self.recipe_type = recipe_type
 		self.toppings = [choice(ingredients)]
 		print self.toppings
-		#self.toppings = ['tomato']
 		self.ingredients = ingredients
 		self.remaining_recipies_object = recipes
 
@@ -22,11 +22,12 @@ class RandomRecipe(object):
 		also removes remaining_recipies_object that no longer contain all of the ingredients
 		"""
 		possiblities = []
-		for recipe in self.remaining_recipies_object:
-			for topping in self.toppings:
+		for topping in self.toppings:
+			for recipe in self.remaining_recipies_object:
 				if topping not in recipe.ingredients:
 					self.remaining_recipies_object.remove(recipe)
-					break
+
+		for recipe in self.remaining_recipies_object:
 			possiblities.append(recipe.ingredients)
 		self.remaining_recipies = possiblities # list of strs containing recipe.ingredients
 
@@ -66,6 +67,13 @@ class RandomRecipe(object):
 				self.ingredients_string += " " + topping +  ", "
 		self.ingredients_string = self.ingredients_string[:-2]
 
+	def add_instructions(self):
+		if self.recipe_type == 'salad':
+			self.instruction_string = "On top of a lush bed of greens, add: " + self.ingredients_string
+		if self.recipe_type == 'smoothie':
+			to_string = ', '.join(self.toppings)
+			self.instruction_string = "Blend: " + to_string +  " and enjoy!"
+
 
 def make_recipe(recipe_type):
 	""" """
@@ -74,7 +82,7 @@ def make_recipe(recipe_type):
 	number_toppings = randint(3,6)
 
 	if recipe_type == 'salad':
-		salad1 = RandomRecipe(salad_ingredients, recipes)
+		salad1 = RandomRecipe(salad_ingredients, recipes, recipe_type)
 
 		while len(salad1.toppings) < number_toppings:
 			salad1.get_remaining_recipies()
@@ -83,17 +91,22 @@ def make_recipe(recipe_type):
 
 		salad1.dressing()
 		salad1.add_prep()
-		print salad1.ingredients_string
+		salad1.add_instructions()
+		#print salad1.ingredients_string
+		print salad1.instruction_string
 
 	if recipe_type == 'smoothie':
-		smoothie1 = RandomRecipe(smoothie_ingredients, recipes)
+		smoothie1 = RandomRecipe(smoothie_ingredients, recipes, recipe_type)
 		while len(smoothie1.toppings) < number_toppings:
 			smoothie1.get_remaining_recipies()
 			smoothie1.add_ingredient()
 			smoothie1.clear_recipies()
 
-		print smoothie1.toppings
+		smoothie1.add_instructions()
+		#print smoothie1.toppings
+		print smoothie1.instruction_string
 
 if __name__ == '__main__':
 	recipe_type = 'smoothie'
+	#recipe_type = 'salad'
 	make_recipe(recipe_type)
