@@ -16,6 +16,7 @@ class RandomRecipe(object):
 		print self.toppings
 		self.ingredients = ingredients
 		self.remaining_recipies_object = recipes
+		self.error = False
 
 	def get_remaining_recipies(self):
 		"""Gets list of recipes that have the current toppings and sets as attribute
@@ -41,10 +42,13 @@ class RandomRecipe(object):
 		for recipe in self.remaining_recipies:
 			for ingredient in self.ingredients:
 				if ingredient in recipe:
-					possible_next_ingredient.append(ingredient)
-		next_ingredient = choice(possible_next_ingredient)
-		if next_ingredient not in self.toppings:
+					if ingredient not in self.toppings:
+						possible_next_ingredient.append(ingredient)
+		if len(possible_next_ingredient) != 0:
+			next_ingredient = choice(possible_next_ingredient)
 			self.toppings.append(next_ingredient)
+		else:
+			self.error = True
 
 	def dressing(self):
 		"""Adds a dressing if the salad is only vegtables, appends to toppings attribute"""
@@ -84,7 +88,7 @@ def make_recipe(recipe_type):
 	if recipe_type == 'salad':
 		salad1 = RandomRecipe(salad_ingredients, recipes, recipe_type)
 
-		while len(salad1.toppings) < number_toppings:
+		while len(salad1.toppings) < number_toppings and salad1.error == False:
 			salad1.get_remaining_recipies()
 			salad1.add_ingredient()
 			salad1.clear_recipies()
@@ -98,17 +102,16 @@ def make_recipe(recipe_type):
 
 	if recipe_type == 'smoothie':
 		smoothie1 = RandomRecipe(smoothie_ingredients, recipes, recipe_type)
-		while len(smoothie1.toppings) < number_toppings:
+		while len(smoothie1.toppings) < number_toppings and smoothie1.error == False:
 			smoothie1.get_remaining_recipies()
 			smoothie1.add_ingredient()
 			smoothie1.clear_recipies()
 
-		#smoothie1.add_instructions()
-		print smoothie1.toppings
+		smoothie1.add_instructions()
 		print smoothie1.instruction_string
 		return smoothie1.toppings
 
 if __name__ == '__main__':
-	#recipe_type = 'smoothie'
-	recipe_type = 'salad'
+	recipe_type = 'smoothie'
+	#recipe_type = 'salad'
 	make_recipe(recipe_type)
