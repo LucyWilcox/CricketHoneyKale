@@ -109,6 +109,6 @@ def make_recipe(recipe_type):
 		return smoothie1.toppings
 
 if __name__ == '__main__':
-	#recipe_type = 'smoothie'
-	recipe_type = 'salad'
+	recipe_type = 'smoothie'
+	#recipe_type = 'salad'
 	make_recipe(recipe_type)
