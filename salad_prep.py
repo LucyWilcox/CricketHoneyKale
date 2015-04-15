@@ -6,7 +6,7 @@ import re
 from collections import Counter
 import pickle
 
-""" storing here"""
+
 measurements = ['tablespoons', 'cup', 'cups', 'teaspoons', 'tablespoon', 'teaspoon', 'pinch', 'ounce', 'oz']
 
 class PrepDict(object):
@@ -32,7 +32,7 @@ class PrepDict(object):
 			good_types = []
 			for tag in tags:
 				if tag[1] in self.pos and tag[0] not in ingredients_used:
-					good_types.append(tag)
+					good_types.append(tag[0])
 			return good_types
 
 		method_dict = dict.fromkeys(self.ingredients_used)
@@ -112,16 +112,17 @@ if __name__ == '__main__':
 		recipes = pickle.load(handle)
 	all_ingredients = salad_ingredients + soup_ingredients
 	culled_ingredients = remove_duplicates(all_ingredients)
-	# verbs = PrepDict(recipes, culled_ingredients, 'methoddict.pickle', ['VBN'])
-	# verbs.get_raw_list()
-	# verbs.full_method_dict()
-	# verbs.get_top_methods()
-	# verbs.pickle_it()
+	verbs = PrepDict(recipes, culled_ingredients, 'methoddict.pickle', ['VBN'])
+	verbs.get_raw_list()
+	verbs.full_method_dict()
+	verbs.get_top_methods()
+	verbs.pickle_it()
 	amounts = PrepDict(recipes, culled_ingredients, 'amountdict.pickle', ['LS', 'CD'])
 	amounts.get_raw_list()
 	amounts.amount_dict()
 	amounts.get_top_methods()
 	amounts.pickle_it()
+
 
 
 
