@@ -6,10 +6,13 @@ import re
 from collections import Counter
 import pickle
 
+""" storing here"""
+measurements = ['tablespoons', 'cup', 'cups', 'teaspoons', 'tablespoon', 'teaspoon', 'pinch', 'ounce', 'oz']
 
 class PrepDict(object):
 
-	def __init__(self, recipes, ingredients_used, file_name):
+	def __init__(self, recipes, ingredients_used, file_name, pos):
+		self.pos = pos
 		self.recipes = recipes
 		self.ingredients_used = ingredients_used
 		self.file_name = file_name
@@ -24,14 +27,41 @@ class PrepDict(object):
 
 	def full_method_dict(self):
 		def each_prep_methods(method, ingredients_used):
-			good_pos = ['VBN']
 			text = nltk.word_tokenize(method)
 			tags = nltk.pos_tag(text)
 			good_types = []
 			for tag in tags:
-				if tag[1] in good_pos and tag[0] not in ingredients_used:
+				if tag[1] in self.pos and tag[0] not in ingredients_used:
 					good_types.append(tag)
 			return good_types
+
+		method_dict = dict.fromkeys(self.ingredients_used)
+		for method in self.raw_list:
+			for key in method_dict:
+				if key in method:
+					tags = each_prep_methods(method, self.ingredients_used)
+					if tags != []:
+						if key == tags[0]:
+							pass
+						elif method_dict[key] == None:
+							method_dict[key] = tags
+						else:
+							method_dict[key].extend(tags)
+		self.long_dict = method_dict
+
+	def amount_dict(self):
+		def each_prep_methods(method, ingredients_used):
+			text = nltk.word_tokenize(method)
+			tags = nltk.pos_tag(text)
+			good_amounts = []
+			amount_str = ""
+			i = 0
+			for tag in tags:
+				i += 1
+				if tag[1] in self.pos or tag[0] in measurements:
+					amount_str = amount_str + tag[0] + " "
+			good_amounts.append(amount_str)
+			return good_amounts
 
 		method_dict = dict.fromkeys(self.ingredients_used)
 		for method in self.raw_list:
@@ -53,8 +83,8 @@ class PrepDict(object):
 			VBN = []
 			if methods != None:
 				for method in methods:
-
-					VBN.append(method[0])
+					if method != '':
+						VBN.append(method)
 				cVBN = Counter(VBN)
 				topVBN = [ite for ite, it in cVBN.most_common(2)]
 				self.long_dict[key] = topVBN[:2]
@@ -82,10 +112,16 @@ if __name__ == '__main__':
 		recipes = pickle.load(handle)
 	all_ingredients = salad_ingredients + soup_ingredients
 	culled_ingredients = remove_duplicates(all_ingredients)
-	salad = PrepDict(recipes, culled_ingredients, 'methoddict.pickle')
-	salad.get_raw_list()
-	salad.full_method_dict()
-	salad.get_top_methods()
-	salad.pickle_it()
-	print salad.long_dict
+	# verbs = PrepDict(recipes, culled_ingredients, 'methoddict.pickle', ['VBN'])
+	# verbs.get_raw_list()
+	# verbs.full_method_dict()
+	# verbs.get_top_methods()
+	# verbs.pickle_it()
+	amounts = PrepDict(recipes, culled_ingredients, 'amountdict.pickle', ['LS', 'CD'])
+	amounts.get_raw_list()
+	amounts.amount_dict()
+	amounts.get_top_methods()
+	amounts.pickle_it()
+
+
 

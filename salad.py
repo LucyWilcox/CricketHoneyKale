@@ -71,17 +71,21 @@ class RandomRecipe(object):
 		This method also converts the list of ingredients self.toppings into a string, self.ingredients_string
 		"""
 		with open('methoddict.pickle', 'rb') as handle:
-			b = pickle.load(handle)
+			prep = pickle.load(handle)
+		with open('amountdict.pickle', 'rb') as handle:
+			amount = pickle.load(handle)
+
 		self.ingredients_string = ""
 		for topping in self.toppings:
-			if topping in b.keys():
-				if b[topping] != None:
-					self.ingredients_string += str(choice(b[topping])) + " " + topping + ", "
+			if topping in prep.keys():
+				if prep[topping] != None:
+					self.ingredients_string += str(choice(prep[topping])) + " " + topping + ", "
 				else:
 					self.ingredients_string += " " + topping +  ", "
 			else:
 				self.ingredients_string += " " + topping +  ", "
 		self.ingredients_string = self.ingredients_string[:-2]
+
 
 	def add_instructions(self):
 		"""Adds 'cookie cutter' style instructions which are revlevent depending the type of recipe being generated
