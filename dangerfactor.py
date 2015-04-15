@@ -20,20 +20,18 @@ class Danger_Factor(object):
 		self.food_type = food_type
 		self.danger_level = danger_level
 
-	def remix(self, food_type):
+	def level_one(self, food_type):
 		smoothie_1 = make_recipe(food_type)
 		smoothie_2 = make_recipe(food_type)
 		print smoothie_1
 		print smoothie_2
-		for word in smoothie_1:
-			for thing in smoothie_2:
-				if word == thing:
-					print "match!!", word, thing
-					print choice(smoothie_1), choice(smoothie_2)
+		for i in range(len(smoothie_1)):
+			for j in range(len(smoothie_2)):
+				if smoothie_1[i] == smoothie_2[j]:
+					smoothie_1[i] = choice(smoothie_2)
+					smoothie_2[j] = choice(smoothie_1)
+		return smoothie_1, smoothie_2
 
-First_level = Danger_Factor('smoothie', 1)
-First_level.remix('smoothie')
-# if __name__ == '__main__':
-# 	food_type = 'smoothie'
-# 	#recipe_type = 'salad'
-# 	remix('smoothie')
+if __name__ == '__main__':
+	First_level = Danger_Factor('smoothie', 1)
+	print First_level.level_one('smoothie')
