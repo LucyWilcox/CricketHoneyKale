@@ -75,15 +75,28 @@ class RandomRecipe(object):
 		with open('amountdict.pickle', 'rb') as handle:
 			amount = pickle.load(handle)
 
-		self.ingredients_string = ""
-		for topping in self.toppings:
-			if topping in prep.keys():
-				if prep[topping] != None:
-					self.ingredients_string += str(choice(prep[topping])) + " " + topping + ", "
+		if self.recipe_type == 'salad':
+			self.ingredients_string = ""
+			for topping in self.toppings:
+				if topping in prep.keys():
+					if prep[topping] != None:
+						self.ingredients_string += str(choice(prep[topping])) + " " + topping + ", "
+					else:
+						self.ingredients_string += " " + topping +  ", "
 				else:
 					self.ingredients_string += " " + topping +  ", "
-			else:
-				self.ingredients_string += " " + topping +  ", "
+
+		elif self.recipe_type == 'soup':
+			self.ingredients_string = ""
+			for topping in self.toppings:
+				if topping in prep.keys():
+					if prep[topping] != None:
+						self.ingredients_string += str(choice(amount[topping])) + str(choice(prep[topping])) + " " + topping + ", "
+					else:
+						self.ingredients_string += " " + topping +  ", "
+				else:
+					self.ingredients_string += " " + topping +  ", "				
+
 		self.ingredients_string = self.ingredients_string[:-2]
 
 
