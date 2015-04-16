@@ -54,7 +54,7 @@ class RandomRecipe(object):
 			self.error = True
 
 	def adjust_danger(self):
-		#
+		pass
 
 	def dressing(self):
 		"""Adds a dressing if the salad is only vegtables, appends to toppings attribute"""

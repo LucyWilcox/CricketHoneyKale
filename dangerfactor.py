@@ -12,7 +12,7 @@
 # import re
 # from smoothies import *
 #from salad import *
-#from salad import make_recipe
+from salad import make_recipe
 
 
 class DangerFactor(object):
