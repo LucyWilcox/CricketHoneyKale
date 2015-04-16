@@ -12,7 +12,8 @@
 # import re
 # from smoothies import *
 #from salad import *
-from salad import make_recipe
+from salad import *
+from random import choice, randint
 
 
 class DangerFactor(object):
@@ -80,40 +81,35 @@ class DangerFactor(object):
                     first_remix = first_recipe
                     second_remix = second_recipe
 
-    def level_four(self, food_type):
+    def level_four(self):
         """Introduces another random ingredient of it's same food_type"""
         pass
 
-    def level_five(self, food_type):
+    def level_five(self):
         """Replaces half of the ingredients with new ones- brand new, no swapping"""
         pass
 
-    def level_six(self, food_type):
+    def level_six(self):
         pass
 
-    def level_seven(self, food_type):
+    def level_seven(self):
         pass
 
-    def level_eight(self, food_type):
+    def level_eight(self):
         """Randomly selects a chosen random amount of ingredients and pretends it's a recipe
         - stays within it's food type"""
         """Here for storgage right now """
-        smoothie_1 = make_recipe(food_type)
-        smoothie_2 = make_recipe(food_type)
-        print smoothie_1
-        print smoothie_2
         for i in range(len(smoothie_1)):
-            for j in range(len(smoothie_2)):
                 if smoothie_1[i] == smoothie_2[j]:
                     smoothie_1[i] = choice(smoothie_2)
         return smoothie_1
 
-    def level_nine(self, food_type):
+    def level_nine(self):
         """Randomly selects a chosen random amount of ingredients and pretends it's 
         a recipe- doesn't stay within it's food type"""
         pass
 
-    def level_ten(self, food_type):
+    def level_ten(self):
         pass
 
 if __name__ == '__main__':
