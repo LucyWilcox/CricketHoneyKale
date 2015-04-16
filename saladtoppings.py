@@ -9,4 +9,3 @@ carbs = ['crispy noodles', 'tortilla strips', 'croutons', 'couscous', 'quinoa']
 weird_dressings = ['soy sauce', 'sesame oil', 'chili sauce']
 dressing = ['ranch', 'honey mustard', 'balsamic vinegar', 'italian dressing', 'caesar dressing', 'thousand island dressing', 'blue cheese dressing']
 salad_ingredients = beans + fruit + nuts + weird_dressings + vegtables + meat + dariy + herbs + carbs
-
