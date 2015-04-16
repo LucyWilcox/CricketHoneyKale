@@ -9,12 +9,12 @@ from smoothies import smoothie_ingredients
 
 class RandomRecipe(object):
 	"""Creates a generated recipe. Either a salad, soup or smoothie."""
-	def __init__(self, ingredients, recipes, recipe_type):
+	def __init__(self, ingredient_options, recipes, recipe_type):
 		"""Sets first random topping as attribute 
 		also sets remaining_recipies_object as all recipes to begin with"""
 		self.recipe_type = recipe_type
-		self.toppings = [choice(ingredients)]
-		self.ingredients = ingredients
+		self.toppings = [choice(ingredient_options)]
+		self.ingredient_options = ingredient_options
 		self.remaining_recipies_object = recipes
 		self.error = False
 
@@ -40,10 +40,11 @@ class RandomRecipe(object):
 		"""Adds ingredient to salad toppings attribute """
 		possible_next_ingredient = []
 		for recipe in self.remaining_recipies:
-			for ingredient in self.ingredients:
+			for ingredient in self.ingredient_options:
 				if ingredient in recipe:
 					if ingredient not in self.toppings:
 						possible_next_ingredient.append(ingredient)
+
 		if len(possible_next_ingredient) != 0:
 			next_ingredient = choice(possible_next_ingredient)
 			self.toppings.append(next_ingredient)
@@ -129,8 +130,7 @@ def make_recipe(recipe_type):
 		soup1.add_soup_base()
 		soup1.add_prep()
 		soup1.add_instructions()
-
-		print soup1.instruction_string
+		return soup1.instruction_string
 
 	if recipe_type == 'salad':
 		salad1 = RandomRecipe(salad_ingredients, recipes, recipe_type)
@@ -138,13 +138,14 @@ def make_recipe(recipe_type):
 		while len(salad1.toppings) < number_toppings and salad1.error == False:
 			salad1.get_remaining_recipies()
 			salad1.add_ingredient()
+			#sprint salad1.remaining_recipies_object
+			#print salad1.remaining_recipies
 			salad1.clear_recipies()
 
 		salad1.dressing()
 		salad1.add_prep()
 		salad1.add_instructions()
-		print salad1.instruction_string
-		return salad1.ingredients_string
+		return salad1.instruction_string
 
 	if recipe_type == 'smoothie':
 		smoothie1 = RandomRecipe(smoothie_ingredients, recipes, recipe_type)
@@ -154,11 +155,11 @@ def make_recipe(recipe_type):
 			smoothie1.clear_recipies()
 
 		smoothie1.add_instructions()
-		print smoothie1.instruction_string
-		return smoothie1.toppings
+		return smoothie1.instruction_string
 
 if __name__ == '__main__':
 	#recipe_type = 'smoothie'
-	recipe_type = 'soup'
-	#recipe_type = 'salad'
-	make_recipe(recipe_type)
+	#recipe_type = 'soup'
+	recipe_type = 'salad'
+	instructions = make_recipe(recipe_type)
+	print instructions

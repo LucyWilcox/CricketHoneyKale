@@ -7,7 +7,8 @@ from collections import Counter
 import pickle
 
 
-measurements = ['tablespoons', 'cup', 'cups', 'teaspoons', 'tablespoon', 'teaspoon', 'pinch', 'ounce', 'oz']
+measurements = ['tablespoons', 'cup', 'cups', 'teaspoons', 'tablespoon', 'teaspoon', 'pinch', 'ounce', 'oz', 'pint', 'ounces', 'spoonfuls', 'large', 'small', 'pieces', 'pounds']
+blacklist = ['recommended']
 
 class PrepDict(object):
 
@@ -31,7 +32,7 @@ class PrepDict(object):
 			tags = nltk.pos_tag(text)
 			good_types = []
 			for tag in tags:
-				if tag[1] in self.pos and tag[0] not in ingredients_used:
+				if tag[1] in self.pos and tag[0] not in ingredients_used and tag [1] not in blacklist:
 					good_types.append(tag[0])
 			return good_types
 
