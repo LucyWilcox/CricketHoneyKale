@@ -1,0 +1,7 @@
+vegetables = ['garlic', 'romaine lettuce','lettuce','cabbage','broccolini', 'parsley', 'tomatoes','watercress', 'water cress', 'beets', 'eggplant', 'zucchini', 'artichoke', 'bok choy', 'cherry tomatoes','potatoes' 'spaghetti squash', 'sweet peas', 'radishes', 'snow peas', 'peppers', 'pickled onions', 'jicama', 'onions', 'olives', 'jalapenos', 'mushrooms', 'cucumber', 'alfalfa', 'sprouts', 'asparagus', 'avocado', 'red onion', 'beets', 'broccoli', 'bean sprouts', 'brussel sprouts', 'corn', 'baby corn', 'carrots']
+dairy = ['jack', 'goat cheese', 'gorgonzola', 'parmesan', 'mozzarella', 'cheddar', 'feta cheese', 'blue cheese', 'provolone', 'hard boiled egg', 'egg']
+deli_meat = ['chorizo sausages', 'sausages', 'pepperoncini', 'turkey bacon', 'potato chips', 'turkey breast', 'roast beef']
+dressing = ['adobo sauce', 'butter' 'apple cider vinegar', 'Greek yogurt','mayonnaise','olive oil', 'lemon', 'pepper','dijon mustard','worcestershire sauce', 'horseradish', 'ranch', 'honey mustard', 'balsamic vinegar', 'italian dressing', 'caesar dressing', 'thousand island dressing', 'blue cheese dressing']
+optional = ['cilantro', 'lime juice']
+bread = ['whole grain bread', 'whole-grain bread', 'sourdough bread']
+sandwich_ingredients = vegetables + dairy + deli_meat + dressing + optional
