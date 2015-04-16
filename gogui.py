@@ -16,6 +16,7 @@ class MakeWindow(Frame):
         self.master = master
         self.button_frame = Frame(self.master, width = 400, height = 400, colormap = 'new')
         self.add_button()
+        self.instructions()
         self.button_frame.pack(fill = X)
         # For calling premade bokeh graphs
         self.current_directory = 'file://' + sys.argv[0]
@@ -26,16 +27,20 @@ class MakeWindow(Frame):
             GUI: buttons to look at common information of the data set, and buttons to
             compare your input to the data set."""
         # Quit Button
-        Button(self.button_frame, text = 'Quit', command = quit).pack(fill = X)
+        Button(self.button_frame, text = 'Quit', command = quit).pack()
         # Common Information Buttons
-        Label(self.button_frame, text = "\n\nLets eat something:").pack(fill = X)
-        Button(self.button_frame, text = 'Generate me a salad!', 
-            command = lambda:self.display_recipe('salad')).pack(fill = X)
-        Button(self.button_frame, text = 'Generate me a soup!', 
-            command = lambda:self.display_recipe('soup')).pack(fill = X)
-        Button(self.button_frame, text = 'Generate me a smoothie!', 
-            command = lambda:self.display_recipe('smoothie')).pack(fill = X)
-        Label(self.button_frame, text = "\n\nPlease be safe. \n We are not responsible for food poisioning, allergic reactions, broken blenders, gross recipes or anything else.").pack(fill = X)
+        Label(self.button_frame, text = "\n\nLets eat something:").pack()
+        
+        saladbutt = Button(self.button_frame, text = 'Generate me a salad!',command = lambda:self.display_recipe('salad'))
+        soupbutt = Button(self.button_frame, text = 'Generate me a soup!',command = lambda:self.display_recipe('soup'))
+        smoothiebutt = Button(self.button_frame, text = 'Generate me a smoothie!',command = lambda:self.display_recipe('smoothie'))
+        
+        saladbutt.pack(side=LEFT)
+        soupbutt.pack(side=LEFT)
+        smoothiebutt.pack(side=LEFT)
+    def instructions(self):
+        instruct = Label(self.button_frame, text = "\n\nPlease be safe. \n We are not responsible for food poisioning, allergic reactions, broken blenders, gross recipes or anything else.")
+        instruct.pack(fill = X)
         # # Password Entryb
         # Label(self.button_frame, text = '\n\nEnter a Password Below to Find Information:').pack(fill = X)
         # global entry_pw 
