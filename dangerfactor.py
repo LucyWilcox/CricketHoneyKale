@@ -18,9 +18,12 @@ from random import choice, randint
 food_type_databases = [smoothie_ingredients, soup_ingredients, salad_ingredients]
 
 class DangerFactor(object):
-    def __init__(self, current_recipe, danger_level):
+    """Creates new_ingredient list which ends up replacing the toppings attribute on RandomRecipe. 
+    The severity of the changes depends on the danger level which is passed in from the RandomRecipe object"""
+    def __init__(self, current_recipe):
+        """Basically selects the correct the danger level to run"""
         self.current_recipe = current_recipe
-        self.danger_level = danger_level
+        self.danger_level = current_recipe.danger
         if self.danger_level == 0:
             self.level_zero()
         elif self.danger_level == 1:
@@ -33,7 +36,9 @@ class DangerFactor(object):
             self.level_four()
         elif self.danger_level == 5:
             self.level_five()        
+
     def level_zero(self):
+        """Just sets the new_ingredients to the old because there should be no change"""
         self.new_ingredients = self.current_recipe.toppings
 
     def level_one(self):
@@ -102,6 +107,5 @@ class DangerFactor(object):
         self.new_ingredients = self.current_recipe.toppings
 
 def remix_to_danger(current_recipe):
-    print current_recipe.toppings
-    danger_recipe = DangerFactor(current_recipe, current_recipe.danger)
+    danger_recipe = DangerFactor(current_recipe)
     return danger_recipe.new_ingredients

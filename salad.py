@@ -54,8 +54,8 @@ class RandomRecipe(object):
 			self.error = True
 
 	def adjust_danger(self):
+		"""Runs the correct danger level in dangerfactor file and relaces topping """
 		self.toppings = remix_to_danger(self)
-
 
 	def dressing(self):
 		"""Adds a dressing if the salad is only vegtables, appends to toppings attribute"""
@@ -82,7 +82,7 @@ class RandomRecipe(object):
 		with open('amountdict.pickle', 'rb') as handle:
 			amount = pickle.load(handle)
 
-		if self.recipe_type == 'salad':
+		if self.recipe_type in ['salad', 'sandwich']:
 			self.ingredients_string = ""
 			for topping in self.toppings:
 				if topping in prep.keys():
@@ -102,10 +102,9 @@ class RandomRecipe(object):
 					else:
 						self.ingredients_string += " " + topping +  ", "
 				else:
-					self.ingredients_string += " " + topping +  ", "				
+					self.ingredients_string += " " + topping +  ", "	
 
 		self.ingredients_string = self.ingredients_string[:-2]
-
 
 	def add_instructions(self):
 		"""Adds 'cookie cutter' style instructions which are revlevent depending the type of recipe being generated
@@ -117,9 +116,11 @@ class RandomRecipe(object):
 			self.instruction_string = "Blend: " + to_string +  " and enjoy!"
 		if self.recipe_type == 'soup':
 			self.instruction_string = "Put: " + self. ingredients_string + " in a crock pot or in a pot on the stovetop and heat till done!"
+		if self.recipe_type == 'sandwich':
+			self.instruction_string  = "Put: " + self.ingredients_string + " between two slices of your favorite bread (or whatever crap you have) and chow down."
 
 
-def make_recipe(recipe_type):
+def make_recipe(recipe_type, danger_level):
 	"""Gerenates recipe with relevant method calls on the RandomRecipe class depending on the type of recipe """
 	with open('themrecipies.pickle', 'rb') as handle:
 		recipes = pickle.load(handle)
@@ -130,37 +131,45 @@ def make_recipe(recipe_type):
 			recipe_name.get_remaining_recipies()
 			recipe_name.add_ingredient()
 			recipe_name.clear_recipies()
+		recipe_name.adjust_danger()
 
 		if recipe_name.recipe_type == 'soup':
 			recipe_name.add_soup_base()
-			recipe_name.adjust_danger()
 			recipe_name.add_prep()
 			recipe_name.add_instructions()
-			
 			return recipe_name.instruction_string
+
 		elif recipe_type == 'salad':
 			recipe_name.dressing()
-			recipe_name.adjust_danger()
 			recipe_name.add_prep()
 			recipe_name.add_instructions()
 			return recipe_name.instruction_string
+
 		elif recipe_type == 'smoothie':
-			recipe_name.adjust_danger()
 			recipe_name.add_instructions()
 		 	return recipe_name.instruction_string
 
+		elif recipe_type == 'sandwich':
+			recipe_name.add_prep()
+			recipe_name.add_instructions()
+			return recipe_name.instruction_string
+
+
 	if recipe_type == 'soup':
-		created_recipe = RandomRecipe(soup_ingredients, recipes, recipe_type, 4)
+		created_recipe = RandomRecipe(soup_ingredients, recipes, recipe_type, danger_level)
 	elif recipe_type == 'salad':
-		created_recipe = RandomRecipe(salad_ingredients, recipes, recipe_type,4)
+		created_recipe = RandomRecipe(salad_ingredients, recipes, recipe_type, danger_level)
 	elif recipe_type == 'smoothie':
-		created_recipe = RandomRecipe(smoothie_ingredients, recipes, recipe_type, 5)
+		created_recipe = RandomRecipe(smoothie_ingredients, recipes, recipe_type, danger_level)
+	elif recipe_type == 'sandwich':
+		created_recipe = RandomRecipe(salad_ingredients, recipes, recipe_type, danger_level)
 
 	return run_cycle(created_recipe, number_toppings)
 
 if __name__ == '__main__':
-	recipe_type = 'smoothie'
+	#recipe_type = 'smoothie'
 	#recipe_type = 'salad'
 	#recipe_type = 'soup'
-	instructions = make_recipe(recipe_type)
+	recipe_type = 'sandwich'
+	instructions = make_recipe(recipe_type, danger_level = 0)
 	print instructions
