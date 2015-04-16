@@ -54,7 +54,8 @@ class RandomRecipe(object):
 			self.error = True
 
 	def adjust_danger(self):
-		remix_to_danger(self)
+		self.toppings = remix_to_danger(self)
+
 
 	def dressing(self):
 		"""Adds a dressing if the salad is only vegtables, appends to toppings attribute"""
@@ -132,9 +133,10 @@ def make_recipe(recipe_type):
 
 		if recipe_name.recipe_type == 'soup':
 			recipe_name.add_soup_base()
+			recipe_name.adjust_danger()
 			recipe_name.add_prep()
 			recipe_name.add_instructions()
-			recipe_name.adjust_danger()
+			
 			return recipe_name.instruction_string
 		elif recipe_type == 'salad':
 			recipe_name.dressing()
@@ -146,7 +148,7 @@ def make_recipe(recipe_type):
 		 	return recipe_name.instruction_string
 
 	if recipe_type == 'soup':
-		created_recipe = RandomRecipe(soup_ingredients, recipes, recipe_type)
+		created_recipe = RandomRecipe(soup_ingredients, recipes, recipe_type, 0)
 	elif recipe_type == 'salad':
 		created_recipe = RandomRecipe(salad_ingredients, recipes, recipe_type)
 	elif recipe_type == 'smoothie':
