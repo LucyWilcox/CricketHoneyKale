@@ -1,5 +1,6 @@
 from saladtoppings import salad_ingredients
 from soupingredientsstandard import soup_ingredients
+from dangerdanger import danger_ingredients
 from database_of_recipies import *
 import nltk
 import re
@@ -111,7 +112,7 @@ def remove_duplicates(values):
 if __name__ == '__main__':
 	with open('themrecipies.pickle', 'rb') as handle:
 		recipes = pickle.load(handle)
-	all_ingredients = salad_ingredients + soup_ingredients
+	all_ingredients = salad_ingredients + soup_ingredients + danger_ingredients
 	culled_ingredients = remove_duplicates(all_ingredients)
 	verbs = PrepDict(recipes, culled_ingredients, 'methoddict.pickle', ['VBN'])
 	verbs.get_raw_list()
