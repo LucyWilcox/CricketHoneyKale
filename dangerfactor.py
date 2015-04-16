@@ -82,35 +82,13 @@ class DangerFactor(object):
                     second_remix = second_recipe
 
     def level_four(self):
-        """Introduces another random ingredient of it's same food_type"""
+        """Introduces another random ingredient without regarding food_type"""
         pass
 
     def level_five(self):
-        """Replaces half of the ingredients with new ones- brand new, no swapping"""
+        """Replaces 1-2 ingredients with danger ingredients"""
         pass
 
-    def level_six(self):
-        pass
-
-    def level_seven(self):
-        pass
-
-    def level_eight(self):
-        """Randomly selects a chosen random amount of ingredients and pretends it's a recipe
-        - stays within it's food type"""
-        """Here for storgage right now """
-        for i in range(len(smoothie_1)):
-                if smoothie_1[i] == smoothie_2[j]:
-                    smoothie_1[i] = choice(smoothie_2)
-        return smoothie_1
-
-    def level_nine(self):
-        """Randomly selects a chosen random amount of ingredients and pretends it's 
-        a recipe- doesn't stay within it's food type"""
-        pass
-
-    def level_ten(self):
-        pass
 
 if __name__ == '__main__':
     bizarre_recipe = DangerFactor('smoothie', 8)
