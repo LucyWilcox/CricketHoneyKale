@@ -1,3 +1,7 @@
+"""
+All food network recipes that we are using a recipes objects
+"""
+
 recipe_database = ["http://www.foodnetwork.com/recipes/emeril-lagasse/vegetarian-chili-recipe.html", 
 "http://www.foodnetwork.com/recipes/paula-deen/broccoli-salad-recipe.html",
 "http://www.foodnetwork.com/recipes/trisha-yearwood/strawberry-salad-recipe.html",

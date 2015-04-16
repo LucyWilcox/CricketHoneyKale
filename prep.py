@@ -8,7 +8,7 @@ import pickle
 
 
 measurements = ['tablespoons', 'cup', 'cups', 'teaspoons', 'tablespoon', 'teaspoon', 'pinch', 'ounce', 'oz', 'pint', 'ounces', 'spoonfuls', 'large', 'small', 'pieces', 'pounds']
-blacklist = ['recommended']
+blacklist = ['recommended', 'beaten']
 
 class PrepDict(object):
 

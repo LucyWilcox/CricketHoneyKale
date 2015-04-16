@@ -35,6 +35,7 @@ class MakeWindow(Frame):
             command = lambda:self.display_recipe('soup')).pack(fill = X)
         Button(self.button_frame, text = 'Generate me a smoothie!', 
             command = lambda:self.display_recipe('smoothie')).pack(fill = X)
+        Label(self.button_frame, text = "\n\nPlease be safe. \n We are not responsible for food poisioning, allergic reactions, broken blenders, gross recipes or anything else.").pack(fill = X)
         # # Password Entry
         # Label(self.button_frame, text = '\n\nEnter a Password Below to Find Information:').pack(fill = X)
         # global entry_pw 

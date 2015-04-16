@@ -5,11 +5,12 @@ import pickle
 from database_of_recipies import Recipe
 import re
 from smoothies import smoothie_ingredients
+from dangerfactor import DangerFactor
 
 
 class RandomRecipe(object):
 	"""Creates a generated recipe. Either a salad, soup or smoothie."""
-	def __init__(self, ingredient_options, recipes, recipe_type):
+	def __init__(self, ingredient_options, recipes, recipe_type, danger = 0):
 		"""Sets first random topping as attribute 
 		also sets remaining_recipies_object as all recipes to begin with"""
 		self.recipe_type = recipe_type
@@ -17,6 +18,7 @@ class RandomRecipe(object):
 		self.ingredient_options = ingredient_options
 		self.remaining_recipies_object = recipes
 		self.error = False
+		self.danger = danger
 
 	def get_remaining_recipies(self):
 		"""Gets list of recipes that have the current toppings and sets as attribute
@@ -50,6 +52,9 @@ class RandomRecipe(object):
 			self.toppings.append(next_ingredient)
 		else:
 			self.error = True
+
+	def adjust_danger(self):
+		#
 
 	def dressing(self):
 		"""Adds a dressing if the salad is only vegtables, appends to toppings attribute"""
@@ -119,47 +124,38 @@ def make_recipe(recipe_type):
 		recipes = pickle.load(handle)
 	number_toppings = randint(3,6)
 
+	def run_cycle(recipe_name, number_toppings):
+		while len(recipe_name.toppings) < number_toppings and recipe_name.error == False:
+			recipe_name.get_remaining_recipies()
+			recipe_name.add_ingredient()
+			recipe_name.clear_recipies()
+
+		if recipe_name.recipe_type == 'soup':
+			recipe_name.add_soup_base()
+			recipe_name.add_prep()
+			recipe_name.add_instructions()
+			return recipe_name.instruction_string
+		elif recipe_type == 'salad':
+			recipe_name.dressing()
+			recipe_name.add_prep()
+			recipe_name.add_instructions()
+			return recipe_name.instruction_string
+		elif recipe_type == 'smoothie':
+			recipe_name.add_instructions()
+		 	return recipe_name.instruction_string
+
 	if recipe_type == 'soup':
-		soup1 = RandomRecipe(soup_ingredients, recipes, recipe_type)
+		created_recipe = RandomRecipe(soup_ingredients, recipes, recipe_type)
+	elif recipe_type == 'salad':
+		created_recipe = RandomRecipe(salad_ingredients, recipes, recipe_type)
+	elif recipe_type == 'smoothie':
+		created_recipe = RandomRecipe(smoothie_ingredients, recipes, recipe_type)
 
-		while len(soup1.toppings) < number_toppings and soup1.error == False:
-			soup1.get_remaining_recipies()
-			soup1.add_ingredient()
-			soup1.clear_recipies()
-
-		soup1.add_soup_base()
-		soup1.add_prep()
-		soup1.add_instructions()
-		return soup1.instruction_string
-
-	if recipe_type == 'salad':
-		salad1 = RandomRecipe(salad_ingredients, recipes, recipe_type)
-
-		while len(salad1.toppings) < number_toppings and salad1.error == False:
-			salad1.get_remaining_recipies()
-			salad1.add_ingredient()
-			#sprint salad1.remaining_recipies_object
-			#print salad1.remaining_recipies
-			salad1.clear_recipies()
-
-		salad1.dressing()
-		salad1.add_prep()
-		salad1.add_instructions()
-		return salad1.instruction_string
-
-	if recipe_type == 'smoothie':
-		smoothie1 = RandomRecipe(smoothie_ingredients, recipes, recipe_type)
-		while len(smoothie1.toppings) < number_toppings and smoothie1.error == False:
-			smoothie1.get_remaining_recipies()
-			smoothie1.add_ingredient()
-			smoothie1.clear_recipies()
-
-		smoothie1.add_instructions()
-		return smoothie1.instruction_string
+	return run_cycle(created_recipe, number_toppings)
 
 if __name__ == '__main__':
 	#recipe_type = 'smoothie'
-	#recipe_type = 'soup'
-	recipe_type = 'salad'
+	recipe_type = 'soup'
+	#recipe_type = 'salad'
 	instructions = make_recipe(recipe_type)
 	print instructions
