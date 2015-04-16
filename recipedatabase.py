@@ -216,7 +216,11 @@ recipe_database = ["http://www.foodnetwork.com/recipes/emeril-lagasse/vegetarian
 "http://www.foodnetwork.com/recipes/robin-miller/chai-tea-smoothies-recipe.html",
 "http://www.foodnetwork.com/recipes/food-network-kitchens/frozen-fruit-smoothies-recipe.html",
 "http://www.foodnetwork.com/recipes/emeril-lagasse/fresh-strawberry-milkshakes-recipe.html",
-'http://www.foodnetwork.com/recipes/paula-deen/pina-colada-smoothie-recipe.html']
+'http://www.foodnetwork.com/recipes/paula-deen/pina-colada-smoothie-recipe.html',
+'http://www.foodnetwork.com/recipes/food-network-kitchens/turkey-avocado-clubs-recipe.html',
+'http://www.foodnetwork.com/recipes/food-network-kitchens/hot-open-face-roast-beef-sandwiches-recipe2.html',
+'http://www.foodnetwork.com/recipes/tyler-florence/egg-salad-sandwich-with-avocado-and-watercress-recipe.html'
+]
 
 def remove_duplicates(values):
     output = []
