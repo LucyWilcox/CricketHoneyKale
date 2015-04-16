@@ -5,7 +5,7 @@ import pickle
 from database_of_recipies import Recipe
 import re
 from smoothies import smoothie_ingredients
-from dangerfactor import DangerFactor
+from dangerfactor import *
 
 
 class RandomRecipe(object):
@@ -54,7 +54,7 @@ class RandomRecipe(object):
 			self.error = True
 
 	def adjust_danger(self):
-		pass
+		remix_to_danger(self)
 
 	def dressing(self):
 		"""Adds a dressing if the salad is only vegtables, appends to toppings attribute"""
@@ -134,6 +134,7 @@ def make_recipe(recipe_type):
 			recipe_name.add_soup_base()
 			recipe_name.add_prep()
 			recipe_name.add_instructions()
+			recipe_name.adjust_danger()
 			return recipe_name.instruction_string
 		elif recipe_type == 'salad':
 			recipe_name.dressing()

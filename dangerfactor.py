@@ -90,6 +90,11 @@ class DangerFactor(object):
         pass
 
 
+
+def remix_to_danger(current_recipe):
+    print current_recipe.toppings
+    dangerous_recipe = DangerFactor(current_recipe, current_recipe.danger)
+
 if __name__ == '__main__':
     bizarre_recipe = DangerFactor('smoothie', 8)
     print bizarre_recipe.level_one()
