@@ -93,1150 +93,1260 @@ p46
 aS'1/2 cup '
 p47
 ag46
-asS'white wine'
+asS'dijon mustard'
 p48
 (lp49
-S'2 tablespoons '
+S'2 teaspoons '
 p50
-aS'1 cup '
+aS'1 teaspoon '
 p51
 ag50
-asS'cilantro'
+asS'white wine'
 p52
 (lp53
-S'1/4 cup '
+S'2 tablespoons '
 p54
-aS'2 tablespoons '
+aS'1 cup '
 p55
 ag54
-asS'ham'
+asS'cilantro'
 p56
 (lp57
-S'3 tablespoons '
+S'1/4 cup '
 p58
-aS'9 1 '
+aS'2 tablespoons '
 p59
 ag58
-asS'avocado'
+asS'ham'
 p60
 (lp61
-S'1 '
+S'3 tablespoons '
 p62
-aS'1 small '
+aS'9 1 '
 p63
 ag62
-asS'cayenne pepper'
+asS'avocado'
 p64
 (lp65
-S'1/2 teaspoon '
+S'1 '
 p66
-aS'1/4 teaspoon '
+aS'1 small '
 p67
 ag66
-asS'celery'
+asS'cayenne pepper'
 p68
 (lp69
-S'2 '
+S'1/2 teaspoon '
 p70
-aS'1/2 cup '
+aS'1/4 teaspoon '
 p71
 ag70
-asS'cashews'
+asS'celery'
 p72
 (lp73
-S'1/2 cup '
+S'2 '
 p74
-ag74
-asS'cranberries'
-p75
-(lp76
-S'1/4 cup '
-p77
-aS'1/2 cup one '
-p78
-ag77
-asS'orange'
-p79
-(lp80
-S'1/4 cup '
-p81
-aS'1 '
-p82
-ag81
-asS'peanuts'
-p83
-(lp84
-S'2 tablespoons '
-p85
-aS'1/4 cup '
-p86
-ag85
-asS'head cheese'
-p87
-NsS'rice'
-p88
-(lp89
-S'1 tablespoon '
-p90
-aS'4 cups '
-p91
-ag90
-asS'glass noodles'
-p92
-NsS'feta cheese'
-p93
-(lp94
-S'1 cup '
-p95
-aS'1 '
-p96
-ag95
-asS'anchovy'
-p97
-(lp98
-S'1 small '
-p99
-aS'16 '
-p100
-ag99
-asS'pecans'
-p101
-(lp102
-S'3 ounces '
-p103
 aS'1/2 cup '
-p104
-ag103
-asS'cobra eggs'
+p75
+ag74
+asS'roast beef'
+p76
+NsS'cashews'
+p77
+(lp78
+S'1/2 cup '
+p79
+ag79
+asS'butterapple cider vinegar'
+p80
+NsS'cranberries'
+p81
+(lp82
+S'1/4 cup '
+p83
+aS'1/2 cup one '
+p84
+ag83
+asS'orange'
+p85
+(lp86
+S'1/4 cup '
+p87
+aS'1 '
+p88
+ag87
+asS'peanuts'
+p89
+(lp90
+S'2 tablespoons '
+p91
+aS'1/4 cup '
+p92
+ag91
+asS'head cheese'
+p93
+NsS'rice'
+p94
+(lp95
+S'1 tablespoon '
+p96
+aS'4 cups '
+p97
+ag96
+asS'glass noodles'
+p98
+NsS'feta cheese'
+p99
+(lp100
+S'1 cup '
+p101
+aS'1 '
+p102
+ag101
+asS'anchovy'
+p103
+(lp104
+S'1 small '
 p105
-NsS'goat cheese'
+aS'16 '
 p106
-(lp107
-S'4 ounces '
-p108
-aS'1/4 cup 2 ounces '
+ag105
+asS'adobo sauce'
+p107
+(lp108
+S'1 '
 p109
-ag108
-asS'watermelon'
+ag109
+asS'pecans'
 p110
 (lp111
-S'2 cups '
+S'3 ounces '
 p112
-aS'1 1/4 cups '
+aS'1/2 cup '
 p113
 ag112
-asS'jack'
+asS'italian dressing'
 p114
-(lp115
-S'1/2 cup '
+NsS'cobra eggs'
+p115
+NsS'goat cheese'
 p116
-aS'8 2 3 ounces '
-p117
-ag116
-asS'tobasco'
+(lp117
+S'4 ounces '
 p118
-NsS'jicama'
+aS'1/4 cup 2 ounces '
 p119
-(lp120
-S'1 '
-p121
-aS'1 large '
+ag118
+asS'watermelon'
+p120
+(lp121
+S'2 cups '
 p122
-ag121
-asS'seaweed'
+aS'1 1/4 cups '
 p123
-NsS'hot mustard powder'
+ag122
+asS'jack'
 p124
-NsS'onion'
-p125
-(lp126
-S'1 '
+(lp125
+S'1/2 cup '
+p126
+aS'8 2 3 ounces '
 p127
-aS'1/2 '
+ag126
+asS'tobasco'
 p128
-ag127
-asS'thyme'
+NsS'romaine lettuce'
 p129
 (lp130
-S'1 1/2 teaspoons '
+S'1 '
 p131
-aS'1 teaspoon '
+aS'2 '
 p132
 ag131
-asS'asparagus'
+asS'jicama'
 p133
 (lp134
-S'12 ounces 1/4 1/2-inch pieces '
+S'1 '
 p135
-aS'1 1-pound ) '
+aS'1 large '
 p136
 ag135
-asS'cumin'
+asS'seaweed'
 p137
-(lp138
-S'1/2 teaspoon '
+NsS'hot mustard powder'
+p138
+NsS'onion'
 p139
-aS'1 tablespoon '
-p140
-ag139
-asS'roast'
-p141
-(lp142
-S'2 tablespoons '
-p143
-aS'1/2 cup '
-p144
-ag143
-asS'blood pudding'
-p145
-NsS'steak'
-p146
-(lp147
-S'2 8 225 '
-p148
-aS'2 tablespoons '
-p149
-ag148
-asS'rosemary'
-p150
-(lp151
+(lp140
 S'1 '
-p152
-aS'1/2 teaspoon '
+p141
+aS'1/2 '
+p142
+ag141
+asS'thyme'
+p143
+(lp144
+S'1 1/2 teaspoons '
+p145
+aS'1 teaspoon '
+p146
+ag145
+asS'asparagus'
+p147
+(lp148
+S'12 ounces 1/4 1/2-inch pieces '
+p149
+aS'1 1-pound ) '
+p150
+ag149
+asS'cumin'
+p151
+(lp152
+S'1/2 teaspoon '
 p153
-ag152
-asS'vegetable broth'
+aS'1 tablespoon '
 p154
-(lp155
-S'1/2 cup '
+ag153
+asS'caesar dressing'
+p155
+NsS'roast'
 p156
-aS'2 '
-p157
-ag156
-asS'artichoke'
+(lp157
+S'2 tablespoons '
 p158
-(lp159
-S'1 cup '
+aS'1/2 cup '
+p159
+ag158
+asS'blood pudding'
 p160
-aS'1 13 3/4-ounce ) '
+NsS'steak'
 p161
-ag160
-asS'pork'
-p162
-(lp163
-S'6 ounces '
+(lp162
+S'2 8 225 '
+p163
+aS'2 tablespoons '
 p164
-aS'3 ounces '
+ag163
+asS'rosemary'
 p165
-ag164
-asS'clams'
-p166
-(lp167
-S'2 6 '
+(lp166
+S'1 '
+p167
+aS'1/2 teaspoon '
 p168
-ag168
-asS'fish'
+ag167
+asS'vegetable broth'
 p169
 (lp170
-S'6 6-8 ounce '
+S'1/2 cup '
 p171
-ag171
-asS'bacon'
+aS'2 '
 p172
-(lp173
-S'1 '
-p174
-aS'6 pieces '
+ag171
+asS'artichoke'
+p173
+(lp174
+S'1 cup '
 p175
-ag174
-asS'pepper'
+aS'1 13 3/4-ounce ) '
 p176
-(lp177
-S'1/2 teaspoon '
-p178
-aS'1 teaspoon '
+ag175
+asS'pork'
+p177
+(lp178
+S'6 ounces '
 p179
-ag178
-asS'almonds'
+aS'3 ounces '
 p180
-(lp181
-S'1/4 cup '
-p182
-aS'2 tablespoons '
+ag179
+asS'clams'
+p181
+(lp182
+S'2 6 '
 p183
-ag182
-asS'crab meat'
+ag183
+asS'fish'
 p184
-NsS'cricket flour'
-p185
-NsS'pickled onions'
+(lp185
+S'6 6-8 ounce '
 p186
-NsS'noodles'
+ag186
+asS'bacon'
 p187
 (lp188
 S'1 '
 p189
-aS'2 '
+aS'6 pieces '
 p190
 ag189
-asS'lentils'
+asS'pepper'
 p191
 (lp192
-S'1 3/4 cups '
+S'1/2 teaspoon '
 p193
-ag193
-asS'sausage'
+aS'1 teaspoon '
 p194
-(lp195
-S'1 1/2 pounds '
-p196
-aS'1 '
+ag193
+asS'almonds'
+p195
+(lp196
+S'1/4 cup '
 p197
-ag196
-asS'honeydew'
+aS'2 tablespoons '
 p198
-(lp199
-S'2 cups '
+ag197
+asS'crab meat'
+p199
+NsS'cricket flour'
 p200
-ag200
-asS'chili powder'
+NsS'pickled onions'
 p201
-(lp202
-S'pinch '
-p203
-aS'1 tablespoon '
-p204
-ag203
-asS'jalapeno'
-p205
-(lp206
+NsS'noodles'
+p202
+(lp203
 S'1 '
-p207
-aS'1 large small '
+p204
+aS'2 '
+p205
+ag204
+asS'lentils'
+p206
+(lp207
+S'1 3/4 cups '
 p208
-ag207
-asS'chicken stock'
+ag208
+asS'sausage'
 p209
 (lp210
-S'4 cups '
+S'1 1/2 pounds '
 p211
-aS'8 cups '
+aS'1 '
 p212
 ag211
-asS'green onions'
+asS'honeydew'
 p213
 (lp214
-S'2 tablespoons '
+S'2 cups '
 p215
-aS'12 '
-p216
 ag215
-asS'elbows'
-p217
-NsS'chickpeas'
+asS'chili powder'
+p216
+(lp217
+S'pinch '
 p218
-(lp219
-S'1 15 '
+aS'1 tablespoon '
+p219
+ag218
+asS'jalapeno'
 p220
-aS'1 15 1/2-ounce ) '
-p221
-ag220
-asS'mussels'
+(lp221
+S'1 '
 p222
-NsS'pomegranate seeds'
+aS'1 large small '
 p223
-NsS'croutons'
+ag222
+asS'turkey bacon'
 p224
-(lp225
-S'1/2 cup '
-p226
-ag226
-asS'basil'
+NsS'chicken stock'
+p225
+(lp226
+S'4 cups '
 p227
-(lp228
-S'1/4 cup '
+aS'8 cups '
+p228
+ag227
+asS'worcestershire sauce'
 p229
-aS'1/2 cup '
-p230
-ag229
-asS'cloves'
+(lp230
+S'2 tablespoons 2 teaspoons '
 p231
-(lp232
-S'2 '
+aS'1 1/2 teaspoons '
+p232
+ag231
+asS'green onions'
 p233
-aS'3 '
-p234
-ag233
-asS'cantaloupe'
+(lp234
+S'2 tablespoons '
 p235
-(lp236
-S'2 cups '
+aS'12 '
+p236
+ag235
+asS'elbows'
 p237
-aS'2 cups small '
+NsS'chickpeas'
 p238
-ag237
-asS'cauliflower'
-p239
-(lp240
-S'1 1/2 1-inch pieces '
+(lp239
+S'1 15 '
+p240
+aS'1 15 1/2-ounce ) '
 p241
-aS'1 cup small '
+ag240
+asS'mussels'
 p242
-ag241
-asS'salmon'
+NsS'pomegranate seeds'
 p243
-(lp244
-S'2 cups '
-p245
-aS'4 6 1 1/2 '
+NsS'croutons'
+p244
+(lp245
+S'1/2 cup '
 p246
-ag245
-asS'corn'
+ag246
+asS'basil'
 p247
 (lp248
-S'1 '
+S'1/4 cup '
 p249
-aS'1 cup '
+aS'1/2 cup '
 p250
 ag249
-asS'walnuts'
+asS'cloves'
 p251
 (lp252
-S'1/2 cup '
+S'2 '
 p253
-aS'1/3 cup '
+aS'3 '
 p254
 ag253
-asS'water'
+asS'cantaloupe'
 p255
 (lp256
 S'2 cups '
 p257
-aS'1/4 cup '
+aS'2 cups small '
 p258
 ag257
-asS'salami'
+asS'cauliflower'
 p259
 (lp260
-S'1/2 cup 3 ounces '
+S'1 1/2 1-inch pieces '
 p261
-aS'5 ounces '
+aS'1 cup small '
 p262
 ag261
-asS'grapes'
+asS'salmon'
 p263
 (lp264
-S'1 cup '
+S'2 cups '
 p265
-aS'2 cups '
+aS'4 6 1 1/2 '
 p266
 ag265
-asS'pine nuts'
+asS'corn'
 p267
 (lp268
-S'2 tablespoons '
+S'1 '
 p269
-aS'1/4 cup '
+aS'1 cup '
 p270
 ag269
-asS'pasta'
+asS'balsamic vinegar'
 p271
 (lp272
-S'1 '
+S'2 tablespoons '
 p273
-aS'12 ounces '
+aS'3 tablespoons '
 p274
 ag273
-asS'mozzarella'
+asS'walnuts'
 p275
 (lp276
-S'1 cup '
+S'1/2 cup '
 p277
-aS'1/2 cup 4 ounces '
+aS'1/3 cup '
 p278
 ag277
-asS'dates'
+asS'water'
 p279
 (lp280
-S'12 '
+S'2 cups '
 p281
 aS'1/4 cup '
 p282
 ag281
-asS'sour cream'
+asS'salami'
 p283
 (lp284
-S'1/2 cup '
+S'1/2 cup 3 ounces '
 p285
-aS'1 cup '
+aS'5 ounces '
 p286
 ag285
-asS'snails'
+asS'grapes'
 p287
-NsS'canola oil'
-p288
-(lp289
-S'2 tablespoons '
+(lp288
+S'1 cup '
+p289
+aS'2 cups '
 p290
-aS'1/4 cup '
+ag289
+asS'pine nuts'
 p291
-ag290
-asS'baby corn'
-p292
-NsS'snow peas'
+(lp292
+S'2 tablespoons '
 p293
-NsS'garbanzo beans'
+aS'1/4 cup '
 p294
-(lp295
+ag293
+asS'pasta'
+p295
+(lp296
 S'1 '
-p296
-aS'1 15 1/2-ounce ) '
 p297
-ag296
-asS'chili sauce'
+aS'12 ounces '
 p298
-(lp299
-S'2 teaspoons '
-p300
-aS'1 1/2 teaspoons '
+ag297
+asS'mozzarella'
+p299
+(lp300
+S'1 cup '
 p301
-ag300
-asS'miracle fruit'
+aS'1/2 cup 4 ounces '
 p302
-NsS'rice noodles'
+ag301
+asS'broccolini'
 p303
-NsS'vegetable stock'
+NsS'dates'
 p304
 (lp305
-S'2 cups '
+S'12 '
 p306
-aS'1 cup '
+aS'1/4 cup '
 p307
 ag306
-asS'cinnamon'
+asS'sour cream'
 p308
 (lp309
-S'pinch '
+S'1/2 cup '
 p310
-aS'1 teaspoon '
+aS'1 cup '
 p311
 ag310
-asS'eggplant'
+asS'snails'
 p312
-(lp313
-S'1 small '
-p314
-aS'2 cups small '
-p315
-ag314
-asS'beef broth'
-p316
-(lp317
-S'2 cups '
-p318
-ag318
-asS'garlic'
-p319
-(lp320
-S'2 '
-p321
-aS'1 '
-p322
-ag321
-asS'curry'
-p323
-(lp324
-S'1 1/2 tablespoons '
-p325
-aS'1 1/2 teaspoons '
-p326
-ag325
-asS'vegetable oil'
-p327
-(lp328
+NsS'canola oil'
+p313
+(lp314
 S'2 tablespoons '
-p329
-aS'1/2 cup '
-p330
-ag329
-asS'cheese'
-p331
-(lp332
-S'1/2 cup '
-p333
+p315
 aS'1/4 cup '
+p316
+ag315
+asS'baby corn'
+p317
+NsS'potato chips'
+p318
+NsS'snow peas'
+p319
+NsS'garbanzo beans'
+p320
+(lp321
+S'1 '
+p322
+aS'1 15 1/2-ounce ) '
+p323
+ag322
+asS'chili sauce'
+p324
+(lp325
+S'2 teaspoons '
+p326
+aS'1 1/2 teaspoons '
+p327
+ag326
+asS'miracle fruit'
+p328
+NsS'rice noodles'
+p329
+NsS'vegetable stock'
+p330
+(lp331
+S'2 cups '
+p332
+aS'1 cup '
+p333
+ag332
+asS'cinnamon'
 p334
-ag333
-asS'apple'
-p335
-(lp336
-S'1 '
+(lp335
+S'pinch '
+p336
+aS'1 teaspoon '
 p337
-aS'1 tablespoon '
+ag336
+asS'eggplant'
 p338
-ag337
-asS'red onion'
-p339
-(lp340
-S'1/2 '
+(lp339
+S'1 small '
+p340
+aS'2 cups small '
 p341
-aS'1/2 cup '
+ag340
+asS'beef broth'
 p342
-ag341
-asS'tofu'
-p343
-(lp344
-S'12 ounces 8 '
+(lp343
+S'2 cups '
+p344
+ag344
+asS'garlic'
 p345
-aS'1/4 '
-p346
-ag345
-asS'mushrooms'
+(lp346
+S'2 '
 p347
-(lp348
-S'1 '
+aS'1 '
+p348
+ag347
+asS'curry'
 p349
-aS'1 1/2 pounds '
-p350
-ag349
-asS'cherry tomatoes'
+(lp350
+S'1 1/2 tablespoons '
 p351
-(lp352
-S'1/2 cup '
+aS'1 1/2 teaspoons '
+p352
+ag351
+asS'vegetable oil'
 p353
-aS'1 pint '
-p354
-ag353
-asS'brown sugar'
+(lp354
+S'2 tablespoons '
 p355
-(lp356
-S'1/4 cup '
+aS'1/2 cup '
+p356
+ag355
+asS'cheese'
 p357
-aS'2 tablespoons '
-p358
-ag357
-asS'marmite'
+(lp358
+S'1/2 cup '
 p359
-NsS'cabbage'
+aS'1/4 cup '
 p360
-(lp361
-S'1 cup '
-p362
-aS'1/2 ( 6 cups '
-p363
-ag362
-asS'lime'
-p364
-(lp365
+ag359
+asS'apple'
+p361
+(lp362
 S'1 '
-p366
-aS'2 '
+p363
+aS'1 tablespoon '
+p364
+ag363
+asS'pepperoncini'
+p365
+(lp366
+S'6 '
 p367
-ag366
-asS'turkey'
+ag367
+asS'red onion'
 p368
 (lp369
-S'1 1/4 pounds '
+S'1/2 '
 p370
-aS'1/2 cup 3 ounces '
+aS'1/2 cup '
 p371
 ag370
-asS'blue cheese'
+asS'tofu'
 p372
 (lp373
-S'1/4 cup 2 ounces '
+S'12 ounces 8 '
 p374
-aS'1/2 cup '
+aS'1/4 '
 p375
 ag374
-asS'olives'
+asS'mushrooms'
 p376
 (lp377
-S'1 cup '
+S'1 '
 p378
-aS'1/2 cup '
+aS'1 1/2 pounds '
 p379
 ag378
-asS'cheez whiz'
+asS'lettuce'
 p380
-NsS'yellow onion'
-p381
-(lp382
+(lp381
 S'1 '
+p382
+aS'2 '
 p383
-aS'1 cup '
+ag382
+asS'cherry tomatoes'
 p384
-ag383
-asS'beef'
-p385
-(lp386
-S'2 cups '
+(lp385
+S'1/2 cup '
+p386
+aS'1 pint '
 p387
-aS'1 '
+ag386
+asS'brown sugar'
 p388
-ag387
-asS'spinach'
-p389
-(lp390
-S'8 ounces '
-p391
-aS'3 cups '
-p392
-ag391
-asS'bean sprouts'
-p393
-NsS'provolone'
-p394
-(lp395
+(lp389
 S'1/4 cup '
+p390
+aS'2 tablespoons '
+p391
+ag390
+asS'marmite'
+p392
+NsS'cabbage'
+p393
+(lp394
+S'1 cup '
+p395
+aS'1/2 ( 6 cups '
 p396
-ag396
-asS'parsley'
+ag395
+asS'lime'
 p397
 (lp398
-S'2 tablespoons '
+S'1 '
 p399
-aS'1/4 cup '
+aS'2 '
 p400
 ag399
-asS'scallion'
+asS'turkey'
 p401
 (lp402
-S'2 '
+S'1 1/4 pounds '
 p403
-aS'4 '
+aS'1/2 cup 3 ounces '
 p404
 ag403
-asS'yam'
+asS'blue cheese'
 p405
 (lp406
-S'1 large small '
+S'1/4 cup 2 ounces '
 p407
-aS'2 '
+aS'1/2 cup '
 p408
 ag407
-asS'water cress'
+asS'olives'
 p409
-NsS'rasins'
-p410
-NsS'egg noodles'
+(lp410
+S'1 cup '
 p411
-(lp412
-S'1 '
+aS'1/2 cup '
+p412
+ag411
+asS'cheez whiz'
 p413
-aS'one 12-ounce '
+NsS'yellow onion'
 p414
-ag413
-asS'tortilla strips'
-p415
-(lp416
-S'1 teaspoon '
+(lp415
+S'1 '
+p416
+aS'1 cup '
 p417
-ag417
-asS'kiwi'
+ag416
+asS'beef'
 p418
 (lp419
-S'5 2 1/2 cups '
+S'2 cups '
 p420
-aS'3 '
+aS'1 '
 p421
 ag420
-asS'tomato'
+asS'spinach'
 p422
 (lp423
-S'1 '
+S'8 ounces '
 p424
-aS'2 '
+aS'3 cups '
 p425
 ag424
-asS'butternut squash'
+asS'bean sprouts'
 p426
-(lp427
-S'1 '
-p428
-aS'1 large 1 1/2 2 pounds '
+NsS'provolone'
+p427
+(lp428
+S'1/4 cup '
 p429
-ag428
-asS'crispy noodles'
+ag429
+asS'parsley'
 p430
-NsS'lima beans'
-p431
-(lp432
-S'1 1/2 pounds '
+(lp431
+S'2 tablespoons '
+p432
+aS'1/4 cup '
 p433
-aS'1 1 '
+ag432
+asS'scallion'
 p434
-ag433
-asS'peppers'
-p435
-(lp436
-S'1/4 cup '
-p437
-aS'1 cup '
-p438
-ag437
-asS'strawberries'
-p439
-(lp440
-S'2 cups '
-p441
-aS'1 cup 1 '
-p442
-ag441
-asS'liver'
-p443
-(lp444
-S'1/4 cup '
-p445
-aS'1/2 cup '
-p446
-ag445
-asS'flowers'
-p447
-NsS'tomatillos'
-p448
-NsS'bow ties'
-p449
-NsS'frog legs'
-p450
-NsS'sweet potato'
-p451
-(lp452
-S'1 large '
-p453
-aS'2 1/2 pounds 3 ) '
-p454
-ag453
-asS'white onion'
-p455
-(lp456
-S'1 small '
-p457
-ag457
-asS'sriracha'
-p458
-(lp459
-S'2 teaspoons '
-p460
-ag460
-asS'cottage cheese'
-p461
-NsS'coconut'
-p462
-(lp463
-S'2 cups '
-p464
-aS'2 tablespoons '
-p465
-ag464
-asS'sirloin'
-p466
-(lp467
-S'6 ounces '
-p468
-aS'2 8 225 '
-p469
-ag468
-asS'carrots'
-p470
-(lp471
-S'1 cup '
-p472
-aS'1/2 cup '
-p473
-ag472
-asS'cricket'
-p474
-NsS'ginger'
-p475
-(lp476
-S'1 tablespoon '
-p477
-aS'1 '
-p478
-ag477
-asS'brussel sprouts'
-p479
-NsS'sunflower seeds'
-p480
-(lp481
-S'1/4 cup '
-p482
-ag482
-asS'penne'
-p483
-(lp484
-S'1 '
-p485
-ag485
-asS'sprouts'
-p486
-(lp487
-S'1 '
-p488
-ag488
-asS'shrimp'
-p489
-(lp490
-S'1 '
-p491
-aS'32 '
-p492
-ag491
-asS'onions'
-p493
-(lp494
+(lp435
 S'2 '
-p495
-aS'1 cup '
-p496
-ag495
-asS'beef tongue'
-p497
-NsS'cream'
-p498
-(lp499
-S'1/2 cup '
-p500
-aS'1 cup '
-p501
-ag500
-asS'sesame seeds'
-p502
-(lp503
-S'3 tablespoons '
-p504
-ag504
-asS'lemon'
-p505
-(lp506
+p436
+aS'4 '
+p437
+ag436
+asS'yam'
+p438
+(lp439
+S'1 large small '
+p440
+aS'2 '
+p441
+ag440
+asS'horseradish'
+p442
+NsS'water cress'
+p443
+NsS'rasins'
+p444
+NsS'egg noodles'
+p445
+(lp446
 S'1 '
-p507
-aS'1/2 '
-p508
-ag507
-asS'mint'
-p509
-(lp510
+p447
+aS'one 12-ounce '
+p448
+ag447
+asS'tortilla strips'
+p449
+(lp450
+S'1 teaspoon '
+p451
+ag451
+asS'kiwi'
+p452
+(lp453
+S'5 2 1/2 cups '
+p454
+aS'3 '
+p455
+ag454
+asS'tomato'
+p456
+(lp457
+S'1 '
+p458
+aS'2 '
+p459
+ag458
+asS'butternut squash'
+p460
+(lp461
+S'1 '
+p462
+aS'1 large 1 1/2 2 pounds '
+p463
+ag462
+asS'crispy noodles'
+p464
+NsS'lima beans'
+p465
+(lp466
+S'1 1/2 pounds '
+p467
+aS'1 1 '
+p468
+ag467
+asS'peppers'
+p469
+(lp470
 S'1/4 cup '
+p471
+aS'1 cup '
+p472
+ag471
+asS'strawberries'
+p473
+(lp474
+S'2 cups '
+p475
+aS'1 cup 1 '
+p476
+ag475
+asS'sausages'
+p477
+NsS'liver'
+p478
+(lp479
+S'1/4 cup '
+p480
+aS'1/2 cup '
+p481
+ag480
+asS'flowers'
+p482
+NsS'tomatillos'
+p483
+NsS'honey mustard'
+p484
+NsS'Greek yogurt'
+p485
+NsS'bow ties'
+p486
+NsS'frog legs'
+p487
+NsS'sweet potato'
+p488
+(lp489
+S'1 large '
+p490
+aS'2 1/2 pounds 3 ) '
+p491
+ag490
+asS'white onion'
+p492
+(lp493
+S'1 small '
+p494
+ag494
+asS'sriracha'
+p495
+(lp496
+S'2 teaspoons '
+p497
+ag497
+asS'thousand island dressing'
+p498
+NsS'cottage cheese'
+p499
+NsS'coconut'
+p500
+(lp501
+S'2 cups '
+p502
+aS'2 tablespoons '
+p503
+ag502
+asS'sirloin'
+p504
+(lp505
+S'6 ounces '
+p506
+aS'2 8 225 '
+p507
+ag506
+asS'carrots'
+p508
+(lp509
+S'1 cup '
+p510
+aS'1/2 cup '
 p511
-aS'1 '
+ag510
+asS'cricket'
 p512
-ag511
-asS'chorizo'
+NsS'ginger'
 p513
 (lp514
-S'2 '
+S'1 tablespoon '
 p515
-aS'1/2 '
+aS'1 '
 p516
 ag515
-asS'saffron'
+asS'brussel sprouts'
 p517
-(lp518
-S'2 1/2 teaspoon '
-p519
-aS'6 8 '
+NsS'sunflower seeds'
+p518
+(lp519
+S'1/4 cup '
 p520
-ag519
-asS'mango'
+ag520
+asS'penne'
 p521
 (lp522
 S'1 '
 p523
-aS'1/2 cup '
-p524
 ag523
-asS'tomatoes'
-p525
-(lp526
-S'2 '
+asS'sprouts'
+p524
+(lp525
+S'1 '
+p526
+ag526
+asS'shrimp'
 p527
-aS'1 pint '
-p528
-ag527
-asS'zucchini'
+(lp528
+S'1 '
 p529
-(lp530
-S'1 small '
+aS'32 '
+p530
+ag529
+asS'onions'
 p531
-aS'2 '
-p532
-ag531
-asS'coconut milk'
+(lp532
+S'2 '
 p533
-(lp534
-S'1/2 cup '
+aS'1 cup '
+p534
+ag533
+asS'beef tongue'
 p535
-ag535
-asS'pumpkin seeds'
+NsS'cream'
 p536
 (lp537
 S'1/2 cup '
 p538
-aS'small 2 tablespoons '
+aS'1 cup '
 p539
 ag538
-asS'bok choy'
+asS'sesame seeds'
 p540
 (lp541
-S'1 '
+S'3 tablespoons '
 p542
-aS'1 small '
-p543
 ag542
-asS'pear'
-p544
-(lp545
+asS'lemon'
+p543
+(lp544
 S'1 '
-p546
-aS'1 1/3 cups 8 ounces '
-p547
-ag546
-asS'sweet peas'
-p548
-NsS'quinoa'
-p549
-(lp550
-S'1 3/4 cups '
-p551
-aS'1 cup '
-p552
-ag551
-asS'gorgonzola'
-p553
-(lp554
-S'2 tablespoons '
-p555
-ag555
-asS'cucumber'
-p556
-(lp557
-S'1 '
-p558
+p545
 aS'1/2 '
+p546
+ag545
+asS'mint'
+p547
+(lp548
+S'1/4 cup '
+p549
+aS'1 '
+p550
+ag549
+asS'chorizo'
+p551
+(lp552
+S'2 '
+p553
+aS'1/2 '
+p554
+ag553
+asS'saffron'
+p555
+(lp556
+S'2 1/2 teaspoon '
+p557
+aS'6 8 '
+p558
+ag557
+asS'blue cheese dressing'
 p559
-ag558
-asS'couscous'
+NsS'mango'
 p560
 (lp561
-S'1 1/2 cups '
+S'1 '
 p562
-aS'1 1-pound ) small '
+aS'1/2 cup '
 p563
 ag562
-asS'tuna'
+asS'mayonnaise'
 p564
 (lp565
-S'2 pounds '
+S'1 cup '
 p566
-aS'2 5 1/2-ounce ) ( '
+aS'1/4 cup '
 p567
 ag566
-asS'broccoli'
+asS'turkey breast'
 p568
-(lp569
-S'1 '
-p570
-aS'5 cups small '
+NsS'tomatoes'
+p569
+(lp570
+S'2 '
 p571
-ag570
-asS'butter'
+aS'1 pint '
 p572
-(lp573
-S'3 tablespoons '
-p574
-aS'1 tablespoon '
-p575
-ag574
-asS'radishes'
-p576
-(lp577
+ag571
+asS'zucchini'
+p573
+(lp574
 S'1 small '
-p578
-aS'12 ounces '
+p575
+aS'2 '
+p576
+ag575
+asS'lime juice'
+p577
+(lp578
+S'2 tablespoons '
 p579
-ag578
-asS'spaghetti squash'
+aS'1 tablespoon '
 p580
-NsS'black eye peas'
+ag579
+asS'coconut milk'
 p581
-NsS'beets'
-p582
-(lp583
-S'6 '
+(lp582
+S'1/2 cup '
+p583
+ag583
+asS'pumpkin seeds'
 p584
-aS'8 '
-p585
-ag584
-asS'potato'
+(lp585
+S'1/2 cup '
 p586
-(lp587
-S'1 large '
+aS'small 2 tablespoons '
+p587
+ag586
+asS'bok choy'
 p588
-aS'1 large small '
-p589
-ag588
-asS'soy sauce'
+(lp589
+S'1 '
 p590
-(lp591
-S'1 tablespoon '
+aS'1 small '
+p591
+ag590
+asS'pear'
 p592
-aS'4 tablespoons '
-p593
-ag592
-asS'jalapenos'
+(lp593
+S'1 '
 p594
-(lp595
-S'3 tablespoons '
+aS'1 1/3 cups 8 ounces '
+p595
+ag594
+asS'chorizo sausages'
 p596
-aS'8 '
+NsS'sweet peas'
 p597
-ag596
-asS'black beans'
+NsS'quinoa'
 p598
 (lp599
-S'1 '
+S'1 3/4 cups '
 p600
-aS'1 14 ounces '
+aS'1 cup '
 p601
 ag600
-asS'beef stock'
+asS'gorgonzola'
 p602
 (lp603
-S'2 cups '
+S'2 tablespoons '
 p604
 ag604
-asS'pineapple'
+asS'cucumber'
 p605
 (lp606
-S'1 cup '
+S'1 '
 p607
-aS'1 cup large '
+aS'1/2 '
 p608
 ag607
-asS'chicken broth'
+asS'couscous'
 p609
 (lp610
-S'4 cups '
+S'1 1/2 cups '
 p611
-aS'2 cups '
+aS'1 1-pound ) small '
 p612
 ag611
-asS'red wine'
+asS'tuna'
 p613
 (lp614
-S'2 tablespoons '
+S'2 pounds '
 p615
-aS'3 tablespoons '
+aS'2 5 1/2-ounce ) ( '
 p616
 ag615
-asS'egg'
+asS'watercress'
 p617
-(lp618
+NsS'broccoli'
+p618
+(lp619
 S'1 '
-p619
-aS'2 large '
 p620
-ag619
+aS'5 cups small '
+p621
+ag620
+asS'butter'
+p622
+(lp623
+S'3 tablespoons '
+p624
+aS'1 tablespoon '
+p625
+ag624
+asS'radishes'
+p626
+(lp627
+S'1 small '
+p628
+aS'12 ounces '
+p629
+ag628
+asS'spaghetti squash'
+p630
+NsS'black eye peas'
+p631
+NsS'beets'
+p632
+(lp633
+S'6 '
+p634
+aS'8 '
+p635
+ag634
+asS'potato'
+p636
+(lp637
+S'1 large '
+p638
+aS'1 large small '
+p639
+ag638
+asS'ranch'
+p640
+(lp641
+S'1 '
+p642
+aS'1/2 cup '
+p643
+ag642
+asS'soy sauce'
+p644
+(lp645
+S'1 tablespoon '
+p646
+aS'4 tablespoons '
+p647
+ag646
+asS'jalapenos'
+p648
+(lp649
+S'3 tablespoons '
+p650
+aS'8 '
+p651
+ag650
+asS'potatoesspaghetti squash'
+p652
+NsS'black beans'
+p653
+(lp654
+S'1 '
+p655
+aS'1 14 ounces '
+p656
+ag655
+asS'beef stock'
+p657
+(lp658
+S'2 cups '
+p659
+ag659
+asS'pineapple'
+p660
+(lp661
+S'1 cup '
+p662
+aS'1 cup large '
+p663
+ag662
+asS'chicken broth'
+p664
+(lp665
+S'4 cups '
+p666
+aS'2 cups '
+p667
+ag666
+asS'red wine'
+p668
+(lp669
+S'2 tablespoons '
+p670
+aS'3 tablespoons '
+p671
+ag670
+asS'egg'
+p672
+(lp673
+S'1 '
+p674
+aS'2 large '
+p675
+ag674
 as.

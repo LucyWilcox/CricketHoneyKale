@@ -3,6 +3,7 @@ from soupingredientsstandard import soup_ingredients, base
 from random import choice, randint
 import pickle
 from database_of_recipies import Recipe
+from sandwich_ingredients import sandwich_ingredients
 import re
 from smoothies import smoothie_ingredients
 from dangerfactor import *
@@ -162,7 +163,7 @@ def make_recipe(recipe_type, danger_level):
 	elif recipe_type == 'smoothie':
 		created_recipe = RandomRecipe(smoothie_ingredients, recipes, recipe_type, danger_level)
 	elif recipe_type == 'sandwich':
-		created_recipe = RandomRecipe(salad_ingredients, recipes, recipe_type, danger_level)
+		created_recipe = RandomRecipe(sandwich_ingredients, recipes, recipe_type, danger_level)
 
 	return run_cycle(created_recipe, number_toppings)
 
