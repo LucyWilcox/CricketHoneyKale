@@ -140,25 +140,27 @@ def make_recipe(recipe_type):
 			return recipe_name.instruction_string
 		elif recipe_type == 'salad':
 			recipe_name.dressing()
+			recipe_name.adjust_danger()
 			recipe_name.add_prep()
 			recipe_name.add_instructions()
 			return recipe_name.instruction_string
 		elif recipe_type == 'smoothie':
+			recipe_name.adjust_danger()
 			recipe_name.add_instructions()
 		 	return recipe_name.instruction_string
 
 	if recipe_type == 'soup':
-		created_recipe = RandomRecipe(soup_ingredients, recipes, recipe_type, 2)
+		created_recipe = RandomRecipe(soup_ingredients, recipes, recipe_type, 4)
 	elif recipe_type == 'salad':
-		created_recipe = RandomRecipe(salad_ingredients, recipes, recipe_type,2)
+		created_recipe = RandomRecipe(salad_ingredients, recipes, recipe_type,4)
 	elif recipe_type == 'smoothie':
-		created_recipe = RandomRecipe(smoothie_ingredients, recipes, recipe_type, 0)
+		created_recipe = RandomRecipe(smoothie_ingredients, recipes, recipe_type, 5)
 
 	return run_cycle(created_recipe, number_toppings)
 
 if __name__ == '__main__':
-	#recipe_type = 'smoothie'
+	recipe_type = 'smoothie'
 	#recipe_type = 'salad'
-	recipe_type = 'soup'
+	#recipe_type = 'soup'
 	instructions = make_recipe(recipe_type)
 	print instructions
