@@ -44,7 +44,6 @@ class MakeWindow(Frame):
 
     def display_recipe(self, want_to_cook):
         recipe_directions = make_recipe(want_to_cook)
-        print recipe_directions
         see = Label(self.button_frame, text = recipe_directions).pack(fill = X)
 
 if __name__ == '__main__':
