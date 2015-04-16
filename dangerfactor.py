@@ -21,6 +21,11 @@ class Danger_Factor(object):
 		self.danger_level = danger_level
 
 	def level_one(self, food_type):
+		"""Picks a random url and gets the ingredients and instructions. No 
+		extra code needed"""
+		pass
+
+	def level_two(self, food_type):
 		"""Calls the makerecipe() function of salad.py twice to make two recipes. 
 		If after comparing the two, it finds any similarities, it replaces the 
 		similarities with random parts of the other recipe. 
@@ -61,8 +66,8 @@ class Danger_Factor(object):
 		# 			second_remix[j] = choice(first_remix)
 		# return first_remix, second_remix
 
-	def level_two(self, food_type):
-		"""Replaces any similar ingredients of 2 recipes of the same food type with
+	def level_three(self, food_type):
+			"""Replaces any similar ingredients of 2 recipes of the same food type with
 		random choices between the three. If there are no similarities, it 
 		replaces random ones with random NEW types of ingredients"""
 		first_recipe= make_recipe(food_type)
@@ -75,8 +80,32 @@ class Danger_Factor(object):
 					first_remix = first_recipe
 					second_remix = second_recipe
 
-				
+	def level_four(self, food_type):
+		"""Introduces another random ingredient of it's same food_type"""
+		pass
 
+	def level_five(self, food_type):
+		"""Replaces half of the ingredients with new ones- brand new, no swapping"""
+		pass
+
+	def level_six(self, food_type):
+		pass
+
+	def level_seven(self, food_type):
+		pass
+
+	def level_eight(self, food_type):
+		"""Randomly selects a chosen random amount of ingredients and pretends it's a recipe
+		- stays within it's food type"""
+		pass
+
+	def level_nine(self, food_type):
+		"""Randomly selects a chosen random amount of ingredients and pretends it's 
+		a recipe- doesn't stay within it's food type"""
+		pass
+
+	def level_ten(self, food_type):
+		pass
 
 if __name__ == '__main__':
 	Bizarre_recipe = Danger_Factor('smoothie', 1)
