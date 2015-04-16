@@ -38,9 +38,10 @@ class MakeWindow(Frame):
         saladbutt.pack(side=LEFT)
         soupbutt.pack(side=LEFT)
         smoothiebutt.pack(side=LEFT)
+    
     def instructions(self):
         instruct = Label(self.button_frame, text = "\n\nPlease be safe. \n We are not responsible for food poisioning, allergic reactions, broken blenders, gross recipes or anything else.")
-        instruct.pack(fill = X)
+        instruct.pack()
         # # Password Entryb
         # Label(self.button_frame, text = '\n\nEnter a Password Below to Find Information:').pack(fill = X)
         # global entry_pw 
