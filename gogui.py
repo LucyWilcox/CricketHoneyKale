@@ -15,11 +15,12 @@ class MakeWindow(Frame):
         # Initialize GUI & frame
         self.master = master
         self.button_frame = Frame(self.master, width = 400, height = 400, colormap = 'new')
+        
         self.add_button()
         self.instructions()
-        self.button_frame.pack(fill = X)
+        self.button_frame.pack()
         # For calling premade bokeh graphs
-        self.current_directory = 'file://' + sys.argv[0]
+        #self.current_directory = 'file://' + sys.argv[0]
 
 
     def add_button(self):
@@ -41,7 +42,7 @@ class MakeWindow(Frame):
     
     def instructions(self):
         instruct = Label(self.button_frame, text = "\n\nPlease be safe. \n We are not responsible for food poisioning, allergic reactions, broken blenders, gross recipes or anything else.")
-        instruct.pack()
+        instruct.pack(side=LEFT)
         # # Password Entryb
         # Label(self.button_frame, text = '\n\nEnter a Password Below to Find Information:').pack(fill = X)
         # global entry_pw 
