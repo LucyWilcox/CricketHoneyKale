@@ -53,6 +53,9 @@ class DangerFactor(object):
         if self.current_recipe.recipe_type == 'salad':
             new_ingredient = choice(salad_ingredients)
             self.current_recipe.toppings[swap_spot] = new_ingredient
+        if self.current_recipe.recipe_type == 'sandwich':
+            new_ingredient = choice(sandwich_ingredients)
+            self.current_recipe.toppings[swap_spot] = new_ingredient
         self.new_ingredients = self.current_recipe.toppings
 
     def level_two(self):
@@ -79,6 +82,9 @@ class DangerFactor(object):
             self.current_recipe.toppings[swap_spot_1] = new_ingredient
         if self.current_recipe.recipe_type == 'salad':
             new_ingredient = choice(salad_ingredients)
+            self.current_recipe.toppings[swap_spot_1] = new_ingredient
+        if self.current_recipe.recipe_type == 'sandwich':
+            new_ingredient = choice(sandwich_ingredients)
             self.current_recipe.toppings[swap_spot_1] = new_ingredient
         self.current_recipe.toppings[swap_spot_2] = choice(danger_ingredients)
         self.new_ingredients = self.current_recipe.toppings
