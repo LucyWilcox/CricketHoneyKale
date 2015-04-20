@@ -6,35 +6,46 @@ class Application(tk.Frame):
     def __init__(self, master=None):
         tk.Frame.__init__(self, master)
         self.grid()  
-        #self.master = master
-        #self.button_grid.grid()
+        self.master = master
         
         self.createWidgets()
-        self.placeWidgets()
+        #self.display_recipe()
+        #self.placeWidgets()
  
     def createWidgets(self):
-        tk.Label(self.master, text="First").grid(row=0)
-        tk.Label(self.master, text="Second").grid(row=1)
-        tk.Label(self.master, text= "logan").grid()
+        soup = tk.Button(self.master, text = 'Generate me a soup!', command = lambda:self.display_recipe('soup'))
+        salad = tk.Button(self.master, text = 'Generate me a salad!', command = lambda:self.display_recipe('salad'))
+        smoothie = tk.Button(self.master, text = 'Generate me a smoothie!', command = lambda:self.display_recipe('smoothie'))
+        sandwich = tk.Button(self.master, text = 'Generate me a salad!', command = lambda:self.display_recipe('sandwich'))
 
-        e1 = tk.Entry(self.master)
-        e2 = tk.Entry(self.master)
+        feedback = tk.Label(self.master, text = " A CricketHoneyKale creation by Lucy Wilcox, Lisa Hachmann, and Logan Sweet \n Please direct all negative feedback to byron.wasti@students.olin.edu")
+        title = tk.Label(self.master, text = "Let's Cook Something!!")
+        quit = tk.Button(self.master, text='Quit',command=self.quit)
+        disclaimer = tk.Label(self.master, text = "\n\nPlease be safe. \n We are not responsible for food poisioning, allergic reactions, broken blenders, gross recipes or anything else.")
+        #danger = tk.Scale(self.master, from_=0, to=5)
+        danger = tk.Spinbox(self.master, from_=0, to=5)
+        #danger = tk.Scrollbar(self.master)
 
-        salad = tk.Button( XXXXXXXX , text = 'Generate me a salad!',command = lambda:self.display_recipe('salad'))
+        feedback.grid(row=5,column=0,columnspan=4, pady=20)
+        title.grid(row=0, column=1, padx=20, columnspan=2)
+        quit.grid(row=0, column=3, padx=20, pady=30)
+        disclaimer.grid(row=4,column=0,columnspan=4)
+        danger.grid(row=3,column=1,columnspan=2, pady=30)
 
-        # feedback.grid(row=1, column=1)
-        # title.grid(row=1, column=1)
-        # quit.grid(row=1, column=1)
-        # soup.grid(row=1, column=1)
-        salad.grid(row=1, column=1)
-        # smoothie.grid(row=1, column=1)
-        # danger.grid(row=1, column=1)
-        # disclaimer.grid(row=1, column=1)
+        soup.grid(row=1,column=0, padx=20)
+        salad.grid(row=1,column=1, padx=20)
+        smoothie.grid(row=1,column=2, padx=20)
+        sandwich.grid(row=1,column=3, padx=20)
+
+        # tk.Label(self.master, text="First").grid(row=0, column=0)
+        # tk.Label(self.master, text="Second").grid(row=1, column=2)
+        # tk.Label(self.master, text= "logan").grid()
+
+    def display_recipe(self, want_to_cook):
+        recipe_directions = make_recipe(want_to_cook)
+        see = tk.Label(self.master, text = recipe_directions).grid
 
 
-    def placeWidgets(createWidgets):
-        pass
-        
 root = tk.Tk()
 app = Application(root)
 app.master.title('I hope this works')
@@ -42,10 +53,12 @@ root.mainloop()
 
 
 
+ 
 
-# import Tkinter
-# root = Tkinter.Tk(  )
-# for r in range(3):
-#     for c in range(4):
-#         Tkinter.Label(root, text='R%s/C%s'%(r,c),borderwidth=1 ).grid(row=r,column=c)
-# root.mainloop(  )
+
+# if __name__ == '__main__':
+#     root = Tk
+#     #app.master.title('I hope this works')
+#     ex = Application(root)
+#     root.mainloop()
+
