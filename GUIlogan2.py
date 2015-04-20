@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 import Tkinter as tk  
 from salad import *
+
+## Some of thee buttons are having issues connecting
+## The danger scale needs to be connected to the code
+## Maybe put disclaimer in a different window? 
+##
  
 class Application(tk.Frame):
     def __init__(self, master=None):
