@@ -32,9 +32,12 @@ class MakeWindow(Frame):
         # Common Information Buttons
         Label(self.button_frame, text = "\n\nLets eat something:").pack()
         
-        saladbutt = Button(self.button_frame, text = 'Generate me a salad!',command = lambda:self.display_recipe('salad'))
-        soupbutt = Button(self.button_frame, text = 'Generate me a soup!',command = lambda:self.display_recipe('soup'))
-        smoothiebutt = Button(self.button_frame, text = 'Generate me a smoothie!',command = lambda:self.display_recipe('smoothie'))
+        saladbutt = Button(self.button_frame, text = 'Generate me a salad!',
+                command = lambda:self.display_recipe('salad'))
+        soupbutt = Button(self.button_frame, text = 'Generate me a soup!',
+                command = lambda:self.display_recipe('soup'))
+        smoothiebutt = Button(self.button_frame, text = 'Generate me a smoothie!',
+                command = lambda:self.display_recipe('smoothie'))
         
         saladbutt.pack(side=LEFT)
         soupbutt.pack(side=LEFT)
