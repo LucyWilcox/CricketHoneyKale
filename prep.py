@@ -1,5 +1,7 @@
 from saladtoppings import salad_ingredients
 from soupingredientsstandard import soup_ingredients
+from dangerdanger import danger_ingredients
+from sandwich_ingredients import sandwich_ingredients
 from database_of_recipies import *
 import nltk
 import re
@@ -8,7 +10,7 @@ import pickle
 
 
 measurements = ['tablespoons', 'cup', 'cups', 'teaspoons', 'tablespoon', 'teaspoon', 'pinch', 'ounce', 'oz', 'pint', 'ounces', 'spoonfuls', 'large', 'small', 'pieces', 'pounds']
-blacklist = ['recommended', 'beaten']
+blacklist = ['recommended', 'beaten', 'frozen', 'red', 'kitchen']
 
 class PrepDict(object):
 
@@ -111,7 +113,7 @@ def remove_duplicates(values):
 if __name__ == '__main__':
 	with open('themrecipies.pickle', 'rb') as handle:
 		recipes = pickle.load(handle)
-	all_ingredients = salad_ingredients + soup_ingredients
+	all_ingredients = salad_ingredients + soup_ingredients + danger_ingredients +  sandwich_ingredients
 	culled_ingredients = remove_duplicates(all_ingredients)
 	verbs = PrepDict(recipes, culled_ingredients, 'methoddict.pickle', ['VBN'])
 	verbs.get_raw_list()
