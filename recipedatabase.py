@@ -219,7 +219,29 @@ recipe_database = ["http://www.foodnetwork.com/recipes/emeril-lagasse/vegetarian
 'http://www.foodnetwork.com/recipes/paula-deen/pina-colada-smoothie-recipe.html',
 'http://www.foodnetwork.com/recipes/food-network-kitchens/turkey-avocado-clubs-recipe.html',
 'http://www.foodnetwork.com/recipes/food-network-kitchens/hot-open-face-roast-beef-sandwiches-recipe2.html',
-'http://www.foodnetwork.com/recipes/tyler-florence/egg-salad-sandwich-with-avocado-and-watercress-recipe.html'
+'http://www.foodnetwork.com/recipes/tyler-florence/egg-salad-sandwich-with-avocado-and-watercress-recipe.html',
+'http://www.foodnetwork.com/recipes/paula-deen/chicken-stir-fry-recipe.html',
+'http://www.foodnetwork.com/recipes/orange-chicken-stir-fry-recipe.html',
+'http://www.foodnetwork.com/recipes/classic-bean-sprout-stir-fry-recipe.html',
+'http://www.foodnetwork.com/recipes/food-network-kitchens/pork-and-noodle-stir-fry-recipe.html',
+'http://www.foodnetwork.com/recipes/spicy-szechuan-stir-fry-recipe.html',
+'http://www.foodnetwork.com/recipes/food-network-kitchens/spicy-beef-stir-fry-recipe.html',
+'http://www.foodnetwork.com/recipes/food-network-kitchens/asparagus-and-chicken-stir-fry-recipe.html',
+'http://www.foodnetwork.com/recipes/tyler-florence/szechwan-eggplant-stir-fry-recipe.html',
+'http://www.foodnetwork.com/recipes/food-network-kitchens/chicken-and-broccoli-stir-fry-recipe.html',
+'http://www.foodnetwork.com/recipes/ellie-krieger/stir-fry-cabbage-recipe.html',
+'http://www.foodnetwork.com/recipes/ree-drummond/shrimp-stir-fry.html',
+'http://www.foodnetwork.com/recipes/tyler-florence/chicken-stir-fry-recipe.html',
+'http://www.foodnetwork.com/recipes/ree-drummond/spicy-cauliflower-stir-fry.html',
+'http://www.foodnetwork.com/recipes/food-network-kitchens/beef-and-mushroom-stir-fry-recipe.html',
+'http://www.foodnetwork.com/recipes/sunny-anderson/green-bean-stir-fry-recipe.html',
+'http://www.foodnetwork.com/recipes/teriyaki-salmon-stir-fry-recipe.html',
+'http://www.foodnetwork.com/recipes/ree-drummond/butternut-squash-and-kale-stir-fry.html',
+'http://www.foodnetwork.com/recipes/food-network-kitchens/spicy-turkey-and-green-bean-stir-fry-recipe.html',
+'http://www.foodnetwork.com/recipes/vegetable-stir-fry-recipe0.html',
+'http://www.foodnetwork.com/recipes/guy-fieri/kimchi-and-tenderloin-stir-fry-recipe.html',
+'http://www.foodnetwork.com/recipes/ellie-krieger/emerald-stir-fry-with-beef-recipe2.html',
+'http://www.foodnetwork.com/recipes/food-network-kitchens/tofu-and-peanut-stir-fry-recipe.html'
 ]
 
 def remove_duplicates(values):
