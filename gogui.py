@@ -40,6 +40,8 @@ class MakeWindow(Frame):
         smoothiebutt = Button(self.button_frame, text = 'Generate me a smoothie!',
                 command = lambda:self.display_recipe('smoothie'))
 
+
+
         Label(self.button_frame, text = '\n\nHow Dangerous Are You?:').pack(fill = X)
         global selected_danger
         selected_danger = Entry(self.button_frame)
