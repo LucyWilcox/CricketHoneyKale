@@ -43,6 +43,7 @@ class DangerFactor(object):
         self.new_ingredients = self.current_recipe.toppings
 
 
+
     def level_one(self):
         """Swaps one ingredient with a random choice within food_type"""
         swap_spot = randint(0,len(self.current_recipe.toppings)-1)
