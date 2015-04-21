@@ -2,10 +2,6 @@
 import Tkinter as tk  
 from salad import *
 
-global recipe_directions 
-recipe_directions = 'poop'
-print recipe_directions
-
 ## Some of thee buttons are having issues connecting
 ## The danger scale needs to be connected to the code
 ## Maybe put disclaimer in a different window? 
@@ -52,8 +48,13 @@ class Application(tk.Frame):
         quit.grid(row=0, column=3, padx=20, pady=30)
           
     def display_recipe(self, want_to_cook):
+        instructions = tk.Label(self.master, text = " ")
+        #instructions.grid(row=4, column=0, columnspan=4, pady=75)
+
+        instructions.grid_remove()
+        
         recipe_directions = make_recipe(want_to_cook, 2)
-        print recipe_directions
+        #print recipe_directions
        
         instructions = tk.Label(self.master, text = recipe_directions)
         instructions.grid(row=4, column=0, columnspan=4, pady=75)
@@ -65,12 +66,14 @@ class Application(tk.Frame):
         # global yourdanger
         # yourdanger = Entry(self.master)
         # print yourdanger
+   
 
 
     def run(self):
         self.foodbuttons()
         self.words()
         self.quitButton()
+      
        
 
 root = tk.Tk()
