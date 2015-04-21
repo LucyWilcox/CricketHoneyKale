@@ -12,16 +12,15 @@ class Application(tk.Frame):
         tk.Frame.__init__(self, master)
         self.grid()  
         self.master = master
-        
         self.createWidgets()
-        #self.display_recipe()
+        self.display_recipe(2)
         #self.placeWidgets()
  
     def createWidgets(self):
         soup = tk.Button(self.master, text = 'Generate me a soup!', command = lambda:self.display_recipe('soup'))
         salad = tk.Button(self.master, text = 'Generate me a salad!', command = lambda:self.display_recipe('salad'))
         smoothie = tk.Button(self.master, text = 'Generate me a smoothie!', command = lambda:self.display_recipe('smoothie'))
-        sandwich = tk.Button(self.master, text = 'Generate me a salad!', command = lambda:self.display_recipe('sandwich'))
+        sandwich = tk.Button(self.master, text = 'Generate me a sandwich!', command = lambda:self.display_recipe('sandwich'))
 
         feedback = tk.Label(self.master, text = " A CricketHoneyKale creation by Lucy Wilcox, Lisa Hachmann, and Logan Sweet \n Please direct all negative feedback to byron.wasti@students.olin.edu")
         title = tk.Label(self.master, text = "Let's Cook Something!!")
@@ -42,14 +41,11 @@ class Application(tk.Frame):
         smoothie.grid(row=1,column=2, padx=20)
         sandwich.grid(row=1,column=3, padx=20)
 
-        # tk.Label(self.master, text="First").grid(row=0, column=0)
-        # tk.Label(self.master, text="Second").grid(row=1, column=2)
-        # tk.Label(self.master, text= "logan").grid()
 
     def display_recipe(self, want_to_cook):
-        recipe_directions = make_recipe(want_to_cook)
-        see = tk.Label(self.master, text = recipe_directions).grid
-
+        recipe_directions = make_recipe(want_to_cook, 2)
+        return recipe_directions
+        # see = tk.Label(self.master, text = recipe_name.instruction_string).grid
 
 root = tk.Tk()
 app = Application(root)
@@ -57,13 +53,8 @@ app.master.title('I hope this works')
 root.mainloop()
 
 
-
- 
-
-
 # if __name__ == '__main__':
 #     root = Tk
 #     #app.master.title('I hope this works')
 #     ex = Application(root)
 #     root.mainloop()
-
