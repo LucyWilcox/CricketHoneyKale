@@ -14,8 +14,9 @@ class MakeWindow(Frame):
             add_button method"""
         # Initialize GUI & frame
         self.master = master
-        self.button_frame = Frame(self.master, width = 400, height = 400, colormap = 'new')
-        
+        self.button_frame = Frame(self.master)
+        master.minsize(width = 500, height = 400)
+        master.maxsize(width = 500, height = 400)
         self.add_button()
         self.instructions()
         self.button_frame.pack()
@@ -38,26 +39,30 @@ class MakeWindow(Frame):
                 command = lambda:self.display_recipe('soup'))
         smoothiebutt = Button(self.button_frame, text = 'Generate me a smoothie!',
                 command = lambda:self.display_recipe('smoothie'))
-        
-        saladbutt.pack(side=LEFT)
-        soupbutt.pack(side=LEFT)
-        smoothiebutt.pack(side=LEFT)
+
+        Label(self.button_frame, text = '\n\nHow Dangerous Are You?:').pack(fill = X)
+        global selected_danger
+        selected_danger = Entry(self.button_frame)
+        selected_danger.pack(expand = 2)
+
+        saladbutt.pack(expand = 2)
+        soupbutt.pack(expand = 2)
+        smoothiebutt.pack(expand = 2)
     
     def instructions(self):
-        instruct = Label(self.button_frame, text = "\n\nPlease be safe. \n We are not responsible for food poisioning, allergic reactions, broken blenders, gross recipes or anything else.")
-        instruct.pack(side=LEFT)
-        # # Password Entryb
-        # Label(self.button_frame, text = '\n\nEnter a Password Below to Find Information:').pack(fill = X)
-        # global entry_pw 
-        # entry_pw = Entry(self.button_frame)
-        # entry_pw.pack(fill = X)
+        instruct = Label(self.button_frame, text = "\n\nPlease be safe. \n We are not responsible for food poisioning, allergic \n reactions, broken blenders, gross recipes or anything else.")
+        instruct.pack(expand = 2)
 
 
     def display_recipe(self, want_to_cook):
-        recipe_directions = make_recipe(want_to_cook)
-        see = Label(self.button_frame, text = recipe_directions).pack(fill = X)
+        sel_danger = selected_danger.get()
+        print sel_danger
+        recipe_directions = make_recipe(want_to_cook, sel_danger)
+        
+        see = Label(self.button_frame, text = "\n" + recipe_directions).pack(fill=BOTH)
 
 if __name__ == '__main__':
     root = Tk()
     ex = MakeWindow(root)
+    root.resizable(width=FALSE, height=FALSE)
     root.mainloop() 

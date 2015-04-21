@@ -23,8 +23,9 @@ class DangerFactor(object):
     def __init__(self, current_recipe):
         """Basically selects the correct the danger level to run"""
         self.current_recipe = current_recipe
-        self.danger_level = current_recipe.danger
+        self.danger_level = int(current_recipe.danger)
         if self.danger_level == 0:
+            print "t"
             self.level_zero()
         elif self.danger_level == 1:
             self.level_one()
@@ -40,6 +41,7 @@ class DangerFactor(object):
     def level_zero(self):
         """Just sets the new_ingredients to the old because there should be no change"""
         self.new_ingredients = self.current_recipe.toppings
+
 
     def level_one(self):
         """Swaps one ingredient with a random choice within food_type"""
