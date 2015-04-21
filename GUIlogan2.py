@@ -13,7 +13,6 @@ class Application(tk.Frame):
         self.grid()  
         self.master = master
         self.createWidgets()
-        self.display_recipe(2)
         #self.placeWidgets()
  
     def createWidgets(self):
@@ -30,16 +29,21 @@ class Application(tk.Frame):
         danger = tk.Spinbox(self.master, from_=0, to=5)
         #danger = tk.Scrollbar(self.master)
 
-        feedback.grid(row=5,column=0,columnspan=4, pady=20)
-        title.grid(row=0, column=1, padx=20, columnspan=2)
-        quit.grid(row=0, column=3, padx=20, pady=30)
-        disclaimer.grid(row=4,column=0,columnspan=4)
-        danger.grid(row=3,column=1,columnspan=2, pady=30)
+        
 
-        soup.grid(row=1,column=0, padx=20)
-        salad.grid(row=1,column=1, padx=20)
-        smoothie.grid(row=1,column=2, padx=20)
-        sandwich.grid(row=1,column=3, padx=20)
+        def placeWidgets():
+            feedback.grid(row=5,column=0,columnspan=4, pady=20)
+            title.grid(row=0, column=1, padx=20, columnspan=2)
+            quit.grid(row=0, column=3, padx=20, pady=30)
+            disclaimer.grid(row=4,column=0,columnspan=4)
+            danger.grid(row=3,column=1,columnspan=2, pady=30)
+
+            soup.grid(row=1,column=0, padx=20)
+            salad.grid(row=1,column=1, padx=20)
+            smoothie.grid(row=1,column=2, padx=20)
+            sandwich.grid(row=1,column=3, padx=20)
+
+        placeWidgets()
 
 
     def display_recipe(self, want_to_cook):
