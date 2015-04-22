@@ -12,49 +12,69 @@ class Application(tk.Frame):
         tk.Frame.__init__(self, master)
         self.grid()  
         self.master = master
-        self.createWidgets()
+        self.run()
         #self.placeWidgets()
  
-    def createWidgets(self):
+
+
+
+
+    def foodbuttons(self):
+        # recipe_directions.grid_forget()
         soup = tk.Button(self.master, text = 'Generate me a soup!', command = lambda:self.display_recipe('soup'))
         salad = tk.Button(self.master, text = 'Generate me a salad!', command = lambda:self.display_recipe('salad'))
         smoothie = tk.Button(self.master, text = 'Generate me a smoothie!', command = lambda:self.display_recipe('smoothie'))
         sandwich = tk.Button(self.master, text = 'Generate me a sandwich!', command = lambda:self.display_recipe('sandwich'))
 
-        feedback = tk.Label(self.master, text = " A CricketHoneyKale creation by Lucy Wilcox, Lisa Hachmann, and Logan Sweet \n Please direct all negative feedback to byron.wasti@students.olin.edu")
+        soup.grid(row=1,column=0, padx=20)
+        salad.grid(row=1,column=1, padx=20)
+        smoothie.grid(row=1,column=2, padx=20)
+        sandwich.grid(row=1,column=3, padx=20)
+
+
+    def words(self):
+        feedback = tk.Label(self.master, text = " A CricketHoneyKale creation by Lucy Wilcox, Lisa Hachmann, and Logan Sweet. Please direct all negative feedback to byron.wasti@students.olin.edu")
         title = tk.Label(self.master, text = "Let's Cook Something!!")
-        quit = tk.Button(self.master, text='Quit',command=self.quit)
-        disclaimer = tk.Label(self.master, text = "\n\nPlease be safe. \n We are not responsible for food poisioning, allergic reactions, broken blenders, gross recipes or anything else.")
-        #danger = tk.Scale(self.master, from_=0, to=5)
-        danger = tk.Spinbox(self.master, from_=0, to=5)
-        #danger = tk.Scrollbar(self.master)
-        instructions = tk.Label(self.master, text = 'INSTRUCTIONS GO HERE OR SOMETHING')
         bottom = tk.Label(self.master, text = ' ')
+        disclaimer = tk.Label(self.master, text = "\n\nPlease be safe. \n We are not responsible for food poisioning, allergic reactions, broken blenders, gross recipes or anything else.")
 
-        
+        feedback.grid(row=6,column=0,columnspan=4, pady=0)
+        title.grid(row=0, column=1, padx=20, columnspan=2)
+        disclaimer.grid(row=5,column=0,columnspan=4, pady=10)
+        #bottom.grid(row = 7, pady = 15)
 
-        def placeWidgets():
-            feedback.grid(row=6,column=0,columnspan=4, pady=20)
-            title.grid(row=0, column=1, padx=20, columnspan=2)
-            quit.grid(row=0, column=3, padx=20, pady=30)
-            disclaimer.grid(row=5,column=0,columnspan=4)
-            danger.grid(row=3,column=1,columnspan=2, pady=30)
-
-            soup.grid(row=1,column=0, padx=20)
-            salad.grid(row=1,column=1, padx=20)
-            smoothie.grid(row=1,column=2, padx=20)
-            sandwich.grid(row=1,column=3, padx=20)
-
-            instructions.grid(row=4, column=0, columnspan=4)
-            #bottom.grid(row = 7, pady = 15)
-
-        placeWidgets()
-
-
+    def quitButton(self):
+        quit = tk.Button(self.master, text='Quit',command=self.quit)
+        quit.grid(row=0, column=3, padx=20, pady=30)
+          
     def display_recipe(self, want_to_cook):
+        instructions = tk.Label(self.master, text = " ")
+        #instructions.grid(row=4, column=0, columnspan=4, pady=75)
+
+        instructions.grid_remove()
+        
         recipe_directions = make_recipe(want_to_cook, 2)
-        return recipe_directions
-        # see = tk.Label(self.master, text = recipe_name.instruction_string).grid
+        #print recipe_directions
+       
+        instructions = tk.Label(self.master, text = recipe_directions)
+        instructions.grid(row=4, column=0, columnspan=4, pady=75)
+
+
+        # danger = tk.Spinbox(self.master, from_=0, to=5)
+        # danger.grid(row=3,column=1,columnspan=2, pady=30)
+
+        # global yourdanger
+        # yourdanger = Entry(self.master)
+        # print yourdanger
+   
+
+
+    def run(self):
+        self.foodbuttons()
+        self.words()
+        self.quitButton()
+      
+       
 
 root = tk.Tk()
 app = Application(root)
