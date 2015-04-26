@@ -9,9 +9,8 @@ import re
 from smoothies import smoothie_ingredients
 from dangerfactor import *
 """Note to Lucy: I put in allergen as a hard-coded list in add_ingredient
-We'll figure out where the gui wants it soon. However, I couldn't stop it from 
-choosing the allergen as the first ingredient because I didn't quite grasp how the 
-first one was picked, there didn't seem to be a random process for that. """
+We'll figure out where the gui wants it soon. However, i can't tell if it 
+still allows the allergens in the first ingredient  """
 
 class RandomRecipe(object):
 	"""Creates a generated recipe. Either a salad, soup or smoothie."""
@@ -49,14 +48,13 @@ class RandomRecipe(object):
 		allergen = ['peanuts']
 		for recipe in self.remaining_recipies:
 			for ingredient in self.ingredient_options:
-				if ingredient in recipe:
+				if (ingredient in recipe) and (ingredient not in allergen):
 					if ingredient not in self.toppings:
+						"hit allergen"
 						possible_next_ingredient.append(ingredient)
-
 		if len(possible_next_ingredient) != 0:
 			next_ingredient = choice(possible_next_ingredient)
 			while next_ingredient in allergen:
-				print "Hit peanuts"
 				next_ingredient = choice(possible_next_ingredient)
 			self.toppings.append(next_ingredient)
 		else:
