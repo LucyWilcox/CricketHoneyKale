@@ -8,8 +8,8 @@ from sandwich_ingredients import sandwich_ingredients
 import re
 from smoothies import smoothie_ingredients
 from dangerfactor import *
-"""Note to Lucy: I put in allergen as a hard-coded list in add_ingredient
-We'll figure out where the gui wants it soon. However, i can't tell if it 
+"""Note to Lucy: I put in allergen as a hard-coded list as an attribute.
+We'll connect it to the GUI soon. However, i can't tell if it 
 still allows the allergens in the first ingredient  """
 
 class RandomRecipe(object):
@@ -23,6 +23,7 @@ class RandomRecipe(object):
 		self.remaining_recipies_object = recipes
 		self.error = False
 		self.danger = danger
+		self.allergen = ['peanuts']
 
 	def get_remaining_recipies(self):
 		"""Gets list of recipes that have the current toppings and sets as attribute
@@ -45,16 +46,15 @@ class RandomRecipe(object):
 	def add_ingredient(self):
 		"""Adds ingredient to salad toppings attribute """
 		possible_next_ingredient = []
-		allergen = ['peanuts']
 		for recipe in self.remaining_recipies:
 			for ingredient in self.ingredient_options:
-				if (ingredient in recipe) and (ingredient not in allergen):
+				if (ingredient in recipe) and (ingredient not in self.allergen):
 					if ingredient not in self.toppings:
-						"hit allergen"
+						"hit allergen" #testing purposes
 						possible_next_ingredient.append(ingredient)
 		if len(possible_next_ingredient) != 0:
 			next_ingredient = choice(possible_next_ingredient)
-			while next_ingredient in allergen:
+			while next_ingredient in self.allergen:
 				next_ingredient = choice(possible_next_ingredient)
 			self.toppings.append(next_ingredient)
 		else:
