@@ -53,7 +53,7 @@ class Application(tk.Frame):
 
         instructions.grid_remove()
         
-        recipe_directions = make_recipe(want_to_cook, 2)
+        recipe_directions = make_recipe(want_to_cook, 1)
         #print recipe_directions
        
         instructions = tk.Label(self.master, text = recipe_directions)
