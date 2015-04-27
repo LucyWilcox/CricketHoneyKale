@@ -2,11 +2,9 @@
 import Tkinter as tk  
 from salad import *
 
-## Some of thee buttons are having issues connecting
 ## The danger scale needs to be connected to the code
 ## Maybe put disclaimer in a different window? 
-##
- 
+
 class Application(tk.Frame):
     def __init__(self, master=None):
         tk.Frame.__init__(self, master)
@@ -60,8 +58,8 @@ class Application(tk.Frame):
         instructions.grid(row=4, column=0, columnspan=4, pady=75)
 
 
-        # danger = tk.Spinbox(self.master, from_=0, to=5)
-        # danger.grid(row=3,column=1,columnspan=2, pady=30)
+        danger = tk.Spinbox(self.master, from_=0, to=5)
+        danger.grid(row=3,column=1,columnspan=2, pady=30)
 
         # global yourdanger
         # yourdanger = Entry(self.master)
