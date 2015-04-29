@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import Tkinter as tk  
 from salad import *
+from os.path import exists
 
 ## The danger scale needs to be connected to the code
 ## Maybe put disclaimer in a different window? 
@@ -25,7 +26,6 @@ class Application(tk.Frame):
         smoothie.grid(row=1,column=2, padx=20)
         sandwich.grid(row=1,column=3, padx=20)
 
-
     def words(self):
         feedback = tk.Label(self.master, text = " A CricketHoneyKale creation by Lucy Wilcox, Lisa Hachmann, and Logan Sweet. Please direct all negative feedback to byron.wasti@students.olin.edu")
         title = tk.Label(self.master, text = "Let's Cook Something!!")
@@ -42,33 +42,39 @@ class Application(tk.Frame):
         quit.grid(row=0, column=3, padx=20, pady=30)
           
     def display_recipe(self, want_to_cook):
-        instructions = tk.Label(self.master, text = " ")
-        #instructions.grid(row=4, column=0, columnspan=4, pady=75)
+        # instructions = tk.Label(self.master, text = " ")
+        # #instructions.grid(row=4, column=0, columnspan=4, pady=75)
+        # instructions.grid_remove()
 
-        instructions.grid_remove()
-        
-        recipe_directions = make_recipe(want_to_cook, 1)
-        #print recipe_directions
+        if hasattr(self, "dangervalue"):
+            recipe_directions = make_recipe(want_to_cook, self.dangervalue)
+        else: 
+            recipe_directions = make_recipe(want_to_cook, 0)
+       
        
         instructions = tk.Label(self.master, text = recipe_directions)
         instructions.grid(row=4, column=0, columnspan=4, pady=75)
 
-    def poop(self):
-        poop = StringVar()
-        danger = tk.Spinbox(self.master, textvariable=something, from_=0, to=5)
-        danger.grid(row=3,column=1,columnspan=2, pady=30)
-        print something
-        # global yourdanger
-        # yourdanger = Entry(self.master)
-        # print yourdanger
+    def box(self):     
+        value = tk.StringVar()
+        dangerbox = tk.Spinbox(self.master,textvariable=value,from_=0, to=5)
+        dangerbox.grid(row=2, column=1)
+        but = tk.Button(self.master, text='get dangerous',command=self.obtener)
+        but.grid(row=2, column=2, padx=20, pady=30)
+        self.value = value
    
+    def obtener(self):
+        value = self.value
+        self.dangervalue = value.get()
+        #print self.dangervalue
+        #print type(self.dangervalue)
 
 
     def run(self):
         self.foodbuttons()
         self.words()
         self.quitButton()
-        self.poop()
+        self.box()
        
 
 root = tk.Tk()

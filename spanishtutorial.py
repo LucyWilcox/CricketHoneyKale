@@ -35,7 +35,7 @@ class Application(tk.Frame):
     def obtener(self):
     #def obtener(self):
     	#print self.value
-    	value = self.value
+    	value =
     	print value.get()
 
 root = tk.Tk()
