@@ -3,9 +3,6 @@ import Tkinter as tk
 from salad import *
 from os.path import exists
 
-## The danger scale needs to be connected to the code
-## Maybe put disclaimer in a different window? 
-
 class Application(tk.Frame):
     def __init__(self, master=None):
         tk.Frame.__init__(self, master)
@@ -32,9 +29,9 @@ class Application(tk.Frame):
         bottom = tk.Label(self.master, text = ' ')
         disclaimer = tk.Label(self.master, text = "\n\nPlease be safe. \n We are not responsible for food poisioning, allergic reactions, broken blenders, gross recipes or anything else.")
 
-        feedback.grid(row=6,column=0,columnspan=4, pady=0)
+        feedback.grid(row=7,column=0,columnspan=4, pady=0)
         title.grid(row=0, column=1, padx=20, columnspan=2)
-        disclaimer.grid(row=5,column=0,columnspan=4, pady=10)
+        disclaimer.grid(row=6,column=0,columnspan=4, pady=10)
         #bottom.grid(row = 7, pady = 15)
 
     def quitButton(self):
@@ -42,18 +39,17 @@ class Application(tk.Frame):
         quit.grid(row=0, column=3, padx=20, pady=30)
           
     def display_recipe(self, want_to_cook):
-        # instructions = tk.Label(self.master, text = " ")
-        # #instructions.grid(row=4, column=0, columnspan=4, pady=75)
-        # instructions.grid_remove()
 
         if hasattr(self, "dangervalue"):
             recipe_directions = make_recipe(want_to_cook, self.dangervalue)
         else: 
             recipe_directions = make_recipe(want_to_cook, 0)
        
-       
         instructions = tk.Label(self.master, text = recipe_directions)
-        instructions.grid(row=4, column=0, columnspan=4, pady=75)
+        instructions.grid(row=5, column=0, columnspan=4, pady=75)
+        # instructions = tk.Label(self.master, text = " ")
+        # #instructions.grid(row=4, column=0, columnspan=4, pady=75)
+        # instructions.grid_remove()
 
     def box(self):     
         value = tk.StringVar()
@@ -63,11 +59,24 @@ class Application(tk.Frame):
         but.grid(row=2, column=2, padx=20, pady=30)
         self.value = value
    
+
+    def allergy(self): 
+        aller = tk.Entry(self.master)
+        aller.grid(row=4, column=2)
+        allerinst = tk.Label(self.master, text="enter allergens seperated by commas:")
+        allerinst.grid(row=4, column=1)
+        # allergens will be the second string input in recipe directions
+        # if ther is no allergens give an empty string
+
+        
+
+
     def obtener(self):
         value = self.value
         self.dangervalue = value.get()
-        #print self.dangervalue
-        #print type(self.dangervalue)
+      
+
+
 
 
     def run(self):
@@ -75,6 +84,7 @@ class Application(tk.Frame):
         self.words()
         self.quitButton()
         self.box()
+        self.allergy()
        
 
 root = tk.Tk()
