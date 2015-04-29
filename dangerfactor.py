@@ -1,15 +1,3 @@
-###REMIXX###
-# Steps:
-# 1. Call the inputted type of food twice or more
-# 2. Identify the similarities (3 toppings, 1 dressing)
-# 3. Pick 1 or more(depending on danger level) things to swap
-# 4. OR/AND add a "danger ingredient list" and add a certain number of those to the recipe
-# from saladtoppings import *
-# from database_of_recipies import create_recipe_database
-# from random import choice, randint
-# import pickle
-# from database_of_recipies import *
-# import re
 from smoothies import smoothie_ingredients
 from soupingredientsstandard import soup_ingredients
 from salad import salad_ingredients
@@ -25,7 +13,6 @@ class DangerFactor(object):
         self.current_recipe = current_recipe
         self.danger_level = int(current_recipe.danger)
         if self.danger_level == 0:
-            print "t"
             self.level_zero()
         elif self.danger_level == 1:
             self.level_one()
@@ -41,7 +28,6 @@ class DangerFactor(object):
     def level_zero(self):
         """Just sets the new_ingredients to the old because there should be no change"""
         self.new_ingredients = self.current_recipe.toppings
-
 
     def level_one(self):
         """Swaps one ingredient with a random choice within food_type"""
@@ -115,5 +101,6 @@ class DangerFactor(object):
         self.new_ingredients = self.current_recipe.toppings
 
 def remix_to_danger(current_recipe):
+    """Runs danger factor"""
     danger_recipe = DangerFactor(current_recipe)
     return danger_recipe.new_ingredients
