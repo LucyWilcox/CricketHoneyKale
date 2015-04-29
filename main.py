@@ -125,7 +125,7 @@ class RandomRecipe(object):
 			self.instruction_string  = "Put: " + self.ingredients_string + " between two slices of your favorite bread (or whatever crap you have) and chow down."
 
 
-def make_recipe(recipe_type, danger_level):
+def make_recipe(recipe_type, danger_level, allergen):
 	"""Gerenates recipe with relevant method calls on the RandomRecipe class depending on the type of recipe """
 	with open('themrecipies.pickle', 'rb') as handle:
 		recipes = pickle.load(handle)
@@ -163,13 +163,13 @@ def make_recipe(recipe_type, danger_level):
 			return recipe_name.instruction_string
 
 	if recipe_type == 'soup':
-		created_recipe = RandomRecipe(soup_ingredients, recipes, recipe_type, danger_level)
+		created_recipe = RandomRecipe(soup_ingredients, recipes, recipe_type, danger_level, allergen)
 	elif recipe_type == 'salad':
-		created_recipe = RandomRecipe(salad_ingredients, recipes, recipe_type, danger_level)
+		created_recipe = RandomRecipe(salad_ingredients, recipes, recipe_type, danger_level, allergen)
 	elif recipe_type == 'smoothie':
-		created_recipe = RandomRecipe(smoothie_ingredients, recipes, recipe_type, danger_level)
+		created_recipe = RandomRecipe(smoothie_ingredients, recipes, recipe_type, danger_level, allergen)
 	elif recipe_type == 'sandwich':
-		created_recipe = RandomRecipe(sandwich_ingredients, recipes, recipe_type, danger_level)
+		created_recipe = RandomRecipe(sandwich_ingredients, recipes, recipe_type, danger_level, allergen)
 
 	return run_cycle(created_recipe, number_toppings)
 
@@ -178,5 +178,5 @@ if __name__ == '__main__':
 	recipe_type = 'salad'
 	#recipe_type = 'soup'
 	#recipe_type = 'sandwich'
-	instructions = make_recipe(recipe_type, danger_level = 0)
+	instructions = make_recipe(recipe_type, danger_level = 0, allergen = [])
 	print instructions
