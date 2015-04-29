@@ -34,7 +34,7 @@ p16
 (lp17
 S'1 '
 p18
-aS'1 cup '
+aS'1/4 cup '
 p19
 ag18
 asS'pepper flakes'
@@ -352,9 +352,9 @@ ag174
 asS'asparagus'
 p176
 (lp177
-S'12 ounces 1/4 1/2-inch pieces '
+S'1 1-pound  '
 p178
-aS'1 1-pound '
+aS'12 ounces 1/4 1/2-inch pieces '
 p179
 ag178
 asS'cumin'
@@ -410,7 +410,7 @@ ag203
 asS'artichoke'
 p205
 (lp206
-S'1 13 3/4-ounce '
+S'1 13 3/4-ounce  '
 p207
 aS'1 cup '
 p208
@@ -674,7 +674,7 @@ p336
 (lp337
 S'1 '
 p338
-aS'1 1-pound small '
+aS'1 1-pound  small '
 p339
 ag338
 asS'mozzarella'
@@ -724,7 +724,7 @@ p361
 (lp362
 S'1 '
 p363
-aS'1 cup '
+aS'1 15 1/2-ounce  '
 p364
 ag363
 asS'chili sauce'
@@ -900,7 +900,7 @@ p449
 (lp450
 S'1 cup '
 p451
-aS'1 7 1/2 cups '
+aS'1/2 ( 6 cups '
 p452
 ag451
 asS'lime'
@@ -984,7 +984,7 @@ p491
 (lp492
 S'2 '
 p493
-aS'3 '
+aS'4 '
 p494
 ag493
 asS'yam'
@@ -1054,7 +1054,7 @@ p526
 (lp527
 S'2 '
 p528
-aS'3 '
+aS'4 '
 p529
 ag528
 asS'lima beans'
@@ -1110,7 +1110,7 @@ p554
 (lp555
 S'1 large '
 p556
-aS'2 1/2 pounds 3 '
+aS'2 1/2 pounds 3  '
 p557
 ag556
 asS'white onion'
@@ -1206,7 +1206,7 @@ p602
 (lp603
 S'1 '
 p604
-aS'1 1/4 pounds large 21-24 '
+aS'32 '
 p605
 ag604
 asS'onions'
@@ -1380,9 +1380,9 @@ ag688
 asS'couscous'
 p690
 (lp691
-S'1 1-pound small '
+S'1 cup '
 p692
-aS'1 cup '
+aS'2 cups '
 p693
 ag692
 asS'salsa'
@@ -1398,7 +1398,7 @@ p698
 (lp699
 S'2 pounds '
 p700
-aS'1 5 '
+aS'2 5 1/2-ounce  ( '
 p701
 ag700
 asS'watercress'
@@ -1524,9 +1524,9 @@ ag760
 asS'chicken breast'
 p762
 (lp763
-S'4 6 8-ounce '
+S'2 cups '
 p764
-aS'2 cups '
+aS'1 1- 4-inch '
 p765
 ag764
 asS'egg'
