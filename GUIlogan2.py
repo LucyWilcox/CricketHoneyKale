@@ -39,11 +39,17 @@ class Application(tk.Frame):
         quit.grid(row=0, column=3, padx=20, pady=30)
           
     def display_recipe(self, want_to_cook):
-
         if hasattr(self, "dangervalue"):
-            recipe_directions = make_recipe(want_to_cook, self.dangervalue)
+            d = self.dangervalue
+        else:
+            d = 0
+        if hasattr(self, "allergyvalue"):
+            a = self.allergyvalue
         else: 
-            recipe_directions = make_recipe(want_to_cook, 0)
+            a = ""
+
+        recipe_directions = make_recipe(want_to_cook, d )
+
        
         instructions = tk.Label(self.master, text = recipe_directions)
         instructions.grid(row=5, column=0, columnspan=4, pady=75)
@@ -51,30 +57,43 @@ class Application(tk.Frame):
         # #instructions.grid(row=4, column=0, columnspan=4, pady=75)
         # instructions.grid_remove()
 
-    def box(self):     
+    def danger(self):     
         value = tk.StringVar()
-        dangerbox = tk.Spinbox(self.master,textvariable=value,from_=0, to=5)
+        dangerdescript = tk.Label(self.master, text="how dangerous are you? ")
+        dangerdescript.grid(row=2, column=0)
+        dangerbox = tk.Spinbox(self.master,textvariable=value,from_=0, to=5, width = 5)
         dangerbox.grid(row=2, column=1)
-        but = tk.Button(self.master, text='get dangerous',command=self.obtener)
+        but = tk.Button(self.master, text='get dangerous',command=self.getdanger)
         but.grid(row=2, column=2, padx=20, pady=30)
         self.value = value
+        dlevel = tk.Label(self.master, text="Current danger level is "  )
+        dlevel.grid(row=2, column=3)
+        
    
 
     def allergy(self): 
-        aller = tk.Entry(self.master)
+        ingred = tk.StringVar()
+        aller = tk.Entry(self.master, textvariable=ingred)
         aller.grid(row=4, column=2)
-        allerinst = tk.Label(self.master, text="enter allergens seperated by commas:")
-        allerinst.grid(row=4, column=1)
+        allerdescript = tk.Label(self.master, text="enter allergens seperated by commas:")
+        allerdescript.grid(row=4, column=1)
+        butt = tk.Button(self.master, text='record allergens', command=self.getallergy)
+        butt.grid(row=5,column=1)
+
         # allergens will be the second string input in recipe directions
         # if ther is no allergens give an empty string
 
         
 
 
-    def obtener(self):
+    def getdanger(self):
         value = self.value
         self.dangervalue = value.get()
-      
+        ya = value.get()
+        print type(self.dangervalue)
+    def getallergy(self):
+        ingred = self.ingred
+        self.allergyinfo = ingred.get()      
 
 
 
@@ -83,7 +102,7 @@ class Application(tk.Frame):
         self.foodbuttons()
         self.words()
         self.quitButton()
-        self.box()
+        self.danger()
         self.allergy()
        
 
