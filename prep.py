@@ -65,18 +65,15 @@ class PrepDict(object):
             """Returns list of  strings of reasonable quanities of ingredient"""
             text = nltk.word_tokenize(method)
             tags = nltk.pos_tag(text)
-            bad_pos = ['(', ')']
             good_amounts = []
             amount_str = ""
             i = 0
             for tag in tags:
                 i += 1
                 if tag[1] in self.pos or tag[0] in measurements: 
-                    if tag[0] in bad_pos:
-                        pass
-                    else:
-                        amount_str = amount_str + tag[0] + " "
-            good_amounts.append(amount_str)
+                    amount_str = amount_str + tag[0] + " "
+            new_amount_str = amount_str.replace(")", "")
+            good_amounts.append(new_amount_str)
             return good_amounts
 
         method_dict = dict.fromkeys(self.ingredients_used)
