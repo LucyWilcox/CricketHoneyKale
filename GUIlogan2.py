@@ -12,8 +12,6 @@ class Application(tk.Frame):
         self.master = master
         self.run()
         #self.placeWidgets()
- 
-
 
 
 
