@@ -8,8 +8,8 @@ class Application(tk.Frame):
         tk.Frame.__init__(self, master)
         self.grid()  
         self.master = master
+        master.minsize(width=850, height=300)
         self.run()
-        #self.placeWidgets()
 
     def foodbuttons(self):
         # recipe_directions.grid_forget()
@@ -24,16 +24,11 @@ class Application(tk.Frame):
         sandwich.grid(row=1,column=3, padx=20)
 
     def words(self):
-        #feedback = tk.Label(self.master, text = " A CricketHoneyKale creation by Lucy Wilcox, Lisa Hachmann, and Logan Sweet. Please direct all negative feedback to byron.wasti@students.olin.edu")
         title = tk.Label(self.master, text = "Let's Cook Something!!")
         info = tk.Button(self.master, text="Information", command = self.pressinfo)
 
-        #feedback.grid(row=7,column=0,columnspan=4, pady=0)
         title.grid(row=0, column=1, padx=20, columnspan=2)
         info.grid(row=0, column=0)
-        
-        bottom = tk.Label(self.master, text = ' ')
-        #bottom.grid(row = 7, pady = 15)
 
     def pressinfo(self):
         top = tk.Toplevel()
@@ -50,12 +45,12 @@ class Application(tk.Frame):
         al = self.checkallergy()
 
         recipe_directions = make_recipe(want_to_cook, dan )
-       
-        instructions = tk.Label(self.master, text = recipe_directions)
-        instructions.grid(row=5, column=0, columnspan=4, pady=75)
-        # instructions = tk.Label(self.master, text = " ")
-        # #instructions.grid(row=4, column=0, columnspan=4, pady=75)
-        # instructions.grid_remove()
+
+        top = tk.Toplevel()
+        top.title("Recipe")
+        top.resizable(0,0)
+        rec = tk.Label(top, text = recipe_directions )
+        rec.grid(row=2,column=1, pady=35, padx=35)
 
     def danger(self):     
         value = tk.StringVar()
@@ -104,9 +99,6 @@ class Application(tk.Frame):
     def getallergy(self):
         ingred = self.ingred
         self.allergyinfo = ingred.get()      
-
-
-
 
     def run(self):
         self.foodbuttons()
