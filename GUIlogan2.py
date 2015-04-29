@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import Tkinter as tk  
-from salad import *
+from main import *
 from os.path import exists
 
 class Application(tk.Frame):
@@ -44,7 +44,7 @@ class Application(tk.Frame):
         dan = self.checkdanger()
         al = self.checkallergy()
 
-        recipe_directions = make_recipe(want_to_cook, dan )
+        recipe_directions = make_recipe(want_to_cook, self.allergyvalue, self.dangervalue)
 
         top = tk.Toplevel()
         top.title("Recipe")
@@ -72,24 +72,23 @@ class Application(tk.Frame):
         aller.grid(row=3, column=1)
         butt = tk.Button(self.master, text='record allergens', command=self.getallergy)
         butt.grid(row=3,column=2)
+        self.ingred = ingred
         alist = tk.Label(self.master, text="Allergens: "  )
         alist.grid(row=3, column=3)
-
         # allergens will be the second string input in recipe directions
         # if ther is no allergens give an empty string
 
     def checkdanger(self):
         if hasattr(self, "dangervalue"):
-            d = self.dangervalue
+            pass
         else:
-            d = 0
-        return d
+            self.dangervalue = 0
+
     def checkallergy(self):
         if hasattr(self, "allergyvalue"):
-            a = self.allergyvalue
+            pass
         else: 
-            a = ""
-        return a
+            self.allergyvalue = ""
 
     def getdanger(self):
         value = self.value

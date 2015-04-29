@@ -1,6 +1,6 @@
 from smoothies import smoothie_ingredients
 from soupingredientsstandard import soup_ingredients
-from salad import salad_ingredients
+from saladtoppings import salad_ingredients
 from dangerdanger import danger_ingredients
 from random import choice, randint
 food_type_databases = [smoothie_ingredients, soup_ingredients, salad_ingredients]

@@ -10,7 +10,7 @@ from dangerfactor import *
 
 class RandomRecipe(object):
 	"""Creates a generated recipe. Either a salad, sandwich, soup or smoothie."""
-	def __init__(self, ingredient_options, recipes, recipe_type, danger = 0, allergen = []):
+	def __init__(self, ingredient_options, recipes, recipe_type, allergen, danger = 0):
 		"""Sets first random topping as attribute 
 		also sets remaining_recipies_object as all recipes to begin with
 		error is False, gets set as True as needed
@@ -126,13 +126,13 @@ class RandomRecipe(object):
 
 
 
-def make_recipe(recipe_type,  allergen = [], danger_level = 0):
+def make_recipe(recipe_type,  allergen, danger_level = 0):
 	"""Gerenates recipe with relevant method calls on the RandomRecipe class depending on the type of recipe """
 	with open('themrecipies.pickle', 'rb') as handle:
 		recipes = pickle.load(handle)
 	number_toppings = randint(3,6)
 
-	if allergen != []:
+	if len(allergen) > 0:
 		allergen = allergen.split(",")
 
 	def run_cycle(recipe_name, number_toppings):
@@ -167,13 +167,13 @@ def make_recipe(recipe_type,  allergen = [], danger_level = 0):
 			return recipe_name.instruction_string
 
 	if recipe_type == 'soup':
-		created_recipe = RandomRecipe(soup_ingredients, recipes, recipe_type, danger_level, allergen)
+		created_recipe = RandomRecipe(soup_ingredients, recipes, recipe_type, allergen, danger_level)
 	elif recipe_type == 'salad':
-		created_recipe = RandomRecipe(salad_ingredients, recipes, recipe_type, danger_level, allergen)
+		created_recipe = RandomRecipe(salad_ingredients, recipes, recipe_type, allergen, danger_level)
 	elif recipe_type == 'smoothie':
-		created_recipe = RandomRecipe(smoothie_ingredients, recipes, recipe_type, danger_level, allergen)
+		created_recipe = RandomRecipe(smoothie_ingredients, recipes, recipe_type, allergen, danger_level)
 	elif recipe_type == 'sandwich':
-		created_recipe = RandomRecipe(sandwich_ingredients, recipes, recipe_type, danger_level, allergen)
+		created_recipe = RandomRecipe(sandwich_ingredients, recipes, recipe_type, allergen, danger_level)
 
 	return run_cycle(created_recipe, number_toppings)
 
@@ -183,5 +183,5 @@ if __name__ == '__main__':
 	#recipe_type = 'soup'
 	#recipe_type = 'sandwich'
 	allergen = ""
-	instructions = make_recipe(recipe_type, allergen, danger_level = 0)
+	instructions = make_recipe(recipe_type, allergen = 'tomatoes', danger_level = 0)
 	print instructions
