@@ -125,11 +125,15 @@ class RandomRecipe(object):
 			self.instruction_string  = "Put: " + self.ingredients_string + " between two slices of your favorite bread (or whatever crap you have) and chow down."
 
 
-def make_recipe(recipe_type, danger_level, allergen):
+
+def make_recipe(recipe_type,  allergen = [], danger_level = 0):
 	"""Gerenates recipe with relevant method calls on the RandomRecipe class depending on the type of recipe """
 	with open('themrecipies.pickle', 'rb') as handle:
 		recipes = pickle.load(handle)
 	number_toppings = randint(3,6)
+
+	if allergen != []:
+		allergen = allergen.split(",")
 
 	def run_cycle(recipe_name, number_toppings):
 		"""Runs through the code by changing attributes on recipe then calling certian methods for
@@ -178,5 +182,6 @@ if __name__ == '__main__':
 	recipe_type = 'salad'
 	#recipe_type = 'soup'
 	#recipe_type = 'sandwich'
-	instructions = make_recipe(recipe_type, danger_level = 0, allergen = [])
+	allergen = ""
+	instructions = make_recipe(recipe_type, allergen, danger_level = 0)
 	print instructions
