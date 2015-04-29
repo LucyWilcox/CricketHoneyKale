@@ -11,6 +11,7 @@ class Application(tk.Frame):
         self.grid()  
         self.master = master
         self.run()
+        #self.placeWidgets()
 
     def foodbuttons(self):
         # recipe_directions.grid_forget()
@@ -24,10 +25,6 @@ class Application(tk.Frame):
         smoothie.grid(row=1,column=2, padx=20)
         sandwich.grid(row=1,column=3, padx=20)
 
-    def dangerous(self):
-        danger = tk.Spinbox(self.master, from_=0, to=5)
-        danger.grid(row=3,column=1,columnspan=2, pady=30)
-        return danger.get()
 
     def words(self):
         feedback = tk.Label(self.master, text = " A CricketHoneyKale creation by Lucy Wilcox, Lisa Hachmann, and Logan Sweet. Please direct all negative feedback to byron.wasti@students.olin.edu")
@@ -50,17 +47,17 @@ class Application(tk.Frame):
 
         instructions.grid_remove()
         
-        #recipe_directions = make_recipe(want_to_cook, dangerous())
         recipe_directions = make_recipe(want_to_cook, 1)
         #print recipe_directions
        
         instructions = tk.Label(self.master, text = recipe_directions)
         instructions.grid(row=4, column=0, columnspan=4, pady=75)
 
-
-
-
-
+    def poop(self):
+        poop = StringVar()
+        danger = tk.Spinbox(self.master, textvariable=something, from_=0, to=5)
+        danger.grid(row=3,column=1,columnspan=2, pady=30)
+        print something
         # global yourdanger
         # yourdanger = Entry(self.master)
         # print yourdanger
@@ -71,8 +68,7 @@ class Application(tk.Frame):
         self.foodbuttons()
         self.words()
         self.quitButton()
-        self.dangerous()
-      
+        self.poop()
        
 
 root = tk.Tk()
