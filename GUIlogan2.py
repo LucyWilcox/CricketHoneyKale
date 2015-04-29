@@ -13,7 +13,7 @@ class Application(tk.Frame):
 
     def foodbuttons(self):
         # recipe_directions.grid_forget()
-        soup = tk.Button(self.master, text = 'Generate me a soup!', command = lambda:self.display_recipe('soup'))
+        soup = tk.Button(self.master, text = 'Generate me a soup!', command = lambda:self.display_recipe('soup'),bg='#639BF1', activebackground='#3B5998')
         salad = tk.Button(self.master, text = 'Generate me a salad!', command = lambda:self.display_recipe('salad'))
         smoothie = tk.Button(self.master, text = 'Generate me a smoothie!', command = lambda:self.display_recipe('smoothie'))
         sandwich = tk.Button(self.master, text = 'Generate me a sandwich!', command = lambda:self.display_recipe('sandwich'))
@@ -117,6 +117,7 @@ infotext = """Please be safe.
 root = tk.Tk()
 app = Application(root)
 app.master.title('CricketHoneyKale')
+root.configure(bg='#77BA9B')
 root.mainloop()
 
 
