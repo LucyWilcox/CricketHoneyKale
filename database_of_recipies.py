@@ -17,32 +17,15 @@ class Recipe(object):
         gross_ingredients = str(soup.find_all("li", {"itemprop":"ingredients"}))
         self.ingredients = str(plaintext(gross_ingredients).replace('\n', '').lower())
 
-    def is_ingredient_used(self, ingredient):
-        """ If the ingredient is used in a recipe an attribuet ingredient_used is 
-        set to True, else False """
-        if ingredient in self.ingredients:
-            self.ingredient_used = True
-        else:
-            self.ingredient_used = False
-        #return self.ingredient_used
-
-    def pickle_it(self):
-        f = file('recipe_data.pk1', 'wb')
-        pickle.dump(self, f, pickle.HIGHEST_PROTOCOL)
-        f.close()
-
 def create_recipe_database():
+    """Creates the pickle file"""
     recipes = []
     for url in recipe_database[: len(recipe_database) - 1]:
         recipes.append(Recipe(url))
 
     with open('themrecipies.pickle', 'wb') as handle:
         pickle.dump(recipes, handle)
-    # for recipe in recipes:
-    #     recipe.pickle_it()
 
-    #output = open('recipe_data.pk1', 'wb')
-    #pickle.dump(recipes, output, pickle.HIGHEST_PROTOCOL)
     return recipes
 
 
