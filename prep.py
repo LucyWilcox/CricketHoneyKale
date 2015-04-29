@@ -129,17 +129,16 @@ if __name__ == '__main__':
         recipes = pickle.load(handle)
     all_ingredients = salad_ingredients + soup_ingredients + danger_ingredients +  sandwich_ingredients
     culled_ingredients = remove_duplicates(all_ingredients)
-    # verbs = PrepDict(recipes, culled_ingredients, 'methoddict.pickle', ['VBN'])
-    # verbs.get_raw_list()
-    # verbs.full_method_dict()
-    # verbs.get_top_methods()
-    # verbs.pickle_it()
+    verbs = PrepDict(recipes, culled_ingredients, 'methoddict.pickle', ['VBN'])
+    verbs.get_raw_list()
+    verbs.full_method_dict()
+    verbs.get_top_methods()
+    verbs.pickle_it()
     amounts = PrepDict(recipes, culled_ingredients, 'amountdict.pickle', ['LS', 'CD'])
     amounts.get_raw_list()
     amounts.amount_dict()
     amounts.get_top_methods()
     amounts.pickle_it()
-    print amounts.long_dict
 
 
 
