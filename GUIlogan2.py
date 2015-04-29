@@ -24,32 +24,32 @@ class Application(tk.Frame):
         sandwich.grid(row=1,column=3, padx=20)
 
     def words(self):
-        feedback = tk.Label(self.master, text = " A CricketHoneyKale creation by Lucy Wilcox, Lisa Hachmann, and Logan Sweet. Please direct all negative feedback to byron.wasti@students.olin.edu")
+        #feedback = tk.Label(self.master, text = " A CricketHoneyKale creation by Lucy Wilcox, Lisa Hachmann, and Logan Sweet. Please direct all negative feedback to byron.wasti@students.olin.edu")
         title = tk.Label(self.master, text = "Let's Cook Something!!")
-        bottom = tk.Label(self.master, text = ' ')
-        disclaimer = tk.Label(self.master, text = "\n\nPlease be safe. \n We are not responsible for food poisioning, allergic reactions, broken blenders, gross recipes or anything else.")
+        info = tk.Button(self.master, text="Information", command = self.pressinfo)
 
-        feedback.grid(row=7,column=0,columnspan=4, pady=0)
+        #feedback.grid(row=7,column=0,columnspan=4, pady=0)
         title.grid(row=0, column=1, padx=20, columnspan=2)
-        disclaimer.grid(row=6,column=0,columnspan=4, pady=10)
+        info.grid(row=0, column=0)
+        
+        bottom = tk.Label(self.master, text = ' ')
         #bottom.grid(row = 7, pady = 15)
+
+    def pressinfo(self):
+        top = tk.Toplevel()
+        top.title("Information")
+        disc = tk.Label(top, text = infotext )
+        disc.grid()
 
     def quitButton(self):
         quit = tk.Button(self.master, text='Quit',command=self.quit)
         quit.grid(row=0, column=3, padx=20, pady=30)
           
     def display_recipe(self, want_to_cook):
-        if hasattr(self, "dangervalue"):
-            d = self.dangervalue
-        else:
-            d = 0
-        if hasattr(self, "allergyvalue"):
-            a = self.allergyvalue
-        else: 
-            a = ""
+        dan = self.checkdanger()
+        al = self.checkallergy()
 
-        recipe_directions = make_recipe(want_to_cook, d )
-
+        recipe_directions = make_recipe(want_to_cook, dan )
        
         instructions = tk.Label(self.master, text = recipe_directions)
         instructions.grid(row=5, column=0, columnspan=4, pady=75)
@@ -61,36 +61,46 @@ class Application(tk.Frame):
         value = tk.StringVar()
         dangerdescript = tk.Label(self.master, text="how dangerous are you? ")
         dangerdescript.grid(row=2, column=0)
-        dangerbox = tk.Spinbox(self.master,textvariable=value,from_=0, to=5, width = 5)
-        dangerbox.grid(row=2, column=1)
+        dang = tk.Spinbox(self.master,textvariable=value,from_=0, to=5, width = 3)
+        dang.grid(row=2, column=1)
         but = tk.Button(self.master, text='get dangerous',command=self.getdanger)
         but.grid(row=2, column=2, padx=20, pady=30)
         self.value = value
         dlevel = tk.Label(self.master, text="Current danger level is "  )
         dlevel.grid(row=2, column=3)
-        
-   
 
     def allergy(self): 
         ingred = tk.StringVar()
-        aller = tk.Entry(self.master, textvariable=ingred)
-        aller.grid(row=4, column=2)
         allerdescript = tk.Label(self.master, text="enter allergens seperated by commas:")
-        allerdescript.grid(row=4, column=1)
+        allerdescript.grid(row=3, column=0)
+        aller = tk.Entry(self.master, textvariable=ingred)
+        aller.grid(row=3, column=1)
         butt = tk.Button(self.master, text='record allergens', command=self.getallergy)
-        butt.grid(row=5,column=1)
+        butt.grid(row=3,column=2)
+        alist = tk.Label(self.master, text="Allergens: "  )
+        alist.grid(row=3, column=3)
 
         # allergens will be the second string input in recipe directions
         # if ther is no allergens give an empty string
 
-        
-
+    def checkdanger(self):
+        if hasattr(self, "dangervalue"):
+            d = self.dangervalue
+        else:
+            d = 0
+        return d
+    def checkallergy(self):
+        if hasattr(self, "allergyvalue"):
+            a = self.allergyvalue
+        else: 
+            a = ""
+        return a
 
     def getdanger(self):
         value = self.value
         self.dangervalue = value.get()
         ya = value.get()
-        print type(self.dangervalue)
+        #print type(self.dangervalue)
     def getallergy(self):
         ingred = self.ingred
         self.allergyinfo = ingred.get()      
@@ -104,13 +114,21 @@ class Application(tk.Frame):
         self.quitButton()
         self.danger()
         self.allergy()
+        #self.pressdisclaimer()
+
+infotext = """Please be safe. 
+        We are not responsible for food poisioning, allergic reactions, broken blenders, gross recipes or anything else.  
+        A CricketHoneyKale creation by Lucy Wilcox, Lisa Hachmann, and Logan Sweet. 
+        Please direct all negative feedback to byron.wasti@students.olin.edu"""
        
 
 root = tk.Tk()
 app = Application(root)
-app.master.title('I hope this works')
+app.master.title('CricketHoneyKale')
 root.mainloop()
 
+
+     
 
 # if __name__ == '__main__':
 #     root = Tk
