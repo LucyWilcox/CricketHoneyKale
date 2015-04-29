@@ -175,8 +175,8 @@ def make_recipe(recipe_type, danger_level):
 
 if __name__ == '__main__':
 	#recipe_type = 'smoothie'
-	#recipe_type = 'salad'
-	recipe_type = 'soup'
+	recipe_type = 'salad'
+	#recipe_type = 'soup'
 	#recipe_type = 'sandwich'
 	instructions = make_recipe(recipe_type, danger_level = 0)
 	print instructions
