@@ -5,18 +5,17 @@ from random import choice, randint
 import pickle
 from database_of_recipies import Recipe
 from sandwich_ingredients import sandwich_ingredients
-import re
 from smoothies import smoothie_ingredients
 from dangerfactor import *
-"""Note to Lucy: I put in allergen as a hard-coded list as an attribute.
-We'll connect it to the GUI soon. However, i can't tell if it 
-still allows the allergens in the first ingredient  """
 
 class RandomRecipe(object):
-	"""Creates a generated recipe. Either a salad, soup or smoothie."""
+	"""Creates a generated recipe. Either a salad, sandwich, soup or smoothie."""
 	def __init__(self, ingredient_options, recipes, recipe_type, danger = 0):
 		"""Sets first random topping as attribute 
-		also sets remaining_recipies_object as all recipes to begin with"""
+		also sets remaining_recipies_object as all recipes to begin with
+		error is False, gets set as True as needed
+		danger is set by user input, or set as 0 if nothing is entered
+		ingredient_options depends on the type of recipe and is passed in"""
 		self.recipe_type = recipe_type
 		self.toppings = [choice(ingredient_options)]
 		self.ingredient_options = ingredient_options
@@ -50,7 +49,6 @@ class RandomRecipe(object):
 			for ingredient in self.ingredient_options:
 				if (ingredient in recipe) and (ingredient not in self.allergen):
 					if ingredient not in self.toppings:
-						"hit allergen" #testing purposes
 						possible_next_ingredient.append(ingredient)
 		if len(possible_next_ingredient) != 0:
 			next_ingredient = choice(possible_next_ingredient)
@@ -134,6 +132,9 @@ def make_recipe(recipe_type, danger_level):
 	number_toppings = randint(3,6)
 
 	def run_cycle(recipe_name, number_toppings):
+		"""Runs through the code by changing attributes on recipe then calling certian methods for
+		for different recipe types
+		"""
 		while len(recipe_name.toppings) < number_toppings and recipe_name.error == False:
 			recipe_name.get_remaining_recipies()
 			recipe_name.add_ingredient()
@@ -161,7 +162,6 @@ def make_recipe(recipe_type, danger_level):
 			recipe_name.add_instructions()
 			return recipe_name.instruction_string
 
-
 	if recipe_type == 'soup':
 		created_recipe = RandomRecipe(soup_ingredients, recipes, recipe_type, danger_level)
 	elif recipe_type == 'salad':
@@ -174,9 +174,9 @@ def make_recipe(recipe_type, danger_level):
 	return run_cycle(created_recipe, number_toppings)
 
 if __name__ == '__main__':
-	recipe_type = 'smoothie'
+	#recipe_type = 'smoothie'
 	#recipe_type = 'salad'
-	#recipe_type = 'soup'
+	recipe_type = 'soup'
 	#recipe_type = 'sandwich'
 	instructions = make_recipe(recipe_type, danger_level = 0)
 	print instructions
