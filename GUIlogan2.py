@@ -13,8 +13,6 @@ class Application(tk.Frame):
         self.run()
         #self.placeWidgets()
 
-
-
     def foodbuttons(self):
         # recipe_directions.grid_forget()
         soup = tk.Button(self.master, text = 'Generate me a soup!', command = lambda:self.display_recipe('soup'))
