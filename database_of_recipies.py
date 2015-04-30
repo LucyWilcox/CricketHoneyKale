@@ -1,10 +1,10 @@
-from bs4 import BeautifulSoup as BS
-import requests
-import xml.etree.ElementTree
-from pattern.web import plaintext
-from recipedatabase import recipe_database
-from string import find, split
-import cPickle as pickle
+"""Uncommment imports if running this file"""
+#from bs4 import BeautifulSoup as BS 
+#import requests
+#from pattern.web import plaintext
+#from recipedatabase import recipe_database
+#from string import find, split
+#import cPickle as pickle
 
 class Recipe(object):
     """ """
