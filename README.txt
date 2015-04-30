@@ -10,18 +10,15 @@ Kale == Logan
 
 All directions for running main.py are for Debian or Ubuntu Linux
 
-To install Beautiful Soup, write in terminal:
+To install Beautiful Soup, write in terminal: #probably not needed
 apt-get install python-bs4
 
-To install NLTK, you need to have:
-Pip: sudo easy_install pip
-Numpy(optional): sudo pip install -U numpy
-NLTK: sudo pip install -U nltk
-
-To install pattern.web, write in terminal:
+To install pattern.web, write in terminal: #probably not needed
 pip install pattern
 
 All of these libraries are necessary to run main.py, which is called from the GUI
+
+NLTK  is not nessisary to install, as the files created with it are pickled.
 
 To run the GUI, and use our lovely program, open terminal, cd into the correct directory and write:
 python GUIlogan2.py
