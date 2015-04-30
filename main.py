@@ -7,6 +7,7 @@ from database_of_recipies import Recipe
 from sandwich_ingredients import sandwich_ingredients
 from smoothies import smoothie_ingredients
 from dangerfactor import *
+from  string import strip
 
 class RandomRecipe(object):
 	"""Creates a generated recipe. Either a salad, sandwich, soup or smoothie."""
@@ -132,8 +133,8 @@ def make_recipe(recipe_type,  allergen, danger_level = 0):
 		recipes = pickle.load(handle)
 	number_toppings = randint(3,6)
 
-	if len(allergen) > 0:
-		allergen = allergen.split(",")
+	allergen = allergen.split(",")
+	allergen = [strip(entry) for entry in allergen]
 
 	def run_cycle(recipe_name, number_toppings):
 		"""Runs through the code by changing attributes on recipe then calling certian methods for
@@ -183,5 +184,5 @@ if __name__ == '__main__':
 	#recipe_type = 'soup'
 	#recipe_type = 'sandwich'
 	allergen = ""
-	instructions = make_recipe(recipe_type, allergen = 'tomatoes', danger_level = 0)
+	instructions = make_recipe(recipe_type, allergen = 'salsa, tomatoes', danger_level = 0)
 	print instructions
