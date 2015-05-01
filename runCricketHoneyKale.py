@@ -15,8 +15,12 @@ class Application(tk.Frame):
         self.master = master
         master.minsize(width=850, height=300)
         self.run()
-                                                                                          # activeofreground changes the text color: dont use for buttons
+
     def foodbuttons(self):
+        """
+        Initializes and places buttons that create recipes. 
+        self.display_recipe('foodname') feeds the desired recipe type to the dispay recipe function. 
+        """
         soup = tk.Button(self.master, text = 'Generate me a soup!', command = lambda:self.display_recipe('soup'),bg=a, fg=d, activebackground=b, font= fo)
         salad = tk.Button(self.master, text = 'Generate me a salad!', command = lambda:self.display_recipe('salad'),bg=a, fg=d, activebackground=b, font= fo)
         smoothie = tk.Button(self.master, text = 'Generate me a smoothie!', command = lambda:self.display_recipe('smoothie'),bg=a, fg=d, activebackground=b, font= fo)
@@ -28,6 +32,10 @@ class Application(tk.Frame):
         sandwich.grid(row=1,column=3, padx=20)
 
     def words(self):
+        """
+        Initializes and places the title, quit button, and info button. 
+        Info button initializes pressinfo function. 
+        """
         title = tk.Label(self.master, text = "Let's Cook Something!!", bg=c,fg=d, font= (fo,18))
         info = tk.Button(self.master, text="Information", command = self.pressinfo,bg=a, fg=d, activebackground=b, font= fo)
         quit = tk.Button(self.master, text='Quit',command=self.quit,bg=a, fg=d, activebackground=b, font= fo)
@@ -37,12 +45,24 @@ class Application(tk.Frame):
         quit.grid(row=0, column=3, padx=20, pady=30)
 
     def pressinfo(self):
+        """
+        Runs when info button is pressed. 
+        Creates a new window named "top" that diplays infotext(deifned at bottom)
+        """
         top = tk.Toplevel(bg=c)
         top.title("Information")
         disc = tk.Label(top, text = infotext , font= fo, bg=c)
         disc.grid()
           
     def display_recipe(self, want_to_cook):
+        """
+        Initialized when a recipe button is pressed. 
+        Uses make_recipe from main. 
+        Uses inputs: 
+            want_to_cook (the type of food you want)
+            self.allergyinfo (comes from checkallergy)
+            self.dangervalue (comes from checkdanger)
+        """
         recipe_directions = make_recipe(want_to_cook, self.allergyinfo, self.dangervalue)
         top = tk.Toplevel(bg=c)
         top.title("Recipe")
@@ -50,7 +70,10 @@ class Application(tk.Frame):
         rec = tk.Label(top, text = recipe_directions , font= fo, bg=c)
         rec.grid(row=2,column=1, pady=35, padx=35)
 
-    def danger(self):     
+    def danger(self):   
+        """
+        
+        """  
         value = tk.StringVar()
         dangerdescript = tk.Label(self.master, text="How dangerous are you? " ,fg=d, bg=c, font= fo)
         dangerdescript.grid(row=2, column=0)
@@ -61,6 +84,9 @@ class Application(tk.Frame):
         self.value = value
  
     def allergy(self): 
+        """
+        
+        """
         ingred = tk.StringVar()
         allerdescript = tk.Label(self.master, text="What are you allergic to?\n(seperated by commas)", bg=c,fg=d, font= fo)
         allerdescript.grid(row=3, column=0)
@@ -71,30 +97,45 @@ class Application(tk.Frame):
         self.ingred = ingred
 
     def checkdanger(self):
+        """
+        
+        """
         if hasattr(self, "dangervalue"):
             pass
         else:
             self.dangervalue = 0
 
     def checkallergy(self):
+        """
+        
+        """
         if hasattr(self, "allergyvalue"):
             pass
         else:
             self.allergyinfo = " "
 
     def getdanger(self):
+        """
+        
+        """
         value = self.value
         self.dangervalue = value.get()
         dlevel = tk.Label(self.master, text="Current danger level is " + self.dangervalue , bg=c, font= fo)
         dlevel.grid(row=2, column=3)
 
     def getallergy(self):
+        """
+        
+        """
         ingred = self.ingred
         self.allergyinfo = ingred.get()   
         alist = tk.Label(self.master, text="Allergens: " + self.allergyinfo , bg=c, font= fo)
         alist.grid(row=3, column=3)   
 
     def run(self):
+        """
+        
+        """
         self.foodbuttons()
         self.words()
         self.danger()
@@ -113,6 +154,11 @@ app.master.title('CricketHoneyKale')
 root.configure(bg=c)
 root.mainloop()
 
+
+
+######################################################################################
+############################Alternate Color Palettes Here#############################
+######################################################################################
 
 # a = '#639BF1'   # button color
 # b = '#3B5998'   # button hover
