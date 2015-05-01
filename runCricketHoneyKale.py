@@ -1,13 +1,6 @@
 import Tkinter as tk  
 from main import *
 
-fo = "Dingbats" # font style
-a = '#0f9fb4'   # button color      (Alternate color schemes avaliable at bottom)
-b = '#0fb493'   # button hover
-c = '#c9e1c1'   # big background
-d = '#152737'   # font color
-
-
 class Application(tk.Frame):
     def __init__(self, master=None):
         """
@@ -161,10 +154,18 @@ class Application(tk.Frame):
         self.checkdanger()
         self.checkallergy()
 
+
 infotext = """Please be safe. 
         We are not responsible for food poisioning, allergic reactions, broken blenders, gross recipes or anything else.  
         A CricketHoneyKale creation by Lucy Wilcox, Lisa Hachmann, and Logan Sweet. 
         Please direct all negative feedback to byron.wasti@students.olin.edu"""
+
+fo = "Dingbats" # font style
+a = '#0f9fb4'   # button color      (Alternate color schemes avaliable at bottom)
+b = '#0fb493'   # button hover
+c = '#c9e1c1'   # big background
+d = '#152737'   # font color
+
 
 root = tk.Tk()
 app = Application(root)
