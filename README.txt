@@ -1,24 +1,19 @@
-Cricket Honey Kale README for Logan, Lucy and Lisa
-
-A project intended to create unique recipes using data from pre-exisitng recipes online. 
-
-Olin College Software Design Spring 2015
-
 Cricket == Lucy
 Honey == Lisa
 Kale == Logan 
 
-All directions for running main.py are for Debian or Ubuntu Linux
+We are Lisa Hachmann, Logan Sweet, and Lucy Wilcox with CricketHoneyKale and we have made a random recipe generator using Python 2.7. 
 
-To install Beautiful Soup, write in terminal: #probably not needed
-apt-get install python-bs4
+This is a project intended to create unique recipes using data from pre-exisitng online recipes.
 
-To install pattern.web, write in terminal: #probably not needed
-pip install pattern
+To run our program, head on over to our Github repo: https://github.com/LucyWilcox/CricketHoneyKale and clone it.
 
-All of these libraries are necessary to run main.py, which is called from the GUI
+Then run the file: runCricketHoneyKale.py
 
-NLTK  is not nessisary to install, as the files created with it are pickled.
+You'll need to have the Tkinter ($ sudo apt-get install python-tk) downloaded to run our program from the GUI.
 
-To run the GUI, and use our lovely program, open terminal, cd into the correct directory and write:
-python GUIlogan2.py
+If you want to run all file (recreating existing pickled files) you'll need more libraries. You will also need to go into database_of_recipies.py and un-comment the imports. These libraries include:
+NLTK
+pattern.web
+requests
+Beautiful Soup (bs4)
