@@ -10,6 +10,11 @@ d = '#152737'   # font color
 
 class Application(tk.Frame):
     def __init__(self, master=None):
+        """
+        Creates the top leve (parent) TKinter frame and sets up the grid method of widget placement. 
+        Defined minimum window size.
+        Executes the function run, which conmtains all functions that need to be executed to run program. 
+        """
         tk.Frame.__init__(self, master)
         self.grid()  
         self.master = master
@@ -72,7 +77,9 @@ class Application(tk.Frame):
 
     def danger(self):   
         """
-        
+        Initializes and places danger text instructions and selsction spinbox.
+        Assigns the number recorded in the spinbox to the variable value, 
+            which is then made assigned to an attribute of self as self.value. 
         """  
         value = tk.StringVar()
         dangerdescript = tk.Label(self.master, text="How dangerous are you? " ,fg=d, bg=c, font= fo)
@@ -85,7 +92,9 @@ class Application(tk.Frame):
  
     def allergy(self): 
         """
-        
+        Initializes and places allergy text instructions and entry box.
+        Assigns the number recorded in the box to the variable ingred, 
+            which is then made assigned to an attribute of self as self.ingred. 
         """
         ingred = tk.StringVar()
         allerdescript = tk.Label(self.master, text="What are you allergic to?\n(seperated by commas)", bg=c,fg=d, font= fo)
@@ -96,27 +105,13 @@ class Application(tk.Frame):
         butt.grid(row=3,column=2)
         self.ingred = ingred
 
-    def checkdanger(self):
-        """
-        
-        """
-        if hasattr(self, "dangervalue"):
-            pass
-        else:
-            self.dangervalue = 0
-
-    def checkallergy(self):
-        """
-        
-        """
-        if hasattr(self, "allergyvalue"):
-            pass
-        else:
-            self.allergyinfo = " "
 
     def getdanger(self):
         """
-        
+        Takes self.value and reassigns it to value. 
+        Uses the TKinter .get() function to get the info from this entry and 
+            assign it to self.dangervalue, which is then used in display_recipe
+        Also initialized and displays an updated danger level value.
         """
         value = self.value
         self.dangervalue = value.get()
@@ -125,14 +120,39 @@ class Application(tk.Frame):
 
     def getallergy(self):
         """
-        
+        Takes self.ingred and reassigns it to ingred. 
+        Uses the TKinter .get() function to get the info from this entry and 
+            assign it to self.allergyinfo, which is then used in display_recipe. 
         """
         ingred = self.ingred
         self.allergyinfo = ingred.get()   
 
+
+    def checkdanger(self):
+        """
+        If there is no value assigned to self.dangervalue, assigns it the value 0 (no danger)
+        This gives display_recipe a value even if the user does not press "Get Dangerous"
+        """
+        if hasattr(self, "dangervalue"):
+            pass
+        else:
+            self.dangervalue = 0
+
+    def checkallergy(self):
+        """
+        If there is no value assigned to self.allergyvalue, assigns it an empty string (no allergens)
+        This gives display_recipe a value even if the user does not press "Record Allergens"
+        """
+        if hasattr(self, "allergyvalue"):
+            pass
+        else:
+            self.allergyinfo = " "
+
+
     def run(self):
         """
-        
+        The contains all the functions that need ot be run to execute the program and create the GUI.
+        This runs when init runs. They could be pasted there, but this keeps the init function clean and relatively empty. 
         """
         self.foodbuttons()
         self.words()
