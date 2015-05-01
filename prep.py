@@ -33,12 +33,12 @@ class PrepDict(object):
         """Creates dictionary of all ingredients and their preperation methods """
         def each_prep_methods(method, ingredients_used):
             """Returns list of strings of appropriate preperation methods"""
-            blacklist = ['recommended', 'beaten', 'frozen', 'red', 'kitchen']
+            blacklist = ['recommended', 'beaten', 'frozen', 'red', 'kitchen', 'removed']
             text = word_tokenize(method) #seperates ingredient strings into lists of each word in the string
             tags = pos_tag(text) #converts list into list of tuples like (text, part of speach)
             good_types = []
             for tag in tags:  #tag[1] is the pos, tag[0] is the word
-                if tag[1] in self.pos and tag[0] not in ingredients_used and tag[1] not in blacklist: #we want tag[0] to be the correct pos, but we don't want it to be refering directly to the ingredient or one our blacklisted/buggy words
+                if tag[1] in self.pos and tag[0] not in ingredients_used and tag[0] not in blacklist: #we want tag[0] to be the correct pos, but we don't want it to be refering directly to the ingredient or one our blacklisted/buggy words
                     good_types.append(tag[0])
             return good_types
         def each_amount_methods(method, ingredients_used):
