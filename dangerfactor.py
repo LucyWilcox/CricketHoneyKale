@@ -9,9 +9,10 @@ class DangerFactor(object):
     """Creates new_ingredient list which ends up replacing the toppings attribute on RandomRecipe. 
     The severity of the changes depends on the danger level which is passed in from the RandomRecipe object"""
     def __init__(self, current_recipe):
-        """Basically selects the correct the danger level to run"""
+        """Initializes and selects the correct the danger level to run"""
         self.current_recipe = current_recipe
         self.danger_level = int(current_recipe.danger)
+        #self.danger_level is passed in from RandomRecipe
         if self.danger_level == 0:
             self.level_zero()
         elif self.danger_level == 1:
@@ -32,6 +33,7 @@ class DangerFactor(object):
     def level_one(self):
         """Swaps one ingredient with a random choice within food_type"""
         swap_spot = randint(0,len(self.current_recipe.toppings)-1)
+        #if statements are to stay within food type of original recipe
         if self.current_recipe.recipe_type == 'soup':
             new_ingredient = choice(soup_ingredients)
             self.current_recipe.toppings[swap_spot] = new_ingredient
@@ -49,8 +51,10 @@ class DangerFactor(object):
     def level_two(self):
         """Replace an ingredient with a random ingredient without
         regarding food_type"""
+        #swaps a random ingredient by choosing a random place
         swap_spot = randint(0,len(self.current_recipe.toppings)-1)
-        extra_ingredient_type = choice(food_type_databases)
+        #chooses which food type to choose from
+        extra_ingredient_type = choice(food_type_databases) 
         new_ingredient = choice(extra_ingredient_type)
         self.current_recipe.toppings[swap_spot] = new_ingredient
         self.new_ingredients = self.current_recipe.toppings
@@ -61,6 +65,7 @@ class DangerFactor(object):
         swap_spot_1 = randint(0,len(self.current_recipe.toppings)-1)
         swap_spot_2 = randint(0,len(self.current_recipe.toppings)-1)
         while swap_spot_1 == swap_spot_2:
+            #so it doesn't replace the same spot twice
             swap_spot_2 = randint(0,len(self.current_recipe.toppings)-1)
         if self.current_recipe.recipe_type == 'soup':
             new_ingredient = choice(soup_ingredients)
@@ -78,7 +83,7 @@ class DangerFactor(object):
         self.new_ingredients = self.current_recipe.toppings
     
     def level_four(self):
-        """Replaces 2 ingredients in the recipe: one not specifically in the 
+        """Replaces 2 ingredients in the recipe: one without regarding 
         food type, and one danger ingredient"""
         swap_spot_1 = randint(0,len(self.current_recipe.toppings)-1)
         swap_spot_2 = randint(0,len(self.current_recipe.toppings)-1)
@@ -86,8 +91,8 @@ class DangerFactor(object):
             swap_spot_2 = randint(0,len(self.current_recipe.toppings)-1)
         extra_ingredient_type = choice(food_type_databases)
         new_ingredient = choice(extra_ingredient_type)
-        self.current_recipe.toppings[swap_spot_1] = new_ingredient
-        self.current_recipe.toppings[swap_spot_2] = choice(danger_ingredients)
+        self.current_recipe.toppings[swap_spot_1] = new_ingredient #for ingredient replaced without food type
+        self.current_recipe.toppings[swap_spot_2] = choice(danger_ingredients) #for ingredient replaced with danger ingredient
         self.new_ingredients = self.current_recipe.toppings
 
     def level_five(self):
@@ -96,6 +101,7 @@ class DangerFactor(object):
         swap_spot_2 = randint(0,len(self.current_recipe.toppings)-1)
         while swap_spot_1 == swap_spot_2:
             swap_spot_2 = randint(0,len(self.current_recipe.toppings)-1)
+        #yes it can be the same danger ingredient, twice. it's dangerous
         self.current_recipe.toppings[swap_spot_1] = choice(danger_ingredients)
         self.current_recipe.toppings[swap_spot_2] = choice(danger_ingredients)        
         self.new_ingredients = self.current_recipe.toppings
