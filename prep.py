@@ -52,7 +52,7 @@ class PrepDict(object):
             for tag in tags:
                 if tag[1] in self.pos or tag[0] in measurements: 
                     amount_str = amount_str + tag[0] + " "
-            new_amount_str = amount_str.replace(")", "")
+            new_amount_str = amount_str.replace(")", "").replace("(", "")
             good_amounts.append(new_amount_str)
             return good_amounts
 
@@ -60,9 +60,9 @@ class PrepDict(object):
         for method in self.raw_list: #method is each line in the ingedients Food Network section
             for key in method_dict:
                 if key in method: # so if the ingredient (expressed as a key) is in the method then it is relvant to anaylize for that key
-                    if self.file_name == 'methoddict.pickle':
+                    if self.file_name == 'methoddict.pickle': #for prep methods
                         tags = each_prep_methods(method, self.ingredients_used)  #looks at the relvant ingredient instruction line to find correct method
-                    else:
+                    else: #for amounts
                         tags = each_amount_methods(method, self.ingredients_used)
 
                     if tags != []:
@@ -102,6 +102,7 @@ def remove_duplicates(values):
             output.append(value)
             seen.add(value)
     return output
+
 
 if __name__ == '__main__':
     with open('themrecipies.pickle', 'rb') as handle:

@@ -127,7 +127,6 @@ class RandomRecipe(object):
 			self.instruction_string  = "Put: " + self.ingredients_string + " between two slices of your favorite bread (or whatever crap you have) and chow down."
 
 
-
 def make_recipe(recipe_type,  allergen, danger_level = 0):
 	"""Gerenates recipe with relevant method calls on the RandomRecipe class depending on the type of recipe """
 	with open('themrecipies.pickle', 'rb') as handle:
