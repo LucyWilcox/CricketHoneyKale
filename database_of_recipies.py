@@ -13,11 +13,11 @@ class Recipe(object):
         self.ingredient is the string containing the information listed under the Ingredients
         section on Food Networks web pages"""
         self.url = url
-        r = requests.get(self.url)
+        r = requests.get(self.url) #gets html from webpage
         data = r.text   
         soup = BS(data)
-        gross_ingredients = str(soup.find_all("li", {"itemprop":"ingredients"}))
-        self.ingredients = str(plaintext(gross_ingredients).replace('\n', '').lower())
+        gross_ingredients = str(soup.find_all("li", {"itemprop":"ingredients"})) #extracts corrects data from Food Network webpage
+        self.ingredients = str(plaintext(gross_ingredients).replace('\n', '').lower()) #strips some remaining html and changes things to lower case
 
 
 def create_recipe_database():
@@ -25,10 +25,8 @@ def create_recipe_database():
     recipes = []
     for url in recipe_database[: len(recipe_database) - 1]:
         recipes.append(Recipe(url))
-
     with open('themrecipies.pickle', 'wb') as handle:
         pickle.dump(recipes, handle)
-
     return recipes
 
 
