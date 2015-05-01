@@ -3,14 +3,10 @@ from soupingredientsstandard import soup_ingredients
 from dangerdanger import danger_ingredients
 from sandwich_ingredients import sandwich_ingredients
 from database_of_recipies import *
-import nltk
-import re
+from nltk import word_tokenize, pos_tag
 from collections import Counter
 import pickle
 
-
-measurements = ['tablespoons', 'cup', 'cups', 'teaspoons', 'tablespoon', 'teaspoon', 'pinch', 'ounce', 'oz', 'pint', 'ounces', 'spoonfuls', 'large', 'small', 'pieces', 'pounds']
-blacklist = ['recommended', 'beaten', 'frozen', 'red', 'kitchen']
 
 class PrepDict(object):
     """Creates dictionary of prep, both for methods and amounts"""
@@ -21,14 +17,14 @@ class PrepDict(object):
         file name is where the file will be pickled/saved"""
         self.pos = pos
         self.recipes = recipes
-        self.ingredients_used = ingredients_used
+        self.ingredients_used = ingredients_used #list of pre-defined ingredients
         self.file_name = file_name
 
     def get_raw_list(self):
         """Splits in ingredient step in the recipe into different entries in a list"""
         each_ingredient = []
         for recipe in self.recipes:
-            seperated_ingredients = recipe.ingredients.replace(',', '').replace(']','').split("*")
+            seperated_ingredients = recipe.ingredients.replace(',', '').replace(']','').split("*") #splits full recipe string into seperate ingerdients strings
             each_ingredient.extend(seperated_ingredients)
         each_ingredient = filter(lambda a: a != '[', each_ingredient)
         self.raw_list = each_ingredient
@@ -37,57 +33,43 @@ class PrepDict(object):
         """Creates dictionary of all ingredients and their preperation methods """
         def each_prep_methods(method, ingredients_used):
             """Returns list of strings of appropriate preperation methods"""
-            text = nltk.word_tokenize(method)
-            tags = nltk.pos_tag(text)
+            blacklist = ['recommended', 'beaten', 'frozen', 'red', 'kitchen']
+            text = word_tokenize(method) #seperates ingredient strings into lists of each word in the string
+            tags = pos_tag(text) #converts list into list of tuples like (text, part of speach)
             good_types = []
-            for tag in tags:
-                if tag[1] in self.pos and tag[0] not in ingredients_used and tag [1] not in blacklist:
+            for tag in tags:  #tag[1] is the pos, tag[0] is the word
+                if tag[1] in self.pos and tag[0] not in ingredients_used and tag[1] not in blacklist: #we want tag[0] to be the correct pos, but we don't want it to be refering directly to the ingredient or one our blacklisted/buggy words
                     good_types.append(tag[0])
             return good_types
-
-        method_dict = dict.fromkeys(self.ingredients_used)
-        for method in self.raw_list:
-            for key in method_dict:
-                if key in method:
-                    tags = each_prep_methods(method, self.ingredients_used)
-                    if tags != []:
-                        if key == tags[0]:
-                            pass
-                        elif method_dict[key] == None:
-                            method_dict[key] = tags
-                        else:
-                            method_dict[key].extend(tags)
-        self.long_dict = method_dict
-
-    def amount_dict(self):
-        """Creates a dictionary of all ingredients and their resonable amounts """
-        def each_prep_methods(method, ingredients_used):
+        def each_amount_methods(method, ingredients_used):
             """Returns list of  strings of reasonable quanities of ingredient"""
-            text = nltk.word_tokenize(method)
-            tags = nltk.pos_tag(text)
+            #need to hard code in some meaurements here
+            measurements = ['tablespoons', 'cup', 'cups', 'teaspoons', 'tablespoon', 'teaspoon', 'pinch', 'ounce', 'oz', 'pint', 'ounces', 'spoonfuls', 'large', 'small', 'pieces', 'pounds']
+            text = word_tokenize(method) #seperates ingredient strings into lists of each word in the string
+            tags = pos_tag(text) #converts list into list of tuples like (text, part of speach)
             good_amounts = []
             amount_str = ""
-            i = 0
             for tag in tags:
-                i += 1
                 if tag[1] in self.pos or tag[0] in measurements: 
                     amount_str = amount_str + tag[0] + " "
             new_amount_str = amount_str.replace(")", "")
             good_amounts.append(new_amount_str)
             return good_amounts
 
-        method_dict = dict.fromkeys(self.ingredients_used)
-        for method in self.raw_list:
+        method_dict = dict.fromkeys(self.ingredients_used) #creates dictonary of prelisted ingredients as keys
+        for method in self.raw_list: #method is each line in the ingedients Food Network section
             for key in method_dict:
-                if key in method:
-                    tags = each_prep_methods(method, self.ingredients_used)
+                if key in method: # so if the ingredient (expressed as a key) is in the method then it is relvant to anaylize for that key
+                    if self.file_name == 'methoddict.pickle':
+                        tags = each_prep_methods(method, self.ingredients_used)  #looks at the relvant ingredient instruction line to find correct method
+                    else:
+                        tags = each_amount_methods(method, self.ingredients_used)
+
                     if tags != []:
-                        if key == tags[0]:
-                            pass
-                        elif method_dict[key] == None:
-                            method_dict[key] = tags
-                        else:
-                            method_dict[key].extend(tags)
+                        if method_dict[key] == None:
+                            method_dict[key] = tags #adds correct method(s) as values if there are no current values
+                        else: 
+                            method_dict[key].extend(tags) #adds correct method to existing list
         self.long_dict = method_dict
 
     def get_top_methods(self):
@@ -105,7 +87,6 @@ class PrepDict(object):
                 self.long_dict[key] = topVBN[:2]
                 self.long_dict[key].append(topVBN[0])
 
-
     def pickle_it(self):
         """Pickles the dictionary"""
         with open(self.file_name, 'wb') as handle:
@@ -117,8 +98,6 @@ def remove_duplicates(values):
     output = []
     seen = set()
     for value in values:
-        # If value has not been encountered yet,
-        # ... add it to both list and set.
         if value not in seen:
             output.append(value)
             seen.add(value)
@@ -127,16 +106,16 @@ def remove_duplicates(values):
 if __name__ == '__main__':
     with open('themrecipies.pickle', 'rb') as handle:
         recipes = pickle.load(handle)
-    all_ingredients = salad_ingredients + soup_ingredients + danger_ingredients +  sandwich_ingredients
+    all_ingredients = salad_ingredients + soup_ingredients + danger_ingredients +  sandwich_ingredients #compiles list of all ingredient being used
     culled_ingredients = remove_duplicates(all_ingredients)
-    verbs = PrepDict(recipes, culled_ingredients, 'methoddict.pickle', ['VBN'])
+    verbs = PrepDict(recipes, culled_ingredients, 'methoddict.pickle', ['VBN', 'VBD'])
     verbs.get_raw_list()
     verbs.full_method_dict()
     verbs.get_top_methods()
     verbs.pickle_it()
     amounts = PrepDict(recipes, culled_ingredients, 'amountdict.pickle', ['LS', 'CD'])
     amounts.get_raw_list()
-    amounts.amount_dict()
+    amounts.full_method_dict()
     amounts.get_top_methods()
     amounts.pickle_it()
 

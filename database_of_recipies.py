@@ -7,9 +7,11 @@
 #import cPickle as pickle
 
 class Recipe(object):
-    """ """
+    """Creates instances of Recipe for each Food Network recipe in recipedatabase"""
     def __init__(self, url):
-        """Sets attributes of url and ingredient with amounts to each recipe"""
+        """Sets attributes of url and ingredient to each recipe
+        self.ingredient is the string containing the information listed under the Ingredients
+        section on Food Networks web pages"""
         self.url = url
         r = requests.get(self.url)
         data = r.text   
@@ -17,8 +19,9 @@ class Recipe(object):
         gross_ingredients = str(soup.find_all("li", {"itemprop":"ingredients"}))
         self.ingredients = str(plaintext(gross_ingredients).replace('\n', '').lower())
 
+
 def create_recipe_database():
-    """Creates the pickle file"""
+    """Creates the pickle file, so this does not need to be run for each recipe created"""
     recipes = []
     for url in recipe_database[: len(recipe_database) - 1]:
         recipes.append(Recipe(url))
