@@ -1,3 +1,4 @@
+ #!/usr/bin/env python3
 import Tkinter as tk  
 from main import *
 fo = "Dingbats"

@@ -129,8 +129,6 @@ class Application(tk.Frame):
         """
         ingred = self.ingred
         self.allergyinfo = ingred.get()   
-        alist = tk.Label(self.master, text="Allergens: " + self.allergyinfo , bg=c, font= fo)
-        alist.grid(row=3, column=3)   
 
     def run(self):
         """

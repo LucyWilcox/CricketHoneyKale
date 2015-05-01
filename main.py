@@ -6,7 +6,7 @@ import pickle
 from database_of_recipies import Recipe
 from sandwich_ingredients import sandwich_ingredients
 from smoothies import smoothie_ingredients
-from dangerfactor import *
+from dangerfactor import remix_to_danger
 from  string import strip
 
 class RandomRecipe(object):
@@ -30,13 +30,13 @@ class RandomRecipe(object):
 		also removes remaining_recipies_object that no longer contain all of the ingredients
 		"""
 		possiblities = []
-		for topping in self.toppings:
-			for recipe in self.remaining_recipies_object:
-				if topping not in recipe.ingredients:
-					self.remaining_recipies_object.remove(recipe)
+		for topping in self.toppings: #loops through current toppings
+			for recipe in self.remaining_recipies_object: #and Recipe objects
+				if topping not in recipe.ingredients: # if the topping is not in the recipe...
+					self.remaining_recipies_object.remove(recipe) #then the recipe is not relavent and can be deleted
 
-		for recipe in self.remaining_recipies_object:
-			possiblities.append(recipe.ingredients)
+		for recipe in self.remaining_recipies_object: #if the recipe is still relvant...
+			possiblities.append(recipe.ingredients) #add the ingredients it contains to a list
 		self.remaining_recipies = possiblities # list of strs containing recipe.ingredients
 
 	def clear_recipies(self):
@@ -46,22 +46,23 @@ class RandomRecipe(object):
 	def add_ingredient(self):
 		"""Adds ingredient to salad toppings attribute """
 		possible_next_ingredient = []
-		for recipe in self.remaining_recipies:
-			for ingredient in self.ingredient_options:
-				if (ingredient in recipe) and (ingredient not in self.allergen):
-					if ingredient not in self.toppings:
-						possible_next_ingredient.append(ingredient)
+		for recipe in self.remaining_recipies: # loops through each recipe left
+			for ingredient in self.ingredient_options: #and each possible ingredient for the food type
+				if ingredient in recipe: #if the ingredient is in the recipe...
+					if ingredient not in self.toppings: #and not in the current toppings...
+						possible_next_ingredient.append(ingredient) #add it to the list of toppings to choose from
 		if len(possible_next_ingredient) != 0:
-			next_ingredient = choice(possible_next_ingredient)
-			while next_ingredient in self.allergen:
+			next_ingredient = choice(possible_next_ingredient) #choose a random ingredient from the list
+			while next_ingredient in self.allergen: #if it is a listed allergy chose again
 				next_ingredient = choice(possible_next_ingredient)
-			self.toppings.append(next_ingredient)
+			self.toppings.append(next_ingredient) #appened it to the current toppings
 		else:
-			self.error = True
+			self.error = True #error means that there are no more viable ingeredients and even if the generated number of ingredient has not been met
+									#its time to stop the recipe where it is
 
 	def adjust_danger(self):
 		"""Runs the correct danger level in dangerfactor file and relaces topping """
-		self.toppings = remix_to_danger(self)
+		self.toppings = remix_to_danger(self) #remix to danger in a function in dangerfactor.py
 
 	def dressing(self):
 		"""Adds a dressing if the salad is only vegtables, appends to toppings attribute"""
@@ -88,7 +89,7 @@ class RandomRecipe(object):
 		with open('amountdict.pickle', 'rb') as handle:
 			amount = pickle.load(handle)
 
-		if self.recipe_type in ['salad', 'sandwich']:
+		if self.recipe_type in ['salad', 'sandwich']: #adds preperation method
 			self.ingredients_string = ""
 			for topping in self.toppings:
 				if topping in prep.keys():
@@ -99,7 +100,7 @@ class RandomRecipe(object):
 				else:
 					self.ingredients_string += " " + topping +  ", "
 
-		elif self.recipe_type == 'soup':
+		elif self.recipe_type == 'soup': #adds preperation method and amounts
 			self.ingredients_string = ""
 			for topping in self.toppings:
 				if topping in prep.keys():
@@ -110,7 +111,7 @@ class RandomRecipe(object):
 				else:
 					self.ingredients_string += " " + topping +  ", "	
 
-		self.ingredients_string = self.ingredients_string[:-2]
+		self.ingredients_string = self.ingredients_string[:-2] #-2 takes of the last un-needed ", "
 
 	def add_instructions(self):
 		"""Adds 'cookie cutter' style instructions which are revlevent depending the type of recipe being generated
@@ -126,7 +127,6 @@ class RandomRecipe(object):
 			self.instruction_string  = "Put: " + self.ingredients_string + " between two slices of your favorite bread (or whatever crap you have) and chow down."
 
 
-
 def make_recipe(recipe_type,  allergen, danger_level = 0):
 	"""Gerenates recipe with relevant method calls on the RandomRecipe class depending on the type of recipe """
 	with open('themrecipies.pickle', 'rb') as handle:
@@ -136,7 +136,7 @@ def make_recipe(recipe_type,  allergen, danger_level = 0):
 	allergen = allergen.split(",")
 	allergen = [strip(entry) for entry in allergen]
 
-	def run_cycle(recipe_name, number_toppings):
+	def run_cycle(recipe_name, number_toppings, allergen):
 		"""Runs through the code by changing attributes on recipe then calling certian methods for
 		for different recipe types
 		"""
@@ -144,6 +144,11 @@ def make_recipe(recipe_type,  allergen, danger_level = 0):
 			recipe_name.get_remaining_recipies()
 			recipe_name.add_ingredient()
 			recipe_name.clear_recipies()
+
+		for topping in recipe_name.toppings:
+			if topping in allergen:
+				recipe_name.toppings.remove(topping)
+
 		recipe_name.adjust_danger()
 
 		if recipe_name.recipe_type == 'soup':
@@ -176,13 +181,14 @@ def make_recipe(recipe_type,  allergen, danger_level = 0):
 	elif recipe_type == 'sandwich':
 		created_recipe = RandomRecipe(sandwich_ingredients, recipes, recipe_type, allergen, danger_level)
 
-	return run_cycle(created_recipe, number_toppings)
+	return run_cycle(created_recipe, number_toppings, allergen)
 
 if __name__ == '__main__':
+	"""You can test main from here. Uncomment prefered recipe type and change alergen and danger level
+	as desired"""
 	#recipe_type = 'smoothie'
-	recipe_type = 'salad'
-	#recipe_type = 'soup'
+	#recipe_type = 'salad'
+	recipe_type = 'soup'
 	#recipe_type = 'sandwich'
-	allergen = ""
-	instructions = make_recipe(recipe_type, allergen = 'salsa, tomatoes', danger_level = 0)
+	instructions = make_recipe(recipe_type, allergen = 'milk, sugar, ice', danger_level = 0)
 	print instructions
