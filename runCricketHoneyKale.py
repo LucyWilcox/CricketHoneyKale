@@ -98,7 +98,6 @@ class Application(tk.Frame):
         butt.grid(row=3,column=2)
         self.ingred = ingred
 
-
     def getdanger(self):
         """
         Takes self.value and reassigns it to value. 
@@ -120,7 +119,6 @@ class Application(tk.Frame):
         ingred = self.ingred
         self.allergyinfo = ingred.get()   
 
-
     def checkdanger(self):
         """
         If there is no value assigned to self.dangervalue, assigns it the value 0 (no danger)
@@ -140,7 +138,6 @@ class Application(tk.Frame):
             pass
         else:
             self.allergyinfo = " "
-
 
     def run(self):
         """
@@ -165,7 +162,6 @@ a = '#0f9fb4'   # button color      (Alternate color schemes avaliable at bottom
 b = '#0fb493'   # button hover
 c = '#c9e1c1'   # big background
 d = '#152737'   # font color
-
 
 root = tk.Tk()
 app = Application(root)
