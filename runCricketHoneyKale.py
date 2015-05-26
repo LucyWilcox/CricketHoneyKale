@@ -4,7 +4,7 @@ from main import *
 class Application(tk.Frame):
     def __init__(self, master=None):
         """
-        Creates the top leve (parent) TKinter frame and sets up the grid method of widget placement. 
+        Creates the top level (parent) TKinter frame and sets up the grid method of widget placement. 
         Defined minimum window size.
         Executes the function run, which conmtains all functions that need to be executed to run program. 
         """
@@ -49,7 +49,7 @@ class Application(tk.Frame):
         """
         top = tk.Toplevel(bg=c)
         top.title("Information")
-        disc = tk.Label(top, text = infotext , font= fo, bg=c)
+        disc = tk.Label(top, text = infotext , font= (fo,13), bg=c)
         disc.grid()
           
     def display_recipe(self, want_to_cook):
@@ -118,6 +118,8 @@ class Application(tk.Frame):
         """
         ingred = self.ingred
         self.allergyinfo = ingred.get()   
+        arec = tk.Label(self.master, text= alltext , bg=c, font= fo)
+        arec.grid(row=3, column=3)
 
     def checkdanger(self):
         """
@@ -151,24 +153,28 @@ class Application(tk.Frame):
         self.checkdanger()
         self.checkallergy()
 
+infotext = """Please be safe!
 
-infotext = """Please be safe. 
-        We are not responsible for food poisioning, allergic reactions, broken blenders, gross recipes or anything else.  
-        A CricketHoneyKale creation by Lucy Wilcox, Lisa Hachmann, and Logan Sweet. 
+        We are not responsible for food poisioning, allergic reactions, broken blenders, gross recipes or anything else.
+
+        A CricketHoneyKale creation by Lucy Wilcox, Lisa Hachmann, and Logan Sweet.
+
         Please direct all negative feedback to byron.wasti@students.olin.edu"""
 
+alltext ="""This section is in development. 
+
+Please be careful. """
 fo = "Dingbats" # font style
-a = '#0f9fb4'   # button color      (Alternate color schemes avaliable at bottom)
-b = '#0fb493'   # button hover
-c = '#c9e1c1'   # big background
-d = '#152737'   # font color
+a  = '#0f9fb4'   # button color      (Alternate color schemes avaliable at bottom)
+b  = '#0fb493'   # button hover
+c  = '#c9e1c1'   # big background
+d  = '#152737'   # font color
 
 root = tk.Tk()
 app = Application(root)
 app.master.title('CricketHoneyKale')
 root.configure(bg=c)
 root.mainloop()
-
 
 
 ######################################################################################
